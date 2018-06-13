@@ -4,7 +4,7 @@ import com.sh.wxa.JsonMessage;
 import com.sh.wxa.Loggers;
 import com.sh.wxa.Server;
 import com.sh.wxa.Services;
-import com.sh.wxa.module.login.message.pojo.UserBaseInfo;
+import com.sh.wxa.module.login.message.pojo.UserBasicInfo;
 import com.sh.wxa.onlinemanager.Session;
 import com.sh.wxa.util.ErrorType;
 import com.sh.wxa.util.ModuleException;
@@ -46,7 +46,7 @@ public class ModuleServletHandler {
             return SCPrompt.newError("服务器未启动");
         }
 
-        UserBaseInfo userBaseInfo = JsonMessage.fromJsonString(userBaseInfoJsonStr, UserBaseInfo.class);
+        UserBasicInfo userBaseInfo = JsonMessage.fromJsonString(userBaseInfoJsonStr, UserBasicInfo.class);
         final String openId = userBaseInfo.getOpenId();
         Session session = Server.getOnlinePlayerManager().getIfPresent(openId);
         if (session == null) {

@@ -3,7 +3,7 @@ package com.sh.wxa.util;
 import com.sh.wxa.JsonMessage;
 import com.sh.wxa.constants.AppConstants;
 import com.sh.wxa.module.login.message.LoginRequest;
-import com.sh.wxa.module.login.message.pojo.UserBaseInfo;
+import com.sh.wxa.module.login.message.pojo.UserBasicInfo;
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -145,7 +145,7 @@ public class HttpUtil {
 
         //构建param
         LoginRequest req = new LoginRequest();
-        UserBaseInfo userBaseInfo = new UserBaseInfo();
+        UserBasicInfo userBaseInfo = new UserBasicInfo();
         userBaseInfo.setOpenId("yc_1");
         userBaseInfo.setCity("杭州");
         userBaseInfo.setSex("男");
@@ -159,9 +159,16 @@ public class HttpUtil {
     }
 
     public static void paramBuild(String userBaseInfo, String moduleName, String methodName, Object object, Map<String, Object> param) throws Exception {
-        param.put("ubi", URLEncoder.encode(userBaseInfo, AppConstants.CHARSET_UTF8));
-        param.put("mod", moduleName + "." + methodName);
-        param.put("body", URLEncoder.encode(JsonMessage.toJsonString(object), AppConstants.CHARSET_UTF8));
+        System.out.println("userBaseInfo:" + userBaseInfo);
+        String ubi = URLEncoder.encode(userBaseInfo, AppConstants.CHARSET_UTF8);
+        param.put("ubi", ubi);
+        String mod = moduleName + "." + methodName;
+        System.out.println("mod:" + mod);
+        param.put("mod", mod);
+        String bodyString = JsonMessage.toJsonString(object);
+        System.out.println("body:" + bodyString);
+        String body = URLEncoder.encode(bodyString, AppConstants.CHARSET_UTF8);
+        param.put("body", body);
     }
 
 }

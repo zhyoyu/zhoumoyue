@@ -4,7 +4,7 @@ import com.sh.wxa.Message;
 import lombok.Data;
 
 @Data
-public class UserBaseInfo implements Message {
+public class UserBasicInfo implements Message {
 
     /**
      *  用户唯一ID

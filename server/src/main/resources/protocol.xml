@@ -1,5 +1,5 @@
 <message package="com.sh.wxa.module">
-    <!-- 协议请求参数为 1、ubi: 格式{json对象->UserBaseInfo} 2、mod: 格式{module name + "." + method.name} 3、body: 格式{Request请求对象json}-->
+    <!-- 协议请求参数为 1、ubi: 格式{json对象->UserBasicInfo} 2、mod: 格式{module name + "." + method.name} 3、body: 格式{Request请求对象json}-->
     <module name="login" class="com.sh.wxa.module.LoginModule">
         <method name="login">
             <toServer class="LoginRequest">

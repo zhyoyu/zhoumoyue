@@ -1,6 +1,6 @@
 package com.sh.wxa.module.user;
 
-import com.sh.wxa.module.login.message.pojo.UserBaseInfo;
+import com.sh.wxa.module.login.message.pojo.UserBasicInfo;
 import com.sh.wxa.module.user.entity.User;
 import com.sh.wxa.module.user.mapper.UserMapper;
 import com.sh.wxa.onlinemanager.Session;
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
         return session;
     }
 
-    public void createUser(UserBaseInfo userBaseInfo) {
+    public void createUser(UserBasicInfo userBaseInfo) {
         User user = new User();
         user.setOpenId(userBaseInfo.getOpenId());
         user.setUserName(userBaseInfo.getUserName());
