@@ -6,37 +6,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    userBasicInfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var userBasicInfo = {
-      openId: 'yc_1',
-      userName: '言辰',
-      sex: '男',
-      city: '杭州'
-    }
-    var mod = 'login.login';
-    var body = {
-      memo: 'hello'
-    }
-    wx.request({
-      url: bsurl,
-      data: {
-        ubi: userBasicInfo,
-        mod: mod,
-        body: body
-      },
-      success: function (res) {
-        // that.setData({
-        //   subcount: res.data
-        // });
-        console.log(res);
-      }
-    });
+    // var that = this;
+    // var userBasicInfo = {
+    //   openId: 'yc_1',
+    //   userName: '言辰',
+    //   sex: '男',
+    //   city: '杭州'
+    // }
+    // var mod = 'login.login';
+    // var body = {
+    //   memo: 'hello'
+    // }
+    // wx.request({
+    //   url: bsurl,
+    //   data: {
+    //     ubi: userBasicInfo,
+    //     mod: mod,
+    //     body: body
+    //   },
+    //   success: function (res) {
+    //     // that.setData({
+    //     //   subcount: res.data
+    //     // });
+    //     that.setData({
+    //       userBasicInfo: res
+    //     })
+    //     console.log(userBasicInfo);
+    //   }
+    // });
+    this.getUserInfo();
   },
 
   /**
@@ -86,5 +91,14 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  getUserInfo: function () {
+    var that = this
+    wx.getUserInfo({
+      success: function (res) {
+        console.log('用户信息', res.userInfo)
+        that.globalData.userInfo = res.userInfo
+      }
+    })
+  },
 })
