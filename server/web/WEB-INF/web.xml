@@ -13,7 +13,7 @@
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 
-	<!--<listener>-->
-		<!--<listener-class>com.youzu.tot.gameserver.Server$ContextListener</listener-class>-->
-	<!--</listener>-->
+	<listener>
+		<listener-class>com.sh.wxa.Server$ContextListener</listener-class>
+	</listener>
 </web-app>

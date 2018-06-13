@@ -3,51 +3,43 @@ package com.sh.wxa.onlinemanager;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.google.common.cache.RemovalListener;
-import com.google.common.cache.RemovalNotification;
-import com.sh.wxa.server.Session;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.sh.wxa.Services;
 
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 public class OnlineUserManager {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger("login");
-
     /**
-     * key: playerId
+     * key: openId
      */
-    private final LoadingCache<Long, Session> sessionCache;
-
-    /**
-     * < sessionId, playerId >
-     */
-    private final ConcurrentHashMap<String, Long> indexer;
+    private final LoadingCache<String, Session> sessionCache;
 
     public OnlineUserManager() {
-        this.indexer = new ConcurrentHashMap<String, Long>();
         this.sessionCache = CacheBuilder.newBuilder().maximumSize(100000)
                 .expireAfterAccess(30, TimeUnit.MINUTES)
                 .concurrencyLevel(16)
-                .removalListener(new RemovalListener<Long, Session>() {
-                    public void onRemoval(RemovalNotification<Long, Session> notification) {
-                        Session session = notification.getValue();
-                        if (session != null) {
-                            if (session.getSessionId() != null) {
-                                indexer.remove(session.getSessionId());
-                            }
-                        }
-                    }
-                }).build(new CacheLoader<Long, Session>() {
+                .build(new CacheLoader<String, Session>() {
                     @Override
-                    public Session load(Long playerId) throws Exception {
-//                        Session session = Services.getPlayerService().createGameSession(playerId);
-                        Session session = new Session();
-                        return session;
+                    public Session load(String openId) throws Exception {
+                        return Services.getUserService().createSession(openId);
                     }
                 });
+    }
+
+    /**
+     * 按openId获取Session，如果在在线玩家中找不到，尝试从数据库中加载
+     */
+    public Session getByOpenId(String openId) {
+        return this.sessionCache.getUnchecked(openId);
+    }
+
+    /**
+     *   按openId获取Session,如不存在缓存中，返回null
+     * @param openId
+     * @return
+     */
+    public Session getIfPresent(String openId) {
+        return this.sessionCache.getIfPresent(openId);
     }
 
 }
