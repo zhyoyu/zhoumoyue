@@ -1,0 +1,40 @@
+{
+  "pages":[
+    "pages/activity/index",
+    "pages/talkaround/index",
+    "pages/me/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#FFA500",
+    "selectedColor": "#fff",
+    "borderStyle": "#333",
+    "backgroundColor": "#FFD700",
+    "list": [
+      {
+        "pagePath": "pages/activity/index",
+        "iconPath": "images/activityoff.png",
+        "selectedIconPath": "images/activityon.png",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/talkaround/index",
+        "iconPath": "images/talkaroundoff.png",
+        "selectedIconPath": "images/talkaroundon.png",
+        "text": "周围说"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "iconPath": "images/meoff.png",
+        "selectedIconPath": "images/meon.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}
