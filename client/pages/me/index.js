@@ -1,4 +1,5 @@
 // pages/me/index.js
+var bsurl = require('../../utils/bsurl.js');
 Page({
 
   /**
@@ -12,7 +13,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var userBasicInfo = {
+      openId: 'yc_1',
+      userName: '言辰',
+      sex: '男',
+      city: '杭州'
+    }
+    var mod = 'login.login';
+    var body = {
+      memo: 'hello'
+    }
+    wx.request({
+      url: bsurl,
+      data: {
+        ubi: userBasicInfo,
+        mod: mod,
+        body: body
+      },
+      success: function (res) {
+        // that.setData({
+        //   subcount: res.data
+        // });
+        console.log(res);
+      }
+    });
   },
 
   /**
