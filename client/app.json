@@ -1,15 +1,16 @@
 {
   "pages":[
+    "pages/login/index",
     "pages/activity/index",
     "pages/talkaround/index",
     "pages/me/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFD700",
+    "navigationBarTitleText": "周末约",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#fff",

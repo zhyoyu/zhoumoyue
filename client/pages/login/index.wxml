@@ -1,0 +1,4 @@
+<!--pages/login/index.wxml-->
+<view class='container'>  
+    进入社区  
+</view> 
