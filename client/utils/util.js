@@ -14,6 +14,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function sayHello() {
+  console.log('this is util.js say hello!')
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  sayHello: sayHello
 }

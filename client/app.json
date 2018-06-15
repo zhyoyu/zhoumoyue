@@ -1,15 +1,16 @@
 {
   "pages":[
-    "pages/login/index",
+    "pages/login/index",    
     "pages/activity/index",
     "pages/talkaround/index",
     "pages/me/index",
+    "pages/test/index",
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FFD700",
-    "navigationBarTitleText": "周末约",
+    "navigationBarTitleText": "Nearby社区",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -17,6 +18,7 @@
     "selectedColor": "#000000",
     "borderStyle": "#333",
     "backgroundColor": "#FFD700",
+    "position": "bottom", 
     "list": [
       {
         "pagePath": "pages/activity/index",
@@ -37,5 +39,6 @@
         "text": "个人中心"
       }
     ]
-  }
+  },
+  "debug": true
 }

@@ -1,66 +1,65 @@
-// pages/login/index.js
+const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    remind: '加载中',
+    angle: 0,
+    userInfo: {
+      avatarUrl: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJxdSrVq2KbypLn5KMlxVWM0JQCPcleLVJmY1mUG52n7Elffl0HWvrNryfbb44ly71y1riccHDyiaSg/132'
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  goToIndex() {
+    wx.switchTab({
+      url: '../activity/index',
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  onLoad() {
+    // wx.setNavigationBarTitle({
+    //   title: `狗蛋TV`
+    // })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  onReady() {
+    setTimeout(() => {
+      this.setData({
+        remind: ''
+      });
+    }, 1000);
+    wx.onAccelerometerChange((res) => {
+      let angle = -(res.x * 30).toFixed(1);
+      if (angle > 14) { angle = 14; }
+      else if (angle < -14) { angle = -14; }
+      if (this.data.angle !== angle) {
+        this.setData({
+          angle: angle
+        });
+      }
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  onShow() {
+    let userInfo = wx.getStorageSync('userInfo')
+    let dialogComponent = this.selectComponent('.wxc-dialog');
+    if (!userInfo) {
+      dialogComponent && dialogComponent.show();
+    } else {
+      this.setData({
+        userInfo: userInfo
+      })
+      dialogComponent && dialogComponent.hide();
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+  onConfirm(e) { // 点击允许
+    let dialogComponent = this.selectComponent('.wxc-dialog');
+    dialogComponent && dialogComponent.hide();
+    let userInfo = JSON.parse(e.detail.detail.rawData)
+    if (!userInfo) {
+      return;
+    }
+    this.setData({
+      userInfo: userInfo
+    })
+    wx.setStorageSync('userInfo', userInfo)
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  onCancel() { // 点击拒绝
+    let dialogComponent = this.selectComponent('.wxc-dialog');
+    dialogComponent && dialogComponent.hide();
   }
-})
+});

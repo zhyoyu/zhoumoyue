@@ -34,7 +34,26 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "activity",
+					"pathName": "pages/activity/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/index",
+					"query": ""
+				}
+			]
 		}
 	}
 }
