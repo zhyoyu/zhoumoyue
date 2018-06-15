@@ -1,5 +1,7 @@
 package com.sh.wxa.module.activity.entity;
 
+import com.sh.wxa.module.activity.msg.po.ActivityInfo;
+import com.sh.wxa.util.TimeUtil;
 import lombok.Data;
 
 import java.util.Date;
@@ -42,4 +44,25 @@ public class Activity {
      * 创建时间
      */
     private Date date;
+
+    public ActivityInfo toInfo() {
+        ActivityInfo info = new ActivityInfo();
+        info.setActivityId(this.getId());
+        info.setCreateUser(this.getCreateUser());
+        info.setActivityTime(TimeUtil.toSeconds(this.getActivityTime()));
+        return info;
+    }
+
+    public static Activity createEntity(ActivityInfo info) {
+        Activity activity = new Activity();
+        activity.setActivityTime(TimeUtil.secondsToDate(info.getActivityTime()));
+        activity.setAddress(info.getAddress());
+        activity.setCreateUser(info.getCreateUser());
+        activity.setDate(new Date());
+        activity.setDescribe(info.getDescribe());
+        activity.setNumLimit(info.getNumLimit());
+        activity.setTitle(info.getTitle());
+        return activity;
+    }
+
 }

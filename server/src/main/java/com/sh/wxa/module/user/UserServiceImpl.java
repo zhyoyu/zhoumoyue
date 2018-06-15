@@ -1,6 +1,6 @@
 package com.sh.wxa.module.user;
 
-import com.sh.wxa.module.login.message.pojo.UserBasicInfo;
+import com.sh.wxa.module.login.msg.LoginRequest;
 import com.sh.wxa.module.user.entity.User;
 import com.sh.wxa.module.user.mapper.UserMapper;
 import com.sh.wxa.onlinemanager.Session;
@@ -17,19 +17,19 @@ public class UserServiceImpl implements UserService {
         Session session = new Session();
         User user = userMapper.findUserById(openId);
         session.setOpenId(openId);
-        session.setCity(user.getCity());
-        session.setUserName(user.getUserName());
-        session.setSex(user.getSex());
+//        session.setCity(user.getCity());
+//        session.setUserName(user.getUserName());
+//        session.setSex(user.getSex());
         session.setActiveValue(user.getActiveValue());
         return session;
     }
 
-    public void createUser(UserBasicInfo userBaseInfo) {
+    public void createUser(LoginRequest request) {
         User user = new User();
-        user.setOpenId(userBaseInfo.getOpenId());
-        user.setUserName(userBaseInfo.getUserName());
-        user.setSex(userBaseInfo.getSex());
-        user.setCity(userBaseInfo.getCity());
+        user.setOpenId(request.getOpenId());
+        user.setSex(request.getSex());
+        user.setUserName(request.getUserName());
+        user.setCity(request.getCity());
         user.setActiveValue(0);
         userMapper.addUser(user);
     }

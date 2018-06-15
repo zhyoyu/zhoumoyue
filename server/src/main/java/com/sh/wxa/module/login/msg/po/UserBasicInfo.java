@@ -1,4 +1,4 @@
-package com.sh.wxa.module.login.message.pojo;
+package com.sh.wxa.module.login.msg.po;
 
 import com.sh.wxa.Message;
 import lombok.Data;

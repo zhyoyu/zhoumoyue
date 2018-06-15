@@ -1,10 +1,13 @@
-package com.sh.wxa.module.activity.message.pojo;
+package com.sh.wxa.module.activity.msg.po;
 
 import com.sh.wxa.Message;
 import lombok.Data;
 
 import java.util.List;
 
+/**
+ * 活动信息
+ */
 @Data
 public class ActivityInfo implements Message {
     /**

@@ -2,8 +2,8 @@ package com.sh.wxa.util;
 
 import com.sh.wxa.JsonMessage;
 import com.sh.wxa.constants.AppConstants;
-import com.sh.wxa.module.login.message.LoginRequest;
-import com.sh.wxa.module.login.message.pojo.UserBasicInfo;
+import com.sh.wxa.module.login.msg.LoginRequest;
+import com.sh.wxa.module.login.msg.po.UserBasicInfo;
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;

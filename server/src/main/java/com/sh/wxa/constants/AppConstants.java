@@ -8,6 +8,8 @@ public class AppConstants {
     //配置文件名
     public static final String SERVER_CONFIG_FILE_NAME = "server.properties";
 
+    public static final String WEI_XIN_OPEN_ID_REQ_URL = "https://api.weixin.qq.com/sns/jscode2session";
+
     public static final String MODULE_IMPL_CLASS_SUFFIX = "ModuleImpl";
 
     public static final String CHARSET_UTF8 = "UTF-8";

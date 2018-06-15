@@ -1,14 +1,46 @@
 <message package="com.sh.wxa.module">
-    <!-- 协议请求参数为 1、ubi: 格式{json对象->UserBasicInfo} 2、mod: 格式{module name + "." + method.name} 3、body: 格式{Request请求对象json}-->
+    <!-- 协议请求参数为 1、uid: 格式{openid} 2、mod: 格式{moduleName + "." + methodName} 3、body: 格式{Request请求对象json}-->
     <module name="login" class="com.sh.wxa.module.LoginModule">
         <method name="login">
             <toServer class="LoginRequest">
                 <field type="String" name="openId" desc="用户唯一id"/>
+                <field type="String" name="userName" desc="用户名"/>
+                <field type="int" name="sex" desc="性别 1 男 2 女"/>
             </toServer>
-            <toClient class="LoginResponse">
-                <field type="String" name="openId" desc="用户唯一id"/>
-                <field type="int" name="activeValue" desc="活跃度"/>
+            <toClient class="OkResponse"/>
+        </method>
+    </module>
+    <module name="activity" class="com.sh.wxa.module.ActivityModule">
+        <method name="createActivity">
+            <toServer class="CreateActivityRequest">
+                <field type="ActivityInfo" name="activityInfo" desc="活动信息"/>
+            </toServer>
+            <toClient class="OkResponse"/>
+        </method>
+        <method name="getActivityList">
+            <toServer class="ActivityCurPageRequest">
+                <field type="int" name="curPage" desc="当前页数"/>
+            </toServer>
+            <toClient class="ActivityListResponse">
+                <list type="ActivityInfo" name="activityInfoList" desc="活动列表"/>
             </toClient>
+        </method>
+        <method name="joinActivity">
+            <toServer class="ActivityIdRequest">
+                <field type="int" name="activityId" desc="活动id"/>
+            </toServer>
+            <toClient class="OkResponse"/>
+        </method>
+        <method name="cancelActivity">
+            <toServer type="ActivityIdRequest">
+                <field type="int" name="activityId" desc="活动id"/>
+            </toServer>
+            <toClient class="OkResponse"/>
+        </method>
+        <method name="getActivityInfo">
+            <toServer type="ActivityIdRequest">
+                <field type="int" name="activityId" desc="活动id"/>
+            </toServer>
         </method>
     </module>
 </message>

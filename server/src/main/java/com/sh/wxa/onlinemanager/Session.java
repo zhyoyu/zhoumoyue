@@ -12,15 +12,15 @@ public class Session {
     /**
      * 昵称
      */
-    private String userName;
+//    private String userName;
     /**
      * 城市
      */
-    private String city;
+//    private String city;
     /**
      * 性别
      */
-    private String sex;
+//    private String sex;
     /**
      * 活跃值
      */

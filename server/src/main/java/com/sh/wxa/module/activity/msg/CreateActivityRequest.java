@@ -1,7 +1,7 @@
-package com.sh.wxa.module.activity.message;
+package com.sh.wxa.module.activity.msg;
 
 import com.sh.wxa.Message;
-import com.sh.wxa.module.activity.message.pojo.ActivityInfo;
+import com.sh.wxa.module.activity.msg.po.ActivityInfo;
 import lombok.Data;
 
 @Data

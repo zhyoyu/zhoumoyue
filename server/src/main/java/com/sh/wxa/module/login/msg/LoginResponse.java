@@ -1,4 +1,4 @@
-package com.sh.wxa.module.login.message;
+package com.sh.wxa.module.login.msg;
 
 import com.sh.wxa.JsonMessage;
 import lombok.Data;

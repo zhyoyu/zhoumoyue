@@ -1,11 +1,11 @@
 package com.sh.wxa.module;
 
-import com.sh.wxa.module.login.message.LoginRequest;
-import com.sh.wxa.module.login.message.LoginResponse;
+import com.sh.wxa.module.login.msg.LoginRequest;
 import com.sh.wxa.onlinemanager.Session;
+import com.sh.wxa.util.OkResponse;
 
 public interface LoginModule {
 
-    LoginResponse login(LoginRequest request, Session session);
+    OkResponse login(LoginRequest request, Session session);
 
 }
