@@ -23,6 +23,10 @@ Component({
     contentColor: {
       type: String,
       value: '#888888'
+    },
+    logo: {
+      type: String,
+      value: '../../images/logo.jpg'
     }
   },
 

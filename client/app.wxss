@@ -5,6 +5,40 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
   box-sizing: border-box;
+  padding: 0;
+  font-size: 14rpx;
+  background: #F0F4F3;
+  color: #000;
+
+  /* border: 1rpx solid #FF00FF; */
 } 
+
+movable-area {
+   height: 100%;
+   width: 100%;
+   /* border: 10rpx solid #90EE90;  */
+   box-sizing: border-box;
+} 
+
+movable-view {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  height: 80rpx;
+  
+  width: 80rpx;
+  background: #FFD700;
+  color: #fff;
+  border-radius: 50%; 
+  font-size: 60rpx; 
+
+  position:fixed; 
+}
+
+movable-view text {
+  height: 70rpx;
+  text-align: center;
+  padding: 0 0 10rpx;
+  margin: 0 0 15rpx; 
+}

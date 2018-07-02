@@ -1,2 +1,56 @@
-<!--pages/talkaround/index.wxml-->
-<text>暂时没有内容哦</text>
+<movable-area class='container'>
+<scroll-view scroll-y="true"  bindscrolltoupper="upper" upper-threshold="10" bindscrolltolower="lower" lower-threshold="5" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" interval="{{interval}}" autoplay="{{autoPlay}}">
+    <block wx:for="{{images}}" wx:for-item="item" wx:for-index="idx">
+      <swiper-item>
+        <image src="{{item.image}}" class="wrap-img"/>
+        <view class="filter"><text>{{item.title}}</text></view>
+      </swiper-item>
+    </block>
+  </swiper>
+ 
+   <block wx:for="{{talkList}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+
+        <view class="feed-talk">
+          <view class="feed-source">
+                <a class="feed-info">
+                    <view class="avatar">
+                        <image src="{{item.feed_source_img}}"></image>
+                    </view>
+                    <text>{{item.feed_source_name}}</text>
+                </a>
+                <!-- <image class="item-attention" mode="aspectFit" src="../../images/talkaround/more.png"></image> -->
+                <view class="item-attention">
+                <text>关注</text>
+                </view>
+          </view> 
+          <view class="feed-content">
+              <!-- <view class="question" qid="{{question_id}}" bindtap="bindQueTap">
+                    <a class="question-link">
+                        <text>{{item.question}}</text>
+                    </a>
+              </view> -->
+              <view class="answer-body">
+                    <view bindtap="bindItemTap">
+                        <text class="answer-txt" aid="{{answer_id}}">{{item.answer_ctnt}}</text>
+                    </view>
+                    <view class="answer-actions" bindtap="bindItemTap">
+                        <!-- <view class="like dot">
+                            <a>{{item.good_num}} 点赞 </a>
+                        </view>
+                        <view class="comments dot">
+                            <a>{{item.comment_num}} 评论 </a>
+                        </view> -->
+                        <image src='../../images/talkaround/talk.png'></image>
+                        <image src='../../images/talkaround/attention.png'></image>
+                        <!-- <view class="follow-it">
+                            <a>关注问题</a>
+                        </view> -->
+                    </view>
+                </view>
+          </view>
+        </view>
+    </block>
+</scroll-view>
+       <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap='say'><text>+</text></movable-view>
+</movable-area>

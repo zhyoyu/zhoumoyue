@@ -41,7 +41,7 @@ Page({
     //     console.log(userBasicInfo);
     //   }
     // });
-    this.getUserInfo();
+    // this.getUserInfo();
   },
 
   /**
@@ -92,13 +92,13 @@ Page({
   onShareAppMessage: function () {
   
   },
-  getUserInfo: function () {
-    var that = this
-    wx.getUserInfo({
-      success: function (res) {
-        console.log('用户信息', res.userInfo)
-        that.globalData.userInfo = res.userInfo
-      }
-    })
-  },
+  // getUserInfo: function () {
+  //   var that = this
+  //   wx.getUserInfo({
+  //     success: function (res) {
+  //       console.log('用户信息', res.userInfo)
+  //       that.globalData.userInfo = res.userInfo
+  //     }
+  //   })
+  // },
 })

@@ -21,5 +21,9 @@
       </view>
     </view>
   </block>
-  <wxc-dialog class="wxc-dialog" title="微信授权" content="获得您的公开信息(昵称、头像等)" logName="社区" logImage="../../images/login_icon.jpg" bindcancel="onCancel" bindconfirm="onConfirm"></wxc-dialog>
+  <wxc-dialog class="wxc-dialog" title="微信授权" content="获得您的公开信息(昵称、头像等)" logName="Nearby社区" logImage="../../images/logo.jpg" bindcancel="onCancel" bindconfirm="onConfirm"></wxc-dialog>
 </view>
+<!-- <wxs src='../../utils/util.wxs' module='utils'/>
+<view>{{utils.hello()}}</view>
+<view>{{utils.foo}}</view>
+<view>{{utils.bar('say bar')}}</view> -->

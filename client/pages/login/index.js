@@ -4,18 +4,21 @@ Page({
     remind: '加载中',
     angle: 0,
     userInfo: {
-      avatarUrl: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJxdSrVq2KbypLn5KMlxVWM0JQCPcleLVJmY1mUG52n7Elffl0HWvrNryfbb44ly71y1riccHDyiaSg/132'
+      avatarUrl: '../../images/logo.jpg'
     }
   },
   goToIndex() {
-    wx.switchTab({
-      url: '../activity/index',
-    });
+    let userInfo = wx.getStorageSync('userInfo')
+    if(!userInfo) {
+      let dialogComponent = this.selectComponent('.wxc-dialog');
+      dialogComponent && dialogComponent.show();
+    } else {
+      wx.switchTab({
+        url: '../talkaround/index',
+      });
+    }
   },
   onLoad() {
-    // wx.setNavigationBarTitle({
-    //   title: `狗蛋TV`
-    // })
   },
   onReady() {
     setTimeout(() => {

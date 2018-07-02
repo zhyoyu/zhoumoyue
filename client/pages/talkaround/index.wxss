@@ -1,1 +1,154 @@
-/* pages/talkaround/index.wxss */
+swipper-item, swiper {
+  height: 350rpx;
+  width:100%;
+  position: relative;
+}
+swiper .wrap-img {
+  width: 100%;
+  height: 350rpx;
+  background-color: #ccc;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+swiper .filter {
+  position: absolute;
+  height: 100rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.5));
+}
+
+swiper .filter text {
+  display: block;
+  font-size: 30rpx;
+  height: 170rpx;
+  line-height: 70rpx;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+}
+
+.container .feed-talk {
+  width: 100%;
+  padding: 15rpx 30rpx 20rpx;
+  margin: 0 6rpx 20prx;
+  background: #ffffff;
+  box-sizing: border-box; 
+
+  border-bottom-style: solid;
+  border-bottom-color: #DCDCDC;
+  border-width: 1rpx;
+
+  /* border-style: solid;
+  border-color: #4B0082; */
+}
+
+.container .feed-talk .feed-source {
+  width: 690rpx;
+  left: 0;
+  height: 50rpx;
+  padding: 5rpx 0;
+  margin: 0 0 10rpx;
+  
+  /*border-style: solid;
+  border-color: #7CFC00;    /** 绿色 用户头像及昵称 */
+}
+
+.container .feed-talk .feed-source .avatar {
+  position: relative;
+  display: inline-block;
+}
+
+.container .feed-talk .feed-source .avatar image{
+  /*position: absolute;*/
+  display: inline-block;
+  width: 45rpx;
+  height: 45rpx;
+  border-radius: 45rpx;
+  top: 10rpx;
+  vertical-align: middle;
+}
+
+.container .feed-talk .feed-source text{
+  /*position: absolute;*/
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-weight: bolder;
+  vertical-align: middle;
+  margin: 0 0 0 10rpx;
+  font-size: 30rpx;
+}
+
+.container .feed-talk .feed-source .item-attention{
+    float: right;
+    display: inline-block;
+    margin:  5rpx 40rpx 0;
+    padding: 0rpx 15rpx 0 10rpx;
+    color: #DCDCDC;
+    border-radius: 10rpx;
+    background: #a0acac;
+    /* font-size: 28rpx;
+    font-weight: 60rpx; */
+}
+
+.container .feed-talk .feed-source .item-attention text{
+  font-size: 28rpx;
+  font-weight: normal;
+}
+
+
+.container .feed-talk .feed-source .flex-item{
+  flex-grow: 1;
+  text-align: center;
+  
+    /* border-width:5rpx;
+    border-style: solid;
+    border-color: #F08080;  */
+}
+
+/* .container .feed-talk .feed-content{
+  border-style: solid;
+  border-color: #FFFF00; 
+} */
+
+/* .container .feed-talk .feed-content .question text{
+  font-size: 28rpx;
+  font-weight: 600px; /** 定义字体粗细 (问题题目) 
+  line-height: 40rpx;
+} */
+
+.container .feed-talk .feed-content .answer-body{
+  font-size: 28rpx;
+  font-weight: 600px;
+  line-height: 32rpx;
+  margin: 0 40rpx 0;
+  text-align:justify;
+  /* text-indent: 60rpx; */
+
+  /*border-style: solid;
+  border-color: #EE82EE; /** 粉色 */
+}
+
+.container .feed-talk .feed-content .answer-actions{
+  color: #a0acac;
+  height: 50rpx;
+
+  /*border-style: solid;
+  border-color: #FF0000; /** 红色 */
+}
+
+.container .feed-talk .feed-content .answer-actions image{
+  padding: 0 10rpx 0; 
+  display: inline-block;
+  width: 40rpx;
+  height: 35rpx;
+  margin: 20rpx 0 10rpx;
+  float: right;
+
+  /*border-style: solid;
+  border-color: #A0522D; /** 灰色 */
+}

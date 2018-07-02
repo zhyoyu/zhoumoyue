@@ -3,6 +3,7 @@
     "pages/login/index",    
     "pages/activity/index",
     "pages/talkaround/index",
+    "pages/talkaround/create/index",
     "pages/me/index",
     "pages/test/index",
     "pages/logs/logs"
@@ -21,16 +22,16 @@
     "position": "bottom", 
     "list": [
       {
-        "pagePath": "pages/activity/index",
-        "iconPath": "images/activityoff.png",
-        "selectedIconPath": "images/activityon.png",
-        "text": "活动"
-      },
-      {
         "pagePath": "pages/talkaround/index",
         "iconPath": "images/talkaroundoff.png",
         "selectedIconPath": "images/talkaroundon.png",
         "text": "周围说"
+      },
+      {
+        "pagePath": "pages/activity/index",
+        "iconPath": "images/activityoff.png",
+        "selectedIconPath": "images/activityon.png",
+        "text": "活动"
       },
       {
         "pagePath": "pages/me/index",

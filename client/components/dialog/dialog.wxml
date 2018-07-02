@@ -5,7 +5,7 @@
       <view class="dialog__title" wx:if="{{title}}" style="color: {{titleColor}}">{{title}}</view>
       <view class="dialog__content" wx:if="{{title}}">
         <view class='log_wrap' wx:if="{{logImage && logName}}">
-          <view class='log_wrap--log' tyle="background-image:url('{{logImage}}')"></view>
+          <image class='log_wrap--log' src="{{logo}}"/>
           <view class='log_wrap--text'>{{logName}}</view>
         </view>
         <view class="dialog__content--text" wx:if="{{content}}" style="color: {{contentColor}}">{{content}}</view>

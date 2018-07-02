@@ -1,1 +1,6 @@
-{}
+{
+      "component": true,
+      "enablePullDownRefresh": true,
+      "navigationBarTitleText": "周围热点",
+      "navigationBarBackgroundColor": "#FFD700"
+}

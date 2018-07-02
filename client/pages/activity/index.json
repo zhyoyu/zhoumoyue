@@ -1,1 +1,6 @@
-{}
+{
+    "component": true,
+    "enablePullDownRefresh": true,
+    "navigationBarTitleText": "活动",
+    "navigationBarBackgroundColor": "#FFD700"
+}

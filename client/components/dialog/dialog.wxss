@@ -41,21 +41,24 @@
 .log_wrap {
   padding-bottom: 40rpx;
   display: flex;
+  border-style:solid;
   justify-content: center;
   align-items: center;
 }
 
 .log_wrap--log {
   width: 85rpx;
-  height: 85rpx;
+  height: 85rpx;  
+
   border-radius: 50%;
-  background-image: url(https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJxdSrVq2KbypLn5KMlxVWM0JQCPcleLVJmY1mUG52n7Elffl0HWvrNryfbb44ly71y1riccHDyiaSg/132);
-  background-size: cover;
+  /* background-image: url('');
+  background-size: cover; */
 }
 
 .log_wrap--text {
   margin-left: 15rpx;
   font-size: 32rpx;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .dialog__btns {

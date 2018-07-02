@@ -1,0 +1,14 @@
+var foo = "'hello world' from util.xms"
+var bar = function(d) {
+  return d;
+}
+var hello = function() {
+  console.log('hello')
+}
+
+module.exports = {
+  foo : foo,
+  bar : bar,
+  hello : hello
+}
+console.log('this is util.wxs1')
