@@ -2,7 +2,7 @@ package com.sh.wxa.module;
 
 import com.sh.wxa.module.activity.msg.ActivityIdRequest;
 import com.sh.wxa.module.activity.msg.ActivityInfoResponse;
-import com.sh.wxa.module.activity.msg.ActivityCurPageRequest;
+import com.sh.wxa.module.activity.msg.ActivityListRequest;
 import com.sh.wxa.module.activity.msg.ActivityListResponse;
 import com.sh.wxa.module.activity.msg.CreateActivityRequest;
 import com.sh.wxa.onlinemanager.Session;
@@ -11,7 +11,7 @@ import com.sh.wxa.util.OkResponse;
 public interface ActivityModule {
 
     /** 获取活动列表 */
-    ActivityListResponse getActivityList(ActivityCurPageRequest request, Session session);
+    ActivityListResponse getActivityList(ActivityListRequest request, Session session);
 
     /** 创建新活动 */
     OkResponse createActivity(CreateActivityRequest request, Session session);

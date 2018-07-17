@@ -12,15 +12,19 @@ public class Session {
     /**
      * 昵称
      */
-//    private String userName;
+    private String nickName;
+    /**
+     * 头像url
+     */
+    private String iconUrl;
     /**
      * 城市
      */
-//    private String city;
+    private String city;
     /**
      * 性别
      */
-//    private String sex;
+    private int sex;
     /**
      * 活跃值
      */

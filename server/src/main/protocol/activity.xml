@@ -1,0 +1,37 @@
+<module name="activity" class="com.sh.wxa.module.ActivityModule">
+    <method name="createActivity">
+        <toServer class="CreateActivityRequest">
+            <field type="ActivityInfo" name="activityInfo" desc="活动信息"/>
+        </toServer>
+        <toClient class="OkResponse"/>
+    </method>
+
+    <method name="getActivityList">
+        <toServer class="ActivityCurPageRequest">
+            <field type="int" name="curPage" desc="当前页数"/>
+        </toServer>
+        <toClient class="ActivityListResponse">
+            <list type="ActivityInfo" name="activityInfoList" desc="活动列表"/>
+        </toClient>
+    </method>
+
+    <method name="joinActivity">
+        <toServer class="ActivityIdRequest">
+            <field type="int" name="activityId" desc="活动id"/>
+        </toServer>
+        <toClient class="OkResponse"/>
+    </method>
+
+    <method name="cancelActivity">
+        <toServer type="ActivityIdRequest">
+            <field type="int" name="activityId" desc="活动id"/>
+        </toServer>
+        <toClient class="OkResponse"/>
+    </method>
+
+    <method name="getActivityInfo">
+        <toServer type="ActivityIdRequest">
+            <field type="int" name="activityId" desc="活动id"/>
+        </toServer>
+    </method>
+</module>

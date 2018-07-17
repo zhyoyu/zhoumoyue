@@ -2,10 +2,9 @@
   "pages":[
     "pages/login/index",    
     "pages/activity/index",
-    "pages/talkaround/index",
-    "pages/talkaround/create/index",
+    "pages/topic/index",
+    "pages/topic/create/index",
     "pages/me/index",
-    "pages/test/index",
     "pages/logs/logs"
   ],
   "window": {
@@ -22,7 +21,7 @@
     "position": "bottom", 
     "list": [
       {
-        "pagePath": "pages/talkaround/index",
+        "pagePath": "pages/topic/index",
         "iconPath": "images/talkaroundoff.png",
         "selectedIconPath": "images/talkaroundon.png",
         "text": "周围说"

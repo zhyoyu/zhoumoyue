@@ -1,4 +1,0 @@
-<wxc-flex main="center" cross="center">
-<view> Hello {{name}}! </view>
-<button bindtap="changeName"> Click me! </button>
-</wxc-flex>

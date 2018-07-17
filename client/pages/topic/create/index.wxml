@@ -1,0 +1,9 @@
+<view class='talkaround_create'>
+  <form bindsubmit="bindFormSubmit">
+    <view class="talkaround_input">
+      <textarea name="content" auto-focus="true" maxlength="200" placeholder="你此刻的想法..." />
+      <view class="talkaround_image"><text>十</text></view>
+    </view>
+      <button class="talkaround_bt" form-type="submit"> 发表 </button>
+  </form>
+</view>

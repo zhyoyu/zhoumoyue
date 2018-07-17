@@ -11,6 +11,8 @@ public class LoginServiceImpl implements LoginService {
     public void login(Session session, LoginRequest request) {
         if(!Services.getUserService().userIsExist(request.getOpenId())) {
             Services.getUserService().createUser(request);
+        } else {
+            Services.getUserService().updateUser(request);
         }
     }
 

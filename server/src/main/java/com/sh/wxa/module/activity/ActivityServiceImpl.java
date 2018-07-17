@@ -3,7 +3,7 @@ package com.sh.wxa.module.activity;
 import com.sh.wxa.module.activity.entity.Activity;
 import com.sh.wxa.module.activity.mapper.ActivityMapper;
 import com.sh.wxa.module.activity.msg.ActivityListResponse;
-import com.sh.wxa.module.activity.msg.po.ActivityInfo;
+import com.sh.wxa.module.activity.msg.po.ActivityPo;
 import com.sh.wxa.onlinemanager.Session;
 import com.sh.wxa.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +15,14 @@ import java.util.List;
 public class ActivityServiceImpl implements ActivityService{
 
     @Autowired
-    private ActivityMapper activityMapper;
+    private ActivityMapper mapper;
 
     @Override
     public ActivityListResponse getActivityList(Session session, int curPage) {
-        List<Activity> activityList = activityMapper.findActivityList(curPage, PageUtil.DEFAULT_PAGE_SIZE);
+        final int index = PageUtil.getIndex(curPage, PageUtil.DEFAULT_PAGE_SIZE);
+        List<Activity> activityList = mapper.findByCondition(index, PageUtil.DEFAULT_PAGE_SIZE);
         ActivityListResponse resp = new ActivityListResponse();
-        List<ActivityInfo> activityInfoList = resp.getActivityInfoList();
+        List<ActivityPo> activityInfoList = resp.getActivityInfoList();
         for(Activity activity : activityList) {
             activityInfoList.add(activity.toInfo());
         }
@@ -29,9 +30,9 @@ public class ActivityServiceImpl implements ActivityService{
     }
 
     @Override
-    public void createActivity(Session session, ActivityInfo activityInfo) {
+    public void createActivity(Session session, ActivityPo activityInfo) {
         Activity activity = Activity.createEntity(activityInfo);
-        activityMapper.addActivity(activity);
+        mapper.add(activity);
     }
 
     @Override

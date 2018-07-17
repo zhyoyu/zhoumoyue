@@ -4,6 +4,8 @@ import com.sh.wxa.module.activity.ActivityService;
 import com.sh.wxa.module.activity.ActivityServiceImpl;
 import com.sh.wxa.module.login.LoginService;
 import com.sh.wxa.module.login.LoginServiceImpl;
+import com.sh.wxa.module.topic.TopicService;
+import com.sh.wxa.module.topic.TopicServiceImpl;
 import com.sh.wxa.module.user.UserService;
 import com.sh.wxa.module.user.UserServiceImpl;
 
@@ -19,6 +21,10 @@ public class Services {
 
     public static ActivityService getActivityService() {
         return getBeanByImplClass(ActivityServiceImpl.class, ActivityService.class);
+    }
+
+    public static TopicService getTopicService() {
+        return getBeanByImplClass(TopicServiceImpl.class, TopicService.class);
     }
 
     public static <T> T getBeanByImplClass(Class<? extends T> implClass, Class<T> interfaceClass) {

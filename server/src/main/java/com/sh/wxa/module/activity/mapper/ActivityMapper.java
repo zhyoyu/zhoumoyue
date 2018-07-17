@@ -12,7 +12,7 @@ import java.util.List;
 public interface ActivityMapper {
 
     @Insert("INSERT INTO activity (CREATE_USER,TITLE,ADDRESS,DESCRIBE,ACTIVITY_TIME,NUM_LIMIT,JOIN_USERS,CREATE_TIME) VALUES (#{createUser},#{title},#{address},#{describe},#{activityTime},#{numLimit},#{joinUsers},#{createTime})")
-    void addActivity(Activity activity);
+    void add(Activity activity);
 
     /**
      *  获取分页活动
@@ -30,7 +30,7 @@ public interface ActivityMapper {
             @Result(column = "num_limit", property = "numLimit"),
             @Result(column = "join_users", property = "joinUsers"),
             @Result(column = "date", property = "date") })
-    List<Activity> findActivityList(
+    List<Activity> findByCondition(
             @Param("index") Integer index,
             @Param("pageSize") Integer pageSize
     );

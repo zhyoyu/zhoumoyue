@@ -1,12 +1,12 @@
 package com.sh.wxa.module.activity.msg;
 
 import com.sh.wxa.JsonMessage;
-import com.sh.wxa.module.activity.msg.po.ActivitySpecificInfo;
+import com.sh.wxa.module.activity.msg.po.ActivitySpecificPo;
 import lombok.Data;
 
 @Data
 public class ActivityInfoResponse extends JsonMessage {
 
-    private ActivitySpecificInfo info;
+    private ActivitySpecificPo info;
 
 }

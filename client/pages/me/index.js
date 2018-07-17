@@ -1,5 +1,6 @@
 // pages/me/index.js
-var bsurl = require('../../utils/bsurl.js');
+var util = require('../../utils/util.js');
+
 Page({
 
   /**

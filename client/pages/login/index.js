@@ -1,4 +1,6 @@
 const app = getApp();
+var uPt = require("../../utils/protocol.js")
+
 Page({
   data: {
     remind: '加载中',
@@ -7,15 +9,37 @@ Page({
       avatarUrl: '../../images/logo.jpg'
     }
   },
-  goToIndex() {
+  login() {
     let userInfo = wx.getStorageSync('userInfo')
     if(!userInfo) {
       let dialogComponent = this.selectComponent('.wxc-dialog');
       dialogComponent && dialogComponent.show();
     } else {
-      wx.switchTab({
-        url: '../talkaround/index',
+      // wx.switchTab({
+      //   url: '../talkaround/index',
+      // }); 
+      var openId = wx.getStorageSync('openId')
+      var body = {
+        openId: openId,
+        nickName: userInfo.nickName,
+        sex: userInfo.gender,
+        city: userInfo.city,
+        iconUrl: userInfo.avatarUrl
+      }
+      wx.request({
+        url: uPt.serverUrl,
+        data: {
+          uid: openId,
+          mod: uPt.pt.login_1,
+          body: body
+        },
+        success: function (res) {
+          wx.switchTab({
+            url: '../topic/index',
+          });
+        }
       });
+   
     }
   },
   onLoad() {

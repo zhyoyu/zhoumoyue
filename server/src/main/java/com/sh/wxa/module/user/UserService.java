@@ -9,5 +9,7 @@ public interface UserService {
 
     void createUser(LoginRequest request);
 
+    void updateUser(LoginRequest request);
+
     boolean userIsExist(String openId);
 }

@@ -1,3 +1,5 @@
+// module.exports = "http://d7b4a055.ngrok.io/v1/"
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -16,6 +18,9 @@ const formatNumber = n => {
 
 function sayHello() {
   console.log('this is util.js say hello!')
+}
+
+function requestServer() {
 }
 
 module.exports = {

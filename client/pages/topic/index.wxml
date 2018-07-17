@@ -1,0 +1,58 @@
+<movable-area class='container'>
+<scroll-view scroll-y="true" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" interval="{{interval}}" autoplay="{{autoPlay}}">
+    <block wx:for="{{images}}" wx:for-item="item" wx:for-index="idx">
+      <swiper-item>
+        <image src="{{item.image}}" class="wrap-img"/>
+        <view class="filter"><text>{{item.title}}</text></view>
+      </swiper-item>
+    </block>
+  </swiper>
+ 
+   <block wx:for="{{topicList}}" wx:for-index="idx" wx:for-item="topic">
+
+        <view class="feed-talk">
+          <view class="feed-source">
+                <a class="feed-info">
+                    <view class="avatar">
+                        <image src="{{topic.authorIconUrl}}"></image>
+                    </view>
+                    <text>{{topic.authorNickName}}</text>
+                </a>
+                <view class="item-attention">
+                <text>关注</text>
+                </view>
+          </view> 
+          <view class="feed-content">
+              <view class="answer-body">
+                    <view>
+                        <text class="answer-txt">{{topic.content}}</text>
+                    </view>
+                    <view class="answer-actions">
+                        <image bindtap="comment" data-idx="{{idx}}" data-topic-id="{{topic.topicId}}" src='../../images/topic/talk.png'/>
+                        <view bindtap="like" data-idx="{{idx}}" data-topic-id="{{topic.topicId}}">
+                        <image src='{{like_icon}}' wx:if="{{topic.like == 1}}"/>
+                        <image src='{{no_like_icon}}' wx:if="{{topic.like == 0}}"/>
+                        </view>
+                    </view>
+                    <!-- <view class="line"></view>
+                    <view class="comment-container">
+                        
+                    </view> -->
+                    <!-- <view class='comment-input-container' wx:if="{{true}}">
+  <textarea placeholder="评论" 
+            auto-focus
+            maxlength="1024"
+            cursor-spacing="15"
+            fixed="true"
+            auto-height 
+            bindinput='getCommentContent'/>
+  <view class='send-button' bindtap='sendComment'><view>发送</view></view>
+</view> -->
+              </view>
+          </view>
+        </view>
+    </block>
+</scroll-view>
+       <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap='createTopic'><text>+</text></movable-view>
+</movable-area>

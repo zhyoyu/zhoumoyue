@@ -14,7 +14,7 @@
       </view>
       <view class="bd">
         <image class="smalltitle" src="/images/title.png"></image>
-        <view class="confirm-btn" bindtap='goToIndex'>
+        <view class="confirm-btn" bindtap='login'>
           <text>进入社区</text>
         </view>
         <text class="copyright">欢迎体验社区</text>

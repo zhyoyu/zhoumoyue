@@ -1,6 +1,6 @@
 package com.sh.wxa.servlet;
 
-    import com.google.common.collect.Maps;
+import com.google.common.collect.Maps;
 import com.sh.wxa.JsonMessage;
 import com.sh.wxa.Loggers;
 import com.sh.wxa.Server;
@@ -37,13 +37,12 @@ public class ModuleServletHandler {
         String responseStr = null;
         if (LOGIN_MODULE_CODE.equals(act)) {
             responseStr = reqOpenId(paramJsonStr);
-            Loggers.COMMON.info(LOGIN_MODULE_CODE + responseStr);
         } else {
             if (StringUtils.isEmpty(act) || StringUtils.isEmpty(openId)) {
                 JsonMessage prompt = new SCPrompt("请求参数为空", null);
                 responseStr = prompt.toJsonString();
             } else {
-                responseStr = processRequest(request, openId, act, paramJsonStr).toJsonString();
+                responseStr = processRequest(openId, act, paramJsonStr).toJsonString();
             }
         }
         response.setHeader("Cache-Control", "no-cache");
@@ -59,20 +58,23 @@ public class ModuleServletHandler {
         return HttpUtil.get(AppConstants.WEI_XIN_OPEN_ID_REQ_URL, map);
     }
 
-    private JsonMessage processRequest(HttpServletRequest request, String openId, String module, String bodyJson) {
+    private JsonMessage processRequest(String openId, String module, String bodyJson) {
         if (!Server.isRunning()) {
             return SCPrompt.newError("服务器未启动");
         }
-
-        Session session = Server.getOnlinePlayerManager().getIfPresent(openId);
-        if(session == null && !LOGIN_MODULE_LOGIN.equals(module)) {
+        Session session = null;
+        if(!LOGIN_MODULE_LOGIN.equals(module)) {
             session = Server.getOnlinePlayerManager().getByOpenId(openId);
         }
 
         JsonMessage result = null;
         try {
             MethodInvocation<JsonMessage> invocation = MethodInvocation.create(module, bodyJson, session);
-            synchronized (session) {
+            if(session != null) {
+                synchronized (session) {
+                    result = invocation.execute();
+                }
+            } else {
                 result = invocation.execute();
             }
         } catch (Exception e) {

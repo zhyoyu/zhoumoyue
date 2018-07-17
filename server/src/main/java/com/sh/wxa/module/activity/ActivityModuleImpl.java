@@ -5,7 +5,7 @@ import com.sh.wxa.annotation.Module;
 import com.sh.wxa.module.ActivityModule;
 import com.sh.wxa.module.activity.msg.ActivityIdRequest;
 import com.sh.wxa.module.activity.msg.ActivityInfoResponse;
-import com.sh.wxa.module.activity.msg.ActivityCurPageRequest;
+import com.sh.wxa.module.activity.msg.ActivityListRequest;
 import com.sh.wxa.module.activity.msg.ActivityListResponse;
 import com.sh.wxa.module.activity.msg.CreateActivityRequest;
 import com.sh.wxa.onlinemanager.Session;
@@ -15,7 +15,7 @@ import com.sh.wxa.util.OkResponse;
 public class ActivityModuleImpl implements ActivityModule {
 
     @Override
-    public ActivityListResponse getActivityList(ActivityCurPageRequest request, Session session) {
+    public ActivityListResponse getActivityList(ActivityListRequest request, Session session) {
         return Services.getActivityService().getActivityList(session, request.getCurPage());
     }
 

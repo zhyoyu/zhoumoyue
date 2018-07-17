@@ -2,18 +2,24 @@ package com.sh.wxa.module.user.entity;
 
 import lombok.Data;
 
-import java.io.Serializable;
+import java.util.Date;
 
 @Data
-public class User implements Serializable {
+public class User{
 
     private String openId;
 
-    private String userName;
+    private String nickName;
+
+    private String iconUrl;
 
     private int sex;
 
     private String city;
 
     private int activeValue;
+
+    private Date registerTime;
+
+    private Date lastLoginTime;
 }

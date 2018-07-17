@@ -1,4 +1,6 @@
 //app.js
+var pt = require("utils/protocol.js")
+
 App({
   onLaunch: function (options) {
     console.log(options)
@@ -6,13 +8,11 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         console.log(res)
-
         wx.getUserInfo({
           success: res => {
             // 可以将 res 发送给后台解码出 unionId
@@ -29,16 +29,13 @@ App({
         var mod = 'login.getOpenId'
         var body = res.code
         wx.request({
-          url: 'http://localhost:8089/wxaserver',
+          url: pt.serverUrl,
           data: {
             ubi: '',
             mod: mod,
             body: body
           },
           success: function (res) {
-            // that.setData({
-            //   subcount: res.data
-            // });
             wx.setStorageSync('openId', res.data.openid)
             console.log(res);
           }

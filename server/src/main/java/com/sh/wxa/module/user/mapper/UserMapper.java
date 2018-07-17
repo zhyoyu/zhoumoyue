@@ -5,27 +5,36 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 public interface UserMapper {
     /**
      * 添加User
      */
-    @Insert("INSERT INTO user (OPEN_ID,USER_NAME,SEX,CITY,ACTIVE_VALUE) VALUES (#{openId},#{userName},#{sex},#{city},#{activeValue})")
-    void addUser(User user);
+    @Insert("INSERT INTO user (OPEN_ID,NICK_NAME,ICON_URL,SEX,CITY,ACTIVE_VALUE,REGISTER_TIME,LAST_LOGIN_TIME) VALUES (#{openId},#{nickName},#{iconUrl},#{sex},#{city},#{activeValue},#{registerTime},#{lastLoginTime})")
+    void add(User user);
+    /**
+     * 更新User
+     */
+    @Update("UPDATE user SET NICK_NAME = #{nickName}, ICON_URL = #{iconUrl}, SEX = #{sex}, CITY = #{city}, LAST_LOGIN_TIME = #{lastLoginTime} WHERE OPEN_ID = #{openId}")
+    void update(User user);
     /**
      * 查询User
      */
     @Select("SELECT * FROM user where open_id = #{openId}")
     @Results({
             @Result(column = "open_id", property = "openId"),
-            @Result(column = "user_name", property = "userName"),
+            @Result(column = "nick_name", property = "nickName"),
+            @Result(column = "icon_url", property = "iconUrl"),
             @Result(column = "sex", property = "sex"),
             @Result(column = "city", property = "city"),
-            @Result(column = "active_value", property = "activeValue") })
-    User findUserById(String openId);
+            @Result(column = "active_value", property = "activeValue"),
+            @Result(column = "register_time", property = "registerTime"),
+            @Result(column = "last_login_time", property = "lastLoginTime")})
+    User findById(String openId);
     /**
      * 查询User
      */
     @Select("SELECT COUNT(*) FROM user where open_id = #{openId}")
-    Integer countUserById(String openId);
+    Integer countById(String openId);
 }

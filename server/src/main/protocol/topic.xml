@@ -1,0 +1,33 @@
+<module name="topic" class="com.sh.wxa.module.TopicModule">
+    <bean class="TopicInfo">
+        <field type="long" name="topicId" desc="话题id"/>
+        <field type="String" name="authorUid" desc="作者唯一id"/>
+        <field type="String" name="authorNickName" desc="作者昵称"/>
+        <field type="String" name="authorIconUrl" desc="作者头像url"/>
+        <field type="String" name="content" desc="话题内容"/>
+        <field type="int" name="createTime" desc="创建时间(s)"/>
+        <field type="int" name="agree" desc="是否已点赞 0 false 1 true"/>
+    </bean>
+    
+    <method name="commentTopic">
+        <toServer type="createTopicRequest">
+            <field type="String" name="content" desc="话题内容"/>
+        </toServer>
+    </method>
+    
+    <method name="findTopicList">
+        <toServer type="TopicListRequest">
+            <field type="long" name="beginIndex" desc="开始的index"/>
+        </toServer>
+        <toClient type="TopicListResponse">
+            <list type="TopicInfo" name="topicInfosList" desc="话题列表"/>
+        </toClient>
+    </method>
+
+    <method name="onOffLikeTopic">
+        <toServer type="OnOffLikeRequest">
+            <field type="long" name="topicId" desc="话题id"/>
+            <field type="int" name="onOffLike" desc="是否喜欢 0 false 1 true"/>
+        </toServer>
+    </method>
+</module>

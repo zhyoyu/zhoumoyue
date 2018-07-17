@@ -1,0 +1,12 @@
+<module name="login" class="com.sh.wxa.module.LoginModule">
+    <method name="login">
+        <toServer class="LoginRequest">
+            <field type="String" name="openId" desc="用户唯一id"/>
+            <field type="String" name="nickName" desc="用户名"/>
+            <field type="String" name="iconUrl" desc="头像url"/>
+            <field type="String" name="city" desc="城市"/>
+            <field type="int" name="sex" desc="性别 1 男 2 女"/>
+        </toServer>
+        <toClient class="OkResponse"/>
+    </method>
+</module>

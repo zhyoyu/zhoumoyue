@@ -3,7 +3,7 @@ package com.sh.wxa.util;
 import com.sh.wxa.JsonMessage;
 import com.sh.wxa.constants.AppConstants;
 import com.sh.wxa.module.login.msg.LoginRequest;
-import com.sh.wxa.module.login.msg.po.UserBasicInfo;
+import com.sh.wxa.module.login.msg.po.UserBasicPo;
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -95,7 +95,6 @@ public class HttpUtil {
                     builder.append("&");
                 }
             }
-            System.out.println(builder.toString());
             HttpGet get = new HttpGet(builder.toString());
             get.setConfig(requestConfig);
             ret = client.execute(get);
@@ -145,12 +144,12 @@ public class HttpUtil {
 
         //构建param
         LoginRequest req = new LoginRequest();
-        UserBasicInfo userBaseInfo = new UserBasicInfo();
+        UserBasicPo userBaseInfo = new UserBasicPo();
         userBaseInfo.setOpenId("yc_1");
         userBaseInfo.setCity("杭州");
         userBaseInfo.setSex("男");
         userBaseInfo.setUserName("言辰");
-        req.setMemo("hello");
+//        req.setMemo("hello");
         paramBuild(JsonMessage.toJsonString(userBaseInfo), "login", "login", req, param);
 
         String ret = HttpUtil.get(urlPrefix, param);

@@ -1,0 +1,1 @@
+<!-- 协议请求参数为 1、uid: 格式{openid} 2、mod: 格式{moduleName + "." + methodName} 3、body: 格式{Request请求对象json}-->

@@ -19,7 +19,7 @@
   background: #fff;
   background-color: #fff;
   display: flex;
-    overflow: hidden;
+  overflow: hidden;
   flex-flow: column nowrap;
   align-items: center;
   padding-top: 50rpx;
@@ -41,7 +41,7 @@
 .log_wrap {
   padding-bottom: 40rpx;
   display: flex;
-  border-style:solid;
+  /* border-style:solid; */
   justify-content: center;
   align-items: center;
 }

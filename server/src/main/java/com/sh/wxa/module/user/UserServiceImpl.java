@@ -7,6 +7,8 @@ import com.sh.wxa.onlinemanager.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -14,28 +16,47 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     public Session createSession(String openId) {
-        Session session = new Session();
-        User user = userMapper.findUserById(openId);
-        session.setOpenId(openId);
-//        session.setCity(user.getCity());
-//        session.setUserName(user.getUserName());
-//        session.setSex(user.getSex());
-        session.setActiveValue(user.getActiveValue());
-        return session;
+        User user = userMapper.findById(openId);
+        if(user != null) {
+            Session session = new Session();
+            session.setOpenId(openId);
+            session.setCity(user.getCity());
+            session.setNickName(user.getNickName());
+            session.setSex(user.getSex());
+            session.setIconUrl(user.getIconUrl());
+            session.setActiveValue(user.getActiveValue());
+            return session;
+        }
+        return null;
     }
 
     public void createUser(LoginRequest request) {
         User user = new User();
         user.setOpenId(request.getOpenId());
         user.setSex(request.getSex());
-        user.setUserName(request.getUserName());
+        user.setNickName(request.getNickName());
         user.setCity(request.getCity());
+        user.setIconUrl(request.getIconUrl());
         user.setActiveValue(0);
-        userMapper.addUser(user);
+        Date now = new Date();
+        user.setRegisterTime(now);
+        user.setLastLoginTime(now);
+        userMapper.add(user);
+    }
+
+    @Override
+    public void updateUser(LoginRequest request) {
+        User user = userMapper.findById(request.getOpenId());
+        user.setIconUrl(request.getIconUrl());
+        user.setNickName(request.getNickName());
+        user.setCity(request.getCity());
+        user.setSex(request.getSex());
+        user.setLastLoginTime(new Date());
+        userMapper.update(user);
     }
 
     public boolean userIsExist(String openId) {
-        return userMapper.countUserById(openId) > 0;
+        return userMapper.countById(openId) > 0;
     }
 
 }

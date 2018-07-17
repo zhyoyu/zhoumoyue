@@ -8,11 +8,11 @@ public class LoginRequest implements Message {
 
     private String openId;
 
-    private String userName;
+    private String nickName;
 
     private int sex;
 
-    private String imageUrl;
+    private String iconUrl;
 
     private String city;
 
