@@ -6,84 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9982bd-c84a-4211-8f8c-b4befc964c7e" name="Default" comment="openId处理">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/TopicModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/TopicModuleImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/TopicService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/TopicServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/entity/Topic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/entity/TopicInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/mapper/TopicInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/mapper/TopicMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/mapper/TopicSqlProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/msg/OnOffLikeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/msg/TopicListRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/msg/TopicListResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/msg/createTopicRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/msg/po/TopicPo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/protocol/activity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/protocol/login.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/protocol/topic.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/info.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/components/dialog/dialog.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/dialog/dialog.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/images/talkaround/attention.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/images/talkaround/more.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/images/talkaround/swiper1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/images/talkaround/swiper2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/images/talkaround/swiper3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/images/talkaround/swiper4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/images/talkaround/talk.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/login/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/pages/login/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/login/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/pages/login/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/me/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/pages/me/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/talkaround/create/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/talkaround/create/index.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/talkaround/create/index.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/talkaround/create/index.wxss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/talkaround/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/talkaround/index.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/talkaround/index.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/talkaround/index.wxss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/test/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/test/index.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/test/index.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/pages/test/index.wxss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/project.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/utils/bsurl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/utils/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/utils/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/Services.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/Services.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/ActivityModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/ActivityModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/ActivityModuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/ActivityModuleImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/ActivityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/ActivityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/ActivityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/entity/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/entity/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/mapper/ActivityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/mapper/ActivityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/mapper/ActivitySqlProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/mapper/ActivitySqlProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/ActivityCurPageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/ActivityListRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/ActivityInfoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/ActivityInfoResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/ActivityListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/ActivityListResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/CreateActivityRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/CreateActivityRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/po/ActivityInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/po/ActivityPo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/po/ActivitySpecificInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/activity/msg/po/ActivitySpecificPo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/login/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/login/LoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/login/msg/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/login/msg/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/login/msg/po/UserBasicInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/login/msg/po/UserBasicPo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/user/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/user/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/user/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/module/user/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/onlinemanager/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/onlinemanager/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/servlet/ModuleServletHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/servlet/ModuleServletHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/util/HttpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/util/HttpUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sh/wxa/util/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sh/wxa/util/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/protocol.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/server.properties" afterDir="false" />
-    </list>
     <list id="e7365890-768b-48ec-8cde-7a1d87d2cb7e" name="notcommit" comment="notcommit" />
+    <list default="true" id="bc9982bd-c84a-4211-8f8c-b4befc964c7e" name="Default" comment="openId处理">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -98,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TopicServiceImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TopicServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/TopicServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="369">
-              <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,10 +57,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppConstants.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AppConstants.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sh/wxa/constants/AppConstants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
+            <state relative-caret-position="121">
               <caret line="16" column="59" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="59" />
             </state>
           </provider>
@@ -343,10 +269,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="47" />
-    <option name="y" value="423" />
+    <option name="x" value="366" />
+    <option name="y" value="86" />
     <option name="width" value="1513" />
-    <option name="height" value="994" />
+    <option name="height" value="1015" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -355,8 +281,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -395,142 +319,6 @@
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="activity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="activity" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="topic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="topic" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="topic" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="topic" type="462c0819:PsiDirectoryNode" />
-              <item name="msg" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="topic" type="462c0819:PsiDirectoryNode" />
-              <item name="msg" type="462c0819:PsiDirectoryNode" />
-              <item name="po" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wxa" type="462c0819:PsiDirectoryNode" />
-              <item name="servlet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="protocol" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -541,6 +329,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -757,6 +547,7 @@
       <workItem from="1530863515222" duration="4951000" />
       <workItem from="1530958680694" duration="825000" />
       <workItem from="1531625750416" duration="608000" />
+      <workItem from="1531891517229" duration="507000" />
     </task>
     <task id="LOCAL-00001" summary="项目初次提交">
       <created>1528856477572</created>
@@ -797,7 +588,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145029000" />
+    <option name="totallyTimeSpent" value="145536000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -814,27 +605,27 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49733475" weight="0.5163399" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49733475" visible="true" weight="0.4466231" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49946696" weight="0.32897604" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32897604" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.4694989" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32897604" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32897604" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2153518" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21748401" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.32897604" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49946696" weight="0.32897604" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.32897604" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1229,20 +1020,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/TopicServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sh/wxa/constants/AppConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="121">
+          <caret line="16" column="59" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sh/wxa/constants/AppConstants.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/TopicServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="59" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="59" />
+        <state relative-caret-position="369">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
