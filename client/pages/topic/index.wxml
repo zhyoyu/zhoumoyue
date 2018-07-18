@@ -1,5 +1,4 @@
-<movable-area class='container'>
-<scroll-view scroll-y="true" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+<scroll-view class='container' scroll-y="true" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
   <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" interval="{{interval}}" autoplay="{{autoPlay}}">
     <block wx:for="{{images}}" wx:for-item="item" wx:for-index="idx">
       <swiper-item>
@@ -54,5 +53,6 @@
         </view>
     </block>
 </scroll-view>
+<movable-area style="height: {{move_height}} px">
        <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap='createTopic'><text>+</text></movable-view>
 </movable-area>

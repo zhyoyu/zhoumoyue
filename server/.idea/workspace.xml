@@ -27,8 +27,8 @@
       <file leaf-file-name="TopicServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/TopicServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="774">
+              <caret line="61" column="37" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -269,8 +269,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="366" />
-    <option name="y" value="86" />
+    <option name="x" value="-248" />
+    <option name="y" value="34" />
     <option name="width" value="1513" />
     <option name="height" value="1015" />
   </component>
@@ -547,7 +547,7 @@
       <workItem from="1530863515222" duration="4951000" />
       <workItem from="1530958680694" duration="825000" />
       <workItem from="1531625750416" duration="608000" />
-      <workItem from="1531891517229" duration="507000" />
+      <workItem from="1531891517229" duration="950000" />
     </task>
     <task id="LOCAL-00001" summary="项目初次提交">
       <created>1528856477572</created>
@@ -588,7 +588,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145536000" />
+    <option name="totallyTimeSpent" value="145979000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -661,8 +661,14 @@
           <properties />
           <option name="timeStamp" value="84" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/TopicServiceImpl.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="85" />
+      <option name="time" value="86" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1029,8 +1035,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sh/wxa/module/topic/TopicServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="774">
+          <caret line="61" column="37" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

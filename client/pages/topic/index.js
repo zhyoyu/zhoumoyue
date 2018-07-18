@@ -31,6 +31,7 @@ Page({
     topicList: [],
     like_icon: "../../images/topic/like.png",
     no_like_icon: "../../images/topic/no_like.png",
+    move_height: 0,
   },
 
   /**
@@ -54,7 +55,15 @@ Page({
           topicList: res.data.topicInfosList,
         })
       }
-    });
+    })
+
+    wx.getSystemInfo({
+      success : function(res) {
+        that.setData ({
+          move_height : res.windowHeight
+        })
+      }
+    })
   },
 
   /**

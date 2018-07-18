@@ -1,4 +1,4 @@
-const serverUrl = "https://78884298.ngrok.io/wxaserver"
+const serverUrl = "https://be360e88.ngrok.io/wxaserver"
 // serverUrl: "http://localhost:8089/wxaserver",
 const pt = {
   login_1: "login.login",

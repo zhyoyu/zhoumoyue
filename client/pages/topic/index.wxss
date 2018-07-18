@@ -3,6 +3,7 @@ swipper-item, swiper {
   width:100%;
   position: relative;
 }
+
 swiper .wrap-img {
   width: 100%;
   height: 350rpx;
@@ -205,4 +206,11 @@ swiper .filter text {
   justify-content: space-around;
   align-items: center;
   border-radius: 10rpx;
+}
+
+movable-area {
+  height: 1200rpx;
+  width: 100%;
+  margin: 50rpx;
+  overflow: hidden;
 }
