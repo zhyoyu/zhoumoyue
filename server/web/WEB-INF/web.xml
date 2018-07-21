@@ -3,6 +3,16 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
+	<!-- 上传文件请求 -->
+	<servlet>
+		<servlet-name>FileUpLoadServlet</servlet-name>
+		<servlet-class>com.sh.wxa.servlet.FileUpLoadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileUpLoadServlet</servlet-name>
+		<url-pattern>/upLoadFile</url-pattern>
+	</servlet-mapping>
+
 	<!-- 客户端请求 -->
 	<servlet>
 		<servlet-name>ModuleServlet</servlet-name>
@@ -10,10 +20,11 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ModuleServlet</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/module</url-pattern>
 	</servlet-mapping>
 
 	<listener>
 		<listener-class>com.sh.wxa.Server$ContextListener</listener-class>
 	</listener>
+
 </web-app>

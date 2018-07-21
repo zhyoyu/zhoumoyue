@@ -8,8 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    x: 900,
-    y: 0,
+    x: wx.getStorageSync("move_width") - 60,
+    y: wx.getStorageSync("move_height") - 60,
+    move_width: wx.getStorageSync("move_width"),
+    move_height: wx.getStorageSync("move_height"),
     indicatorDots: true,
     circular: true,
     interval: 5000,
@@ -31,7 +33,6 @@ Page({
     topicList: [],
     like_icon: "../../images/topic/like.png",
     no_like_icon: "../../images/topic/no_like.png",
-    move_height: 0,
   },
 
   /**
@@ -57,13 +58,16 @@ Page({
       }
     })
 
-    wx.getSystemInfo({
-      success : function(res) {
-        that.setData ({
-          move_height : res.windowHeight
-        })
-      }
-    })
+    // wx.getSystemInfo({
+    //   success : function(res) {
+    //     that.setData ({
+    //       move_height : res.windowHeight,
+    //       move_width : res.windowWidth,
+    //       x : res.windowWidth - 50,
+    //       y: res.windowHeight - 50
+    //     })
+    //   }
+    // })
   },
 
   /**
@@ -213,6 +217,7 @@ Page({
  * 评论
  */
   comment: function (e) {
+    var that = this
     console.log("---------" + e + "评论---------")
   }
 })

@@ -1,6 +1,7 @@
 package com.sh.wxa.module.topic.entity;
 
 import com.sh.wxa.module.topic.msg.po.TopicPo;
+import com.sh.wxa.util.StringUtils;
 import com.sh.wxa.util.TimeUtil;
 import lombok.Data;
 
@@ -29,11 +30,15 @@ public class Topic {
      */
     private String content;
     /**
+     * 图片
+     */
+    private String images;
+    /**
      * 创建时间
      */
     private Date createTime;
     /**
-     * 话题信息
+     * 话题额外信息（评论、点赞等）
      */
     private TopicInfo topicInfo;
 
@@ -44,6 +49,7 @@ public class Topic {
         info.setAuthorNickName(this.getAuthorNickName());
         info.setAuthorIconUrl(this.authorIconUrl);
         info.setContent(this.content);
+        info.setImages(StringUtils.parseStringList(this.images));
         info.setCreateTime(TimeUtil.toSeconds(this.createTime));
         return info;
     }

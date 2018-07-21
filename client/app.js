@@ -62,6 +62,12 @@ App({
         }
       }
     })
+    wx.getSystemInfo({
+      success: function (res) {
+        wx.setStorageSync('move_height', res.windowHeight)
+        wx.setStorageSync('move_width', res.windowWidth)
+      }
+    })
   },
   globalData: {
     userInfo: null

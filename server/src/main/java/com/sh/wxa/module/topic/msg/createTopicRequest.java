@@ -8,4 +8,5 @@ public class createTopicRequest implements Message {
 
     public String content;
 
+    public String images;
 }

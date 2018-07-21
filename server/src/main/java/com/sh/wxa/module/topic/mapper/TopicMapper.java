@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface TopicMapper {
 
-    @Insert("INSERT INTO topic (AUTHOR_UID,AUTHOR_NICK_NAME,AUTHOR_ICON_URL,CONTENT,CREATE_TIME) VALUES (#{authorUid},#{authorNickName},#{authorIconUrl},#{content},#{createTime})")
+    @Insert("INSERT INTO topic (AUTHOR_UID,AUTHOR_NICK_NAME,AUTHOR_ICON_URL,CONTENT,IMAGES,CREATE_TIME) VALUES (#{authorUid},#{authorNickName},#{authorIconUrl},#{content},#{images},#{createTime})")
     void add(Topic topic);
 
     /**
@@ -29,6 +29,7 @@ public interface TopicMapper {
             @Result(column = "author_nick_name", property = "authorNickName"),
             @Result(column = "author_icon_url", property = "authorIconUrl"),
             @Result(column = "content", property = "content"),
+            @Result(column = "images", property = "images"),
             @Result(column = "create_time", property = "createTime"),
             @Result(column = "id", property = "topicInfo", javaType = TopicInfo.class, one = @One(select = "com.sh.wxa.module.topic.mapper.TopicInfoMapper.findById", fetchType = FetchType.LAZY))
     })

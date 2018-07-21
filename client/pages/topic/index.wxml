@@ -14,7 +14,7 @@
           <view class="feed-source">
                 <a class="feed-info">
                     <view class="avatar">
-                        <image src="{{topic.authorIconUrl}}"></image>
+                        <image src="{{topic.authorIconUrl}}"/>
                     </view>
                     <text>{{topic.authorNickName}}</text>
                 </a>
@@ -26,6 +26,11 @@
               <view class="answer-body">
                     <view>
                         <text class="answer-txt">{{topic.content}}</text>
+                        <view>
+                         <block wx:for="{{topic.images}}" wx:for-item="imageUrl">
+                          <image src="{{imageUrl}}" style='width:180rpx;height:180rpx;margin: 5rpx 5rpx;'/>
+                        </block> 
+                        </view>
                     </view>
                     <view class="answer-actions">
                         <image bindtap="comment" data-idx="{{idx}}" data-topic-id="{{topic.topicId}}" src='../../images/topic/talk.png'/>
@@ -53,6 +58,6 @@
         </view>
     </block>
 </scroll-view>
-<movable-area style="height: {{move_height}} px">
+ <movable-area style="height: {{move_height}}px;width: {{move_width}}px;">
        <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap='createTopic'><text>+</text></movable-view>
-</movable-area>
+</movable-area> 

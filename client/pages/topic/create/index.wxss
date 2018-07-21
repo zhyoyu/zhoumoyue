@@ -1,5 +1,5 @@
 /* pages/talkaround/create/index.wxss */
-.talkaround_create {
+.topic_create {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -7,38 +7,55 @@
    /* border: 1rpx solid 	#7CFC00;  */
 }
 
-.talkaround_input {
+.topic_input {
   height: 100%;
   margin: 20rpx 20rpx 20rpx 30rpx;
   padding: 25rpx 0rpx 25rpx 25rpx;
-  border-bottom: 1rpx solid #DCDCDC;   
+  border-bottom: 1rpx solid #DCDCDC;  
+
+  border: 1rpx solid 	#008000;  
 }
 
-.talkaround_input textarea {
+.topic_input textarea {
   padding: 0 40rpx 0 10rpx;
   height: 12em;
   text-align: justify; 
   font-size: 30rpx;
 
-  /* border: 1rpx solid 	#DC143C;      */
+  border: 1rpx solid 	#DC143C;      
+}
+.topic_input .topic_img {
+   margin: 20rpx 20rpx 0rpx 0; 
+   border: 1rpx solid #7FFF00;      
 }
 
-.talkaround_input .talkaround_image {
-  height: 100rpx;
-  margin: 45rpx 0 0 0;
-  
-    /* border: 1rpx solid #ADD8E6;   */
+.topic_input .topic_img image {
+  float: left;
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 3rpx;
+  border: 1rpx dashed #4B0082;  
 }
 
-.talkaround_input .talkaround_image text {
-  margin: 10rxp 0 0 0;
-  padding: 35rpx 45rpx;
+.topic_input .topic_img .topic_image_up {
+  float: left;
+  text-align:center;
+  display:flex; 
+  width: 120rpx;
+  height: 120rpx;
+  border: 1rpx dashed #DCDCDC;  
+}
+
+.topic_input .topic_img .topic_image_up text {
+  /* position: absolute; */
+  margin: auto; 
   color: 	#A9A9A9;
-  border: 1rpx dashed #DCDCDC; 
+  /* border: 1rpx dashed #DCDCDC;  */
 }
 
-.talkaround_bt {
+.topic_bt {
   margin: 25rpx 25rpx;
   background-color: #FFD700;
   color: #FFFFFF;
+  border: 1rpx dashed #FF00FF;  
 }

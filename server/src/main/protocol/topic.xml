@@ -12,6 +12,7 @@
     <method name="commentTopic">
         <toServer type="createTopicRequest">
             <field type="String" name="content" desc="话题内容"/>
+            <field type="String" name="images" desc="图片"/>
         </toServer>
     </method>
     

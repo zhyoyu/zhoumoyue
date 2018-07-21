@@ -37,7 +37,7 @@ swiper .filter text {
   padding: 15rpx 30rpx 20rpx;
   margin: 0 6rpx 20prx;
   background: #ffffff;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 
   border-bottom-style: solid;
   border-bottom-color: #DCDCDC;
@@ -53,7 +53,7 @@ swiper .filter text {
   height: 50rpx;
   padding: 5rpx 0;
   margin: 0 0 10rpx;
-  
+
   /*border-style: solid;
   border-color: #7CFC00;    /** 绿色 用户头像及昵称 */
 }
@@ -105,7 +105,7 @@ swiper .filter text {
 .container .feed-talk .feed-source .flex-item{
   flex-grow: 1;
   text-align: center;
-  
+
     /* border-width:5rpx;
     border-style: solid;
     border-color: #F08080;  */
@@ -113,12 +113,12 @@ swiper .filter text {
 
 /* .container .feed-talk .feed-content{
   border-style: solid;
-  border-color: #FFFF00; 
+  border-color: #FFFF00;
 } */
 
 /* .container .feed-talk .feed-content .question text{
   font-size: 28rpx;
-  font-weight: 600px; /** 定义字体粗细 (问题题目) 
+  font-weight: 600px; /** 定义字体粗细 (问题题目)
   line-height: 40rpx;
 } */
 
@@ -130,7 +130,7 @@ swiper .filter text {
   text-align:justify; /** 文本两端对齐 */
   /* text-indent: 60rpx; */
 
-  /* border-style: solid; 
+  /* border-style: solid;
   border-color: #EE82EE;  粉色   */
 }
 
@@ -141,7 +141,7 @@ swiper .filter text {
   border-radius:20rpx;
 }
 .container .feed-talk .feed-content .answer-body .comment-container{
-  margin: 10rpx 0; 
+  margin: 10rpx 0;
   height: 165rpx;
   background-color: #F5F5F5;
 }
@@ -154,8 +154,14 @@ swiper .filter text {
   border-color: #FF0000; /** 红色 */
 }
 
+/* .container .feed-talk .feed-content .answer-image {
+  width: 200rpx;
+  height: 270rpx;
+  padding-bottom: 20rpx;
+}  */
+
 .container .feed-talk .feed-content .answer-actions image{
-  padding: 0 10rpx 0; 
+  padding: 0 10rpx 0;
   display: inline-block;
   width: 40rpx;
   height: 35rpx;
@@ -209,8 +215,6 @@ swiper .filter text {
 }
 
 movable-area {
-  height: 1200rpx;
-  width: 100%;
   margin: 50rpx;
   overflow: hidden;
 }

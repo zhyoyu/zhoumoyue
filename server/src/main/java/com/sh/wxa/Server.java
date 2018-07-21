@@ -110,4 +110,7 @@ public class Server {
         STOPPING,
     }
 
+    public static String getProperty(String key) {
+        return config.getProperty(key);
+    }
 }

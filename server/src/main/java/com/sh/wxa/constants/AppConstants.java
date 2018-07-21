@@ -19,11 +19,14 @@ public class AppConstants {
     public static final String APP_SECRET = "2916f7fc84b9933997752f156b1592e2";
 
     public static final String JDBC_DRIVER = "jdbc.driver";
-    
+
     public static final String JDBC_URL = "jdbc.url";
-    
+
     public static final String JDBC_USERNAME = "jdbc.username";
-    
+
     public static final String JDBC_PASSWORD = "jdbc.password";
-    
+
+    public static final String UPLOAD_LOCAL_URL = "upload.local.url";
+
+    public static final String UPLOAD_REMOTE_URL = "upload.remote.url";
 }

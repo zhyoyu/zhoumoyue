@@ -29,10 +29,15 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public void commentTopic(Session session, createTopicRequest request) {
         final String context = request.getContent();
+        final String iamges = request.getImages();
+        if(StringUtils.isEmpty(context) && StringUtils.isEmpty(iamges)) {
+            return;
+        }
         Topic topic = new Topic();
         topic.setAuthorUid(session.getOpenId());
         topic.setAuthorNickName(session.getNickName());
         topic.setContent(context);
+        topic.setImages(request.getImages());
         topic.setAuthorIconUrl(session.getIconUrl());
         topic.setCreateTime(new Date());
         topicMapper.add(topic);

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class StringUtils {
 
-    public static final String SPLIT_FLAG = ",";
+    public static final String SPLIT_FLAG = ";";
 
     public static boolean isEmpty(String _string) {
         if (_string == null || _string.trim().length() == 0) {

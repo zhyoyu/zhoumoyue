@@ -3,6 +3,8 @@ package com.sh.wxa.module.topic.msg.po;
 import com.sh.wxa.Message;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class TopicPo implements Message {
     /**
@@ -25,6 +27,10 @@ public class TopicPo implements Message {
      * 话题内容
      */
     private String content;
+    /**
+     * 话题图片
+     */
+    private List<String> images;
     /**
      * 创建时间
      */
