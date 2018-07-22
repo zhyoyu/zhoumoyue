@@ -5,14 +5,33 @@
         <field type="String" name="authorNickName" desc="作者昵称"/>
         <field type="String" name="authorIconUrl" desc="作者头像url"/>
         <field type="String" name="content" desc="话题内容"/>
+        <list type="String" name="images" desc="话题图片"/>
         <field type="int" name="createTime" desc="创建时间(s)"/>
-        <field type="int" name="agree" desc="是否已点赞 0 false 1 true"/>
+        <field type="int" name="like" desc="是否已点赞 0 false 1 true"/>
+        <field type="int" name="likeCount" desc="点赞人数"/>
+        <field type="int" name="commentCount" desc="评论用户数"/>
+        <list type="CommentInfoPo" name="commentList" desc="评论列表"/>
+    </bean>
+
+    <bean class="CommentInfoPo">
+        <field type="long" name="topicId" desc="话题id"/>
+        <field type="String" name="commentUserId" desc="评论用户id"/>
+        <field type="String" name="commentUserName" desc="评论用户昵称"/>
+        <field type="String" name="content" desc="评论内容"/>
+        <field type="String" name="replyUserId" desc="回复的目标用户 （作者为空字符串）"/>
+        <field type="String" name="replyUserName" desc="回复的目标用户名"/>
     </bean>
     
-    <method name="commentTopic">
+    <method name="createTopic">
         <toServer type="createTopicRequest">
             <field type="String" name="content" desc="话题内容"/>
             <field type="String" name="images" desc="图片"/>
+        </toServer>
+    </method>
+
+    <method name="commentTopic">
+        <toServer type="commentTopicRequest">
+            <field type="CommentInfoPo" name="commentInfo"/>
         </toServer>
     </method>
     
