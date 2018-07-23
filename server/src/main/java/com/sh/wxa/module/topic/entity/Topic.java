@@ -6,6 +6,7 @@ import com.sh.wxa.util.TimeUtil;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class Topic {
@@ -41,6 +42,10 @@ public class Topic {
      * 话题额外信息（评论、点赞等）
      */
     private TopicInfo topicInfo;
+    /**
+     * 评论列表
+     */
+    private List<TopicComment> commentList;
 
     public TopicPo toInfo() {
         TopicPo info = new TopicPo();

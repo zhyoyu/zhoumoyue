@@ -1,8 +1,10 @@
 package com.sh.wxa.module.topic.mapper;
 
 import com.sh.wxa.module.topic.entity.Topic;
+import com.sh.wxa.module.topic.entity.TopicComment;
 import com.sh.wxa.module.topic.entity.TopicInfo;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
@@ -31,7 +33,8 @@ public interface TopicMapper {
             @Result(column = "content", property = "content"),
             @Result(column = "images", property = "images"),
             @Result(column = "create_time", property = "createTime"),
-            @Result(column = "id", property = "topicInfo", javaType = TopicInfo.class, one = @One(select = "com.sh.wxa.module.topic.mapper.TopicInfoMapper.findById", fetchType = FetchType.LAZY))
+            @Result(column = "id", property = "topicInfo", one = @One(select = "com.sh.wxa.module.topic.mapper.TopicInfoMapper.findById", fetchType = FetchType.LAZY)),
+            @Result(column = "id", property = "commentList", many = @Many(select = "com.sh.wxa.module.topic.mapper.TopicCommentMapper.findByTopicId", fetchType = FetchType.LAZY))
     })
     List<Topic> findByCondition(
             @Param("index") Long index,

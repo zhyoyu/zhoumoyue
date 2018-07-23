@@ -1,5 +1,6 @@
 package com.sh.wxa.module.topic.msg.po;
 
+import com.google.common.collect.Lists;
 import com.sh.wxa.Message;
 import lombok.Data;
 
@@ -35,9 +36,20 @@ public class TopicPo implements Message {
      * 创建时间
      */
     private int createTime;
-
+    /**
+     * 喜欢的用户量
+     */
+    private int likeCount;
+    /**
+     * 评论数
+     */
+    private int commentCount;
     /**
      * 是否已点赞 0 false 1 true
      */
     private int like;
+    /**
+     * 评论列表
+     */
+    private List<CommentInfoPo> commentList = Lists.newArrayList();
 }

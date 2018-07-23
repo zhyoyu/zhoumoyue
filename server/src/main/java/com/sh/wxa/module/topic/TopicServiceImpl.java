@@ -2,18 +2,23 @@ package com.sh.wxa.module.topic;
 
 import com.google.common.collect.Lists;
 import com.sh.wxa.module.topic.entity.Topic;
+import com.sh.wxa.module.topic.entity.TopicComment;
 import com.sh.wxa.module.topic.entity.TopicInfo;
+import com.sh.wxa.module.topic.mapper.TopicCommentMapper;
 import com.sh.wxa.module.topic.mapper.TopicInfoMapper;
 import com.sh.wxa.module.topic.mapper.TopicMapper;
 import com.sh.wxa.module.topic.msg.TopicListRequest;
 import com.sh.wxa.module.topic.msg.TopicListResponse;
+import com.sh.wxa.module.topic.msg.commentTopicRequest;
 import com.sh.wxa.module.topic.msg.createTopicRequest;
+import com.sh.wxa.module.topic.msg.po.CommentInfoPo;
 import com.sh.wxa.module.topic.msg.po.TopicPo;
 import com.sh.wxa.onlinemanager.Session;
 import com.sh.wxa.util.PageUtil;
 import com.sh.wxa.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -25,9 +30,11 @@ public class TopicServiceImpl implements TopicService {
     private TopicMapper topicMapper;
     @Autowired
     private TopicInfoMapper topicInfoMapper;
+    @Autowired
+    private TopicCommentMapper topicCommentMapper;
 
     @Override
-    public void commentTopic(Session session, createTopicRequest request) {
+    public void createTopic(Session session, createTopicRequest request) {
         final String context = request.getContent();
         final String iamges = request.getImages();
         if(StringUtils.isEmpty(context) && StringUtils.isEmpty(iamges)) {
@@ -44,6 +51,23 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
+    public void commentTopic(Session session, commentTopicRequest request) {
+        CommentInfoPo commentInfo = request.getCommentInfo();
+        if(StringUtils.isEmpty(commentInfo.getContent())) {
+            return;
+        }
+        TopicComment topicComment = new TopicComment();
+        topicComment.setTopicId(commentInfo.getTopicId());
+        topicComment.setCommentUserId(commentInfo.getCommentUserId());
+        topicComment.setCommentUserName(commentInfo.getCommentUserName());
+        topicComment.setContent(commentInfo.getContent());
+        topicComment.setReplyUserId(commentInfo.getReplyUserId());
+        topicComment.setReplyUserName(commentInfo.getReplyUserName());
+        topicComment.setReplyTime(new Date());
+        topicCommentMapper.add(topicComment);
+    }
+
+    @Override
     public TopicListResponse findTopicList(Session session, TopicListRequest request) {
         final long index = Math.max(request.getBeginIndex(), 0);
         List<Topic> topicList = topicMapper.findByCondition(index, PageUtil.DEFAULT_PAGE_SIZE);
@@ -56,6 +80,13 @@ public class TopicServiceImpl implements TopicService {
                 if (likeUsers.contains(session.getOpenId())) {
                     info.setLike(1);
                 }
+                info.setLikeCount(likeUsers.size());
+            }
+            if(!CollectionUtils.isEmpty(topic.getCommentList())) {
+                for(TopicComment comment : topic.getCommentList()) {
+                    info.getCommentList().add(comment.toInfo());
+                }
+                info.setCommentCount(topic.getCommentList().size());
             }
             activityInfoList.add(info);
         }

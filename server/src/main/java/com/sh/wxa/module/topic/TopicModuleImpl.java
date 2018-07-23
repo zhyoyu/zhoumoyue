@@ -6,6 +6,7 @@ import com.sh.wxa.module.TopicModule;
 import com.sh.wxa.module.topic.msg.OnOffLikeRequest;
 import com.sh.wxa.module.topic.msg.TopicListRequest;
 import com.sh.wxa.module.topic.msg.TopicListResponse;
+import com.sh.wxa.module.topic.msg.commentTopicRequest;
 import com.sh.wxa.module.topic.msg.createTopicRequest;
 import com.sh.wxa.onlinemanager.Session;
 import com.sh.wxa.util.OkResponse;
@@ -14,7 +15,13 @@ import com.sh.wxa.util.OkResponse;
 public class TopicModuleImpl implements TopicModule {
 
     @Override
-    public OkResponse commentTopic(createTopicRequest request, Session session) {
+    public OkResponse createTopic(createTopicRequest request, Session session) {
+        Services.getTopicService().createTopic(session, request);
+        return OkResponse.OK_RESPONSE;
+    }
+
+    @Override
+    public OkResponse commentTopic(commentTopicRequest request, Session session) {
         Services.getTopicService().commentTopic(session, request);
         return OkResponse.OK_RESPONSE;
     }

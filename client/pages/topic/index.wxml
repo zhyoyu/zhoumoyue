@@ -1,3 +1,4 @@
+ <movable-area style="height: {{move_height}}px;width: {{move_width}}px;">
 <scroll-view class='container' scroll-y="true" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
   <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" interval="{{interval}}" autoplay="{{autoPlay}}">
     <block wx:for="{{images}}" wx:for-item="item" wx:for-index="idx">
@@ -33,31 +34,41 @@
                         </view>
                     </view>
                     <view class="answer-actions">
-                        <image bindtap="comment" data-idx="{{idx}}" data-topic-id="{{topic.topicId}}" src='../../images/topic/talk.png'/>
+                        <image bindtap="comment" data-idx="{{idx}}" 
+                        data-topicid="{{topic.topicId}}" data-authoruid="{{topic.authorUid}}" data-authornickname="{{topic.authorNickName}}"
+                        data-topic-id="{{topic.topicId}}" src='../../images/topic/talk.png'/>
                         <view bindtap="like" data-idx="{{idx}}" data-topic-id="{{topic.topicId}}">
                         <image src='{{like_icon}}' wx:if="{{topic.like == 1}}"/>
                         <image src='{{no_like_icon}}' wx:if="{{topic.like == 0}}"/>
                         </view>
                     </view>
-                    <!-- <view class="line"></view>
+
+                    <view class="line"></view>
                     <view class="comment-container">
-                        
-                    </view> -->
-                    <!-- <view class='comment-input-container' wx:if="{{true}}">
-  <textarea placeholder="评论" 
+                    <block wx:for="{{topic.commentList}}" wx:for-item="commentContent">
+                    <text class="answer-txt"  data-topicid="{{commentContent.topicId}}" data-authoruid="{{commentContent.commentUserId}}" data-authornickname="{{commentContent.commentUserName}}" bindtap="comment">{{commentContent.commentUserName}} 回复:
+                    {{commentContent.replyUserName}} : {{commentContent.content}}</text>
+                    </block> 
+                    </view>
+                    
+                      <form bindsubmit="bindFormSubmit">
+                    <view class='comment-input-container' wx:if="{{comment}}">
+  <textarea 
+            name="content"
+            placeholder="评论" 
             auto-focus
             maxlength="1024"
             cursor-spacing="15"
             fixed="true"
             auto-height 
             bindinput='getCommentContent'/>
-  <view class='send-button' bindtap='sendComment'><view>发送</view></view>
-</view> -->
+  <button class='send-button' data-authoruid="{{authorUid}}" data-authornickname="{{authorNickName}}" form-type="submit"><view>发送</view></button>
+</view>
+</form>
               </view>
           </view>
         </view>
     </block>
 </scroll-view>
- <movable-area style="height: {{move_height}}px;width: {{move_width}}px;">
        <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap='createTopic'><text>+</text></movable-view>
 </movable-area> 

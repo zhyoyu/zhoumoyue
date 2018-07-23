@@ -142,7 +142,6 @@ swiper .filter text {
 }
 .container .feed-talk .feed-content .answer-body .comment-container{
   margin: 10rpx 0;
-  height: 165rpx;
   background-color: #F5F5F5;
 }
 
@@ -203,7 +202,7 @@ swiper .filter text {
 .comment-input-container .send-button{
   width: 130rpx;
   height: 70rpx;
-  font-size: 30rpx;
+  font-size: 20rpx;
   background: #0aecc3;
   color: white;
   margin-right: 20rpx;
@@ -215,6 +214,5 @@ swiper .filter text {
 }
 
 movable-area {
-  margin: 50rpx;
   overflow: hidden;
 }

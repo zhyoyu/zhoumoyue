@@ -16,6 +16,10 @@ Page({
     circular: true,
     interval: 5000,
     autoPlay: true,
+    comment:false,
+    authorUid:0,
+    authorNickName:0,
+    topicid:0,
     images: [
       {
         image: '/images/topic/swiper1.jpg',
@@ -217,7 +221,52 @@ Page({
  * 评论
  */
   comment: function (e) {
-    var that = this
+   // var that = this
+    var authoruid = e.currentTarget.dataset.authoruid
+    var authornickname = e.currentTarget.dataset.authornickname
+    console.log(authornickname);
+    this.setData({
+      comment: this.data.comment == true ? false : true,
+      authorUid: authoruid,
+      authorNickName: authornickname,
+      topicId: e.currentTarget.dataset.topicid
+    })
+    console.log("---------" + e + "评论---------")
+  },
+/**
+ * 发送评论
+ */
+  bindFormSubmit: function (e) {
+    // var that = this
+    var content = e.detail.value.content
+    //var authoruid = e.currentTarget.dataset.authoruid
+    //var authornickname = e.currentTarget.dataset.authornickname
+    var replyid = wx.getStorageSync("openId")
+    var userInfo = wx.getStorageSync("userInfo")
+    this.setData({
+      comment: false
+    })
+    var body = {
+      commentInfo: {
+        topicId: this.data.topicId,
+        commentUserId: replyid,
+        commentUserName: userInfo.nickName,
+        content: content,
+        replyUserId: this.data.authorUid,
+        replyUserName: this.data.authorNickName
+      }
+    }
+    console.log(body);
+    wx.request({
+      url: uPt.serverUrl,
+      data: {
+        uid: wx.getStorageSync("openId"),
+        mod: uPt.pt.topic_4,
+        body: body
+      },
+      success: function (res) {
+      }
+    });
     console.log("---------" + e + "评论---------")
   }
 })
