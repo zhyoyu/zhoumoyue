@@ -1,9 +1,42 @@
 <module name="activity" class="com.sh.wxa.module.ActivityModule">
+
+    <bean class="ActivityInfoPo">
+        <field type="int" name="activityId" desc="活动id"/>
+        <field type="String" name="createUserId" desc="创建者id"/>
+        <field type="String" name="createUserName" desc="创建者用户名"/>
+        <field type="String" name="createUserIcon" desc="创建者头像"/>
+        <field type="String" name="title" desc="活动标题"/>
+        <field type="String" name="address" desc="活动地址"/>
+        <field type="String" name="describe" desc="活动描述"/>
+        <field type="int" name="numLimit" desc="人数限制"/>
+        <field type="int" name="joinUsersNum" desc="已报名人数"/>
+    </bean>
+
+    <bean class="ActivitySpecificPo">
+        <field type="int" name="activityId" desc="活动id"/>
+        <field type="String" name="createUserId" desc="创建者id"/>
+        <field type="String" name="createUserName" desc="创建者用户名"/>
+        <field type="String" name="createUserIcon" desc="创建者头像"/>
+        <field type="String" name="title" desc="活动标题"/>
+        <field type="String" name="address" desc="活动地址"/>
+        <field type="String" name="describe" desc="活动描述"/>
+        <field type="int" name="numLimit" desc="人数限制"/>
+        <field type="int" name="joinUsersNum" desc="已报名人数"/>
+        <field type="int" name="maleNum" desc="已报名男生数"/>
+        <field type="int" name="femaleNum" desc="已报名女生数"/>
+        <list type="UserInfoPo" name="userInfoList" desc="已报名用户信息"/>
+    </bean>
+
+    <bean class="UserInfoPo">
+        <field type="String" name="openId" desc="用户id"/>
+        <field type="String" name="userName" desc="用户名"/>
+        <field type="String" name="userIconUrl" desc="用户头像"/>
+    </bean>
+
     <method name="createActivity">
         <toServer class="CreateActivityRequest">
-            <field type="ActivityInfo" name="activityInfo" desc="活动信息"/>
+            <field type="ActivityInfoPo" name="activityInfo" desc="活动信息"/>
         </toServer>
-        <toClient class="OkResponse"/>
     </method>
 
     <method name="getActivityList">
@@ -11,7 +44,7 @@
             <field type="int" name="curPage" desc="当前页数"/>
         </toServer>
         <toClient class="ActivityListResponse">
-            <list type="ActivityInfo" name="activityInfoList" desc="活动列表"/>
+            <list type="ActivityPo" name="activityInfoList" desc="活动列表"/>
         </toClient>
     </method>
 
@@ -19,17 +52,24 @@
         <toServer class="ActivityIdRequest">
             <field type="int" name="activityId" desc="活动id"/>
         </toServer>
-        <toClient class="OkResponse"/>
     </method>
 
     <method name="cancelActivity">
         <toServer type="ActivityIdRequest">
             <field type="int" name="activityId" desc="活动id"/>
         </toServer>
-        <toClient class="OkResponse"/>
     </method>
 
     <method name="getActivityInfo">
+        <toServer type="ActivityIdRequest">
+            <field type="int" name="activityId" desc="活动id"/>
+        </toServer>
+        <toClient type="ActivityInfoResponse">
+            <field type="ActivitySpecificPo" name="activityInfo" desc="活动具体信息"/>
+        </toClient>
+    </method>
+
+    <method name="deleteActivity">
         <toServer type="ActivityIdRequest">
             <field type="int" name="activityId" desc="活动id"/>
         </toServer>

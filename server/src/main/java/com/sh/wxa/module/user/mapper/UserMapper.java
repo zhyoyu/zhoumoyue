@@ -5,7 +5,10 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
+
+import java.util.List;
 
 public interface UserMapper {
     /**
@@ -37,4 +40,16 @@ public interface UserMapper {
      */
     @Select("SELECT COUNT(*) FROM user where open_id = #{openId}")
     Integer countById(String openId);
+
+    @SelectProvider(type = UserSqlProvider.class, method = "findUsersByCondition")
+    @Results({
+            @Result(column = "open_id", property = "openId"),
+            @Result(column = "nick_name", property = "nickName"),
+            @Result(column = "icon_url", property = "iconUrl"),
+            @Result(column = "sex", property = "sex"),
+            @Result(column = "city", property = "city"),
+            @Result(column = "active_value", property = "activeValue"),
+            @Result(column = "register_time", property = "registerTime"),
+            @Result(column = "last_login_time", property = "lastLoginTime")})
+    List<User> findUserByIds(String userIds);
 }

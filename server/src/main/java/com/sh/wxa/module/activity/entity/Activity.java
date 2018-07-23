@@ -1,6 +1,7 @@
 package com.sh.wxa.module.activity.entity;
 
-import com.sh.wxa.module.activity.msg.po.ActivityPo;
+import com.sh.wxa.module.activity.msg.po.ActivityInfoPo;
+import com.sh.wxa.util.StringUtils;
 import com.sh.wxa.util.TimeUtil;
 import lombok.Data;
 
@@ -15,7 +16,7 @@ public class Activity {
     /**
      * 创建者id
      */
-    private String createUser;
+    private String createUserId;
     /**
      * 活动标题
      */
@@ -45,19 +46,24 @@ public class Activity {
      */
     private Date date;
 
-    public ActivityPo toInfo() {
-        ActivityPo info = new ActivityPo();
-        info.setActivityId(this.getId());
-        info.setCreateUser(this.getCreateUser());
-        info.setActivityTime(TimeUtil.toSeconds(this.getActivityTime()));
+    public ActivityInfoPo toInfo() {
+        ActivityInfoPo info = new ActivityInfoPo();
+        info.setActivityId(this.id);
+        info.setCreateUserId(this.createUserId);
+        info.setActivityTime(TimeUtil.toSeconds(this.activityTime));
+        info.setAddress(this.address);
+        info.setDescribe(this.describe);
+        info.setNumLimit(this.numLimit);
+        info.setTitle(this.title);
+        info.setJoinUsersNum(StringUtils.parseStringList(this.joinUsers).size());
         return info;
     }
 
-    public static Activity createEntity(ActivityPo info) {
+    public static Activity createEntity(ActivityInfoPo info) {
         Activity activity = new Activity();
         activity.setActivityTime(TimeUtil.secondsToDate(info.getActivityTime()));
         activity.setAddress(info.getAddress());
-        activity.setCreateUser(info.getCreateUser());
+        activity.setCreateUserId(info.getCreateUserId());
         activity.setDate(new Date());
         activity.setDescribe(info.getDescribe());
         activity.setNumLimit(info.getNumLimit());

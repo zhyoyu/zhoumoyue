@@ -56,5 +56,5 @@ CREATE TABLE `activity` (
   `num_limit` int(3) NOT NULL DEFAULT '0' COMMENT '报名人数限制(0 不限制)',
   `join_users` varchar(512) DEFAULT NULL COMMENT 'open_id;open_id;....',
   `create_time` datetime NOT NULL COMMENT '活动创建时间',
-  PRIMARY KEY (`activity_id`,`create_user`)
+  PRIMARY KEY (`activity_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动表';

@@ -1,13 +1,18 @@
 package com.sh.wxa.module.user;
 
+import com.google.common.collect.Lists;
 import com.sh.wxa.module.login.msg.LoginRequest;
 import com.sh.wxa.module.user.entity.User;
 import com.sh.wxa.module.user.mapper.UserMapper;
 import com.sh.wxa.onlinemanager.Session;
+import com.sh.wxa.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -59,4 +64,18 @@ public class UserServiceImpl implements UserService {
         return userMapper.countById(openId) > 0;
     }
 
+    @Override
+    public User findUserById(String openId) {
+        return userMapper.findById(openId);
+    }
+
+    @Override
+    public List<User> findUserByIds(List<String> userList) {
+        List<User> result = Lists.newArrayList();
+        if(!CollectionUtils.isEmpty(userList)) {
+            String userIds = StringUtils.toStringForList(userList, StringUtils.SPLIT_FLAG_DOU_HAO);
+            result.addAll(userMapper.findUserByIds(userIds));
+        }
+        return result;
+    }
 }

@@ -7,7 +7,9 @@ import java.util.List;
 
 public class StringUtils {
 
-    public static final String SPLIT_FLAG = ";";
+    public static final String SPLIT_FLAG_FENG_HAO = ";";
+
+    public static final String SPLIT_FLAG_DOU_HAO = ",";
 
     public static boolean isEmpty(String _string) {
         if (_string == null || _string.trim().length() == 0) {
@@ -20,7 +22,7 @@ public class StringUtils {
         if(isEmpty(str)) {
             return Lists.newArrayList();
         }
-        return Lists.newArrayList(str.split(SPLIT_FLAG));
+        return Lists.newArrayList(str.split(SPLIT_FLAG_FENG_HAO));
     }
 
     public static List<Long> parseLongList(String str) {
@@ -28,7 +30,7 @@ public class StringUtils {
         if(isEmpty(str)) {
             return list;
         }
-        String[] strArray = str.split(SPLIT_FLAG);
+        String[] strArray = str.split(SPLIT_FLAG_FENG_HAO);
         for(String s : strArray) {
             list.add(Long.parseLong(s));
         }
@@ -36,6 +38,10 @@ public class StringUtils {
     }
 
     public static String toStringForList(List<?> list) {
+        return toStringForList(list, SPLIT_FLAG_FENG_HAO);
+    }
+
+    public static String toStringForList(List<?> list, String splitFlag) {
         if (CollectionUtils.isEmpty(list)) {
             return "";
         }
@@ -43,11 +49,11 @@ public class StringUtils {
         for (Object o : list) {
             String string = o.toString();
             if (!isEmpty(string)) {
-                sb.append(string).append(SPLIT_FLAG);
+                sb.append(string).append(splitFlag);
             }
         }
         if (sb.length() > 1) {
-            sb.delete(sb.length() - SPLIT_FLAG.length(), sb.length());
+            sb.delete(sb.length() - splitFlag.length(), sb.length());
         }
         return sb.toString();
     }

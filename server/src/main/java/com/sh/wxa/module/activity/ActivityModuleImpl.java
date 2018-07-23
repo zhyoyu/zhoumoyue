@@ -11,6 +11,8 @@ import com.sh.wxa.module.activity.msg.CreateActivityRequest;
 import com.sh.wxa.onlinemanager.Session;
 import com.sh.wxa.util.OkResponse;
 
+import javax.xml.ws.Service;
+
 @Module
 public class ActivityModuleImpl implements ActivityModule {
 
@@ -27,7 +29,8 @@ public class ActivityModuleImpl implements ActivityModule {
 
     @Override
     public OkResponse deleteActivity(ActivityIdRequest request, Session session) {
-        return null;
+        Services.getActivityService().deleteActivity(session, request.getActivityId());
+        return OkResponse.OK_RESPONSE;
     }
 
     @Override
@@ -44,8 +47,7 @@ public class ActivityModuleImpl implements ActivityModule {
 
     @Override
     public ActivityInfoResponse getActivityInfo(ActivityIdRequest request, Session session) {
-
-        return null;
+        return Services.getActivityService().getActivityInfo(session, request.getActivityId());
     }
 
 }
