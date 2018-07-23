@@ -4,13 +4,13 @@ import com.google.common.collect.Lists;
 import com.sh.wxa.module.login.msg.LoginRequest;
 import com.sh.wxa.module.user.entity.User;
 import com.sh.wxa.module.user.mapper.UserMapper;
+import com.sh.wxa.module.user.msg.UserInfoResponse;
 import com.sh.wxa.onlinemanager.Session;
 import com.sh.wxa.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -77,5 +77,15 @@ public class UserServiceImpl implements UserService {
             result.addAll(userMapper.findUserByIds(userIds));
         }
         return result;
+    }
+
+    @Override
+    public UserInfoResponse getUserInfo(String openId) {
+        User user = userMapper.findById(openId);
+        UserInfoResponse resp = new UserInfoResponse();
+        resp.setOpenId(openId);
+        resp.setUserName(user.getNickName());
+        resp.setIconUrl(user.getIconUrl());
+        return resp;
     }
 }

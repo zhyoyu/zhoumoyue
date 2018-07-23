@@ -1,0 +1,9 @@
+<module name="user" class="com.sh.wxa.module.UserModule">
+    <method name="getUserInfo">
+        <toClient class="UserInfoResponse">
+            <field type="String" name="openId" desc="用户唯一id"/>
+            <field type="String" name="userName" desc="用户名"/>
+            <field type="String" name="iconUrl" desc="头像url"/>
+        </toClient>
+    </method>
+</module>

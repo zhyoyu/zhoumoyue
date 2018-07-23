@@ -2,6 +2,7 @@ package com.sh.wxa.module.user;
 
 import com.sh.wxa.module.login.msg.LoginRequest;
 import com.sh.wxa.module.user.entity.User;
+import com.sh.wxa.module.user.msg.UserInfoResponse;
 import com.sh.wxa.onlinemanager.Session;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface UserService {
     User findUserById(String openId);
 
     List<User> findUserByIds(List<String> userIds);
+
+    UserInfoResponse getUserInfo(String openId);
 }

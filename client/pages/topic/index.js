@@ -4,269 +4,272 @@ var uPt = require("../../utils/protocol.js")
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    x: wx.getStorageSync("move_width") - 60,
-    y: wx.getStorageSync("move_height") - 100,
-    move_width: wx.getStorageSync("move_width"),
-    move_height: wx.getStorageSync("move_height"),
-    indicatorDots: true,
-    circular: true,
-    interval: 5000,
-    autoPlay: true,
-    comment:false,
-    authorUid:0,
-    authorNickName:0,
-    topicid:0,
-    images: [
-      {
-        image: '/images/topic/swiper1.jpg',
-        title: "昨天"
-      },
-      {
-        image: '/images/topic/swiper2.jpg',
-        title: "今天"
-      },
-      {
-        image: '/images/topic/swiper3.jpg',
-        title: "明天"
-      }
-    ],
-    topicList: [],
-    like_icon: "../../images/topic/like.png",
-    no_like_icon: "../../images/topic/no_like.png",
-  },
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        x: wx.getStorageSync("move_width") - 60,
+        y: wx.getStorageSync("move_height") - 100,
+        move_width: wx.getStorageSync("move_width"),
+        move_height: wx.getStorageSync("move_height"),
+        indicatorDots: true,
+        circular: true,
+        interval: 5000,
+        autoPlay: true,
+        comment: false,
+        authorUid: 0,
+        authorNickName: 0,
+        topicid: 0,
+        images: [
+            {
+                image: '/images/topic/swiper1.jpg',
+                title: "昨天"
+            },
+            {
+                image: '/images/topic/swiper2.jpg',
+                title: "今天"
+            },
+            {
+                image: '/images/topic/swiper3.jpg',
+                title: "明天"
+            }
+        ],
+        topicList: [],
+        like_icon: "../../images/topic/like.png",
+        no_like_icon: "../../images/topic/no_like.png",
+    },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    // console.log("---------------1onLoad-------------------")
-    var that = this
-    var body = {
-      beginIndex: 0
-    }
-    wx.request({
-      url: uPt.serverUrl,
-      data: {
-        uid: wx.getStorageSync("openId"),
-        mod: uPt.pt.topic_2,
-        body: body
-      },
-      success: function (res) {
-        that.setData({
-          topicList: res.data.topicInfosList,
-        })
-      }
-    })
-
-    // wx.getSystemInfo({
-    //   success : function(res) {
-    //     that.setData ({
-    //       move_height : res.windowHeight,
-    //       move_width : res.windowWidth,
-    //       x : res.windowWidth - 50,
-    //       y: res.windowHeight - 50
-    //     })
-    //   }
-    // })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    // console.log("---------------3onReady-------------------")
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    console.log("---------------2onShow-------------------")
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    console.log("------------top刷新--------------")
-    wx.showNavigationBarLoading()
-    this.setData({
-      topicList: []
-    })
-    this.refresh("up");
-    setTimeout(function () { wx.hideNavigationBarLoading(); wx.stopPullDownRefresh(); }, 2000);
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-    console.log("------------bottom刷新--------------")
-    wx.showNavigationBarLoading();
-    var that = this;
-    setTimeout(function () { 
-      wx.hideNavigationBarLoading()
-      that.refresh("down")
-      }, 1000)
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-
-  refresh: function (dir) {
-    var that = this
-    var size = 0
-    var topicLength = this.data.topicList.length
-
-    wx.showToast({
-      title: '刷新中',
-      icon: 'loading',
-      duration: 3000
-    });
-    var body = {
-      beginIndex: topicLength
-    }
-    wx.request({
-      url: uPt.serverUrl,
-      data: {
-        uid: wx.getStorageSync("openId"),
-        mod: uPt.pt.topic_2,
-        body: body
-      },
-      success: function (res) {
-        if(res.data.topicInfosList.length > 0) {
-        that.setData({
-          topicList: that.data.topicList.concat(res.data.topicInfosList),
-        });
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        // console.log("---------------1onLoad-------------------")
+        var that = this
+        var body = {
+            beginIndex: 0
         }
-      }
-    });
-    setTimeout(function () {
-      if (dir == "down" && topicLength == that.data.topicList.length) {
+        wx.request({
+            url: uPt.serverUrl,
+            data: {
+                uid: wx.getStorageSync("openId"),
+                mod: uPt.pt.topic_2,
+                body: body
+            },
+            success: function (res) {
+                that.setData({
+                    topicList: res.data.topicInfosList,
+                })
+            }
+        })
+
+        // wx.getSystemInfo({
+        //   success : function(res) {
+        //     that.setData ({
+        //       move_height : res.windowHeight,
+        //       move_width : res.windowWidth,
+        //       x : res.windowWidth - 50,
+        //       y: res.windowHeight - 50
+        //     })
+        //   }
+        // })
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+        // console.log("---------------3onReady-------------------")
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        console.log("---------------2onShow-------------------")
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+        console.log("------------top刷新--------------")
+        wx.showNavigationBarLoading()
+        this.setData({
+            topicList: []
+        })
+        this.refresh("up");
+        setTimeout(function () {
+            wx.hideNavigationBarLoading();
+            wx.stopPullDownRefresh();
+        }, 2000);
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+        console.log("------------bottom刷新--------------")
+        wx.showNavigationBarLoading();
+        var that = this;
+        setTimeout(function () {
+            wx.hideNavigationBarLoading()
+            that.refresh("down")
+        }, 1000)
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    },
+
+    refresh: function (dir) {
+        var that = this
+        var size = 0
+        var topicLength = this.data.topicList.length
+
         wx.showToast({
-          title: '我是有底线的',
-          icon: 'none',
-          duration: 2000
+            title: '刷新中',
+            icon: 'loading',
+            duration: 3000
+        });
+        var body = {
+            beginIndex: topicLength
+        }
+        wx.request({
+            url: uPt.serverUrl,
+            data: {
+                uid: wx.getStorageSync("openId"),
+                mod: uPt.pt.topic_2,
+                body: body
+            },
+            success: function (res) {
+                if (res.data.topicInfosList.length > 0) {
+                    that.setData({
+                        topicList: that.data.topicList.concat(res.data.topicInfosList),
+                    });
+                }
+            }
+        });
+        setTimeout(function () {
+            if (dir == "down" && topicLength == that.data.topicList.length) {
+                wx.showToast({
+                    title: '我是有底线的',
+                    icon: 'none',
+                    duration: 2000
+                })
+            } else {
+                wx.showToast({
+                    title: '刷新成功',
+                    icon: 'success',
+                    duration: 2000
+                })
+            }
+        }, 3000)
+    },
+
+    /**
+     * 创建话题
+     */
+    createTopic: function () {
+        wx.navigateTo({
+            url: 'create/index',
         })
-      } else {
-      wx.showToast({
-        title: '刷新成功',
-        icon: 'success',
-        duration: 2000
-      })
-    }
-    }, 3000)
-  },
+    },
 
- /**
- * 创建话题
- */
-  createTopic: function () {
-    wx.navigateTo({
-      url: 'create/index',
-    })
-  },
+    /**
+     * 点赞
+     */
+    like: function (e) {
+        var that = this
+        var idx = e.currentTarget.dataset.idx
+        var topicId = e.currentTarget.dataset.topicId
+        var like = this.data.topicList[idx].like == 0 ? 1 : 0
 
-  /**
-   * 点赞
-   */
-  like: function (e) {
-    var that = this
-    var idx = e.currentTarget.dataset.idx
-    var topicId = e.currentTarget.dataset.topicId
-    var like = this.data.topicList[idx].like == 0 ? 1 : 0
+        var body = {
+            topicId: topicId,
+            onOffLike: like
+        }
+        wx.request({
+            url: uPt.serverUrl,
+            data: {
+                uid: wx.getStorageSync("openId"),
+                mod: uPt.pt.topic_3,
+                body: body
+            },
+            success: function (res) {
+                that.setData({
+                    ['topicList[' + idx + '].like']: like
+                })
+            }
+        });
+    },
 
-    var body = {
-      topicId: topicId,
-      onOffLike: like
-    }
-    wx.request({
-      url: uPt.serverUrl,
-      data: {
-        uid: wx.getStorageSync("openId"),
-        mod: uPt.pt.topic_3,
-        body: body
-      },
-      success: function (res) {
-        that.setData({
-          ['topicList[' + idx + '].like']: like
+    /**
+     * 评论
+     */
+    comment: function (e) {
+        // var that = this
+        var authoruid = e.currentTarget.dataset.authoruid
+        var authornickname = e.currentTarget.dataset.authornickname
+        console.log(authornickname);
+        this.setData({
+            comment: this.data.comment == true ? false : true,
+            authorUid: authoruid,
+            authorNickName: authornickname,
+            topicId: e.currentTarget.dataset.topicid
         })
-      }
-    });
-  },
-
-/**
- * 评论
- */
-  comment: function (e) {
-   // var that = this
-    var authoruid = e.currentTarget.dataset.authoruid
-    var authornickname = e.currentTarget.dataset.authornickname
-    console.log(authornickname);
-    this.setData({
-      comment: this.data.comment == true ? false : true,
-      authorUid: authoruid,
-      authorNickName: authornickname,
-      topicId: e.currentTarget.dataset.topicid
-    })
-    console.log("---------" + e + "评论---------")
-  },
-/**
- * 发送评论
- */
-  bindFormSubmit: function (e) {
-    // var that = this
-    var content = e.detail.value.content
-    //var authoruid = e.currentTarget.dataset.authoruid
-    //var authornickname = e.currentTarget.dataset.authornickname
-    var replyid = wx.getStorageSync("openId")
-    var userInfo = wx.getStorageSync("userInfo")
-    this.setData({
-      comment: false
-    })
-    var body = {
-      commentInfo: {
-        topicId: this.data.topicId,
-        commentUserId: replyid,
-        commentUserName: userInfo.nickName,
-        content: content,
-        replyUserId: this.data.authorUid,
-        replyUserName: this.data.authorNickName
-      }
+        console.log("---------" + e + "评论---------")
+    },
+    /**
+     * 发送评论
+     */
+    bindFormSubmit: function (e) {
+        // var that = this
+        var content = e.detail.value.content
+        //var authoruid = e.currentTarget.dataset.authoruid
+        //var authornickname = e.currentTarget.dataset.authornickname
+        var replyid = wx.getStorageSync("openId")
+        var userInfo = wx.getStorageSync("userInfo")
+        this.setData({
+            comment: false
+        })
+        var body = {
+            commentInfo: {
+                topicId: this.data.topicId,
+                commentUserId: replyid,
+                commentUserName: userInfo.nickName,
+                content: content,
+                replyUserId: this.data.authorUid,
+                replyUserName: this.data.authorNickName
+            }
+        }
+        console.log(body);
+        wx.request({
+            url: uPt.serverUrl,
+            data: {
+                uid: wx.getStorageSync("openId"),
+                mod: uPt.pt.topic_4,
+                body: body
+            },
+            success: function (res) {
+            }
+        });
+        console.log("---------" + e + "评论---------")
     }
-    console.log(body);
-    wx.request({
-      url: uPt.serverUrl,
-      data: {
-        uid: wx.getStorageSync("openId"),
-        mod: uPt.pt.topic_4,
-        body: body
-      },
-      success: function (res) {
-      }
-    });
-    console.log("---------" + e + "评论---------")
-  }
 })

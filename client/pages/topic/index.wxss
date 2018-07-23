@@ -214,5 +214,5 @@ swiper .filter text {
 }
 
 movable-area {
-  overflow: hidden;
+  overflow: scroll;
 }
