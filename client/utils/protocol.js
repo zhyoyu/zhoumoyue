@@ -1,4 +1,4 @@
-const url = "https://075b1d4f.ngrok.io"
+const url = "https://466980d8.ngrok.io"
 const serverUrl = url + "/wxaserver/module"
 const upLoadFileUrl = url + "/wxaserver/upLoadFile"
 // serverUrl: "http://localhost:8089/wxaserver",

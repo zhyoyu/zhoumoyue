@@ -29,6 +29,10 @@ public class ActivityInfoPo implements Message {
      */
     protected String title;
     /**
+     * 活动封面图片
+     */
+    protected String imageUrl;
+    /**
      * 活动地址
      */
     protected String address;

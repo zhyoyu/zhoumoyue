@@ -30,7 +30,10 @@ public class ActivitySpecificInfoPo extends ActivityInfoPo implements Message {
         this.activityId = activity.getId();
         this.activityTime = TimeUtil.toSeconds(activity.getActivityTime());
         this.address = activity.getAddress();
+        this.imageUrl = activity.getImageUrl();
         this.createUserId = activity.getCreateUserId();
+        this.createUserName = activity.getCreateUserName();
+        this.createUserIcon = activity.getCreateUserIcon();
         this.describe = activity.getDescribe();
         this.numLimit = activity.getNumLimit();
         this.title = activity.getTitle();

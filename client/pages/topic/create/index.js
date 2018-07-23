@@ -143,6 +143,9 @@ Page({
       url: uPt.upLoadFileUrl,
       filePath: images[i],
       name: 'image' + (i + 1),
+      formData: {
+        'type': 1
+      },
       success: function (res) {
         var data = res.data
         //do something

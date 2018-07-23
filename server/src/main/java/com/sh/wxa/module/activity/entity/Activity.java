@@ -18,9 +18,21 @@ public class Activity {
      */
     private String createUserId;
     /**
+     * 创建者昵称
+     */
+    private String createUserName;
+    /**
+     * 创建者头像
+     */
+    private String createUserIcon;
+    /**
      * 活动标题
      */
     private String title;
+    /**
+     * 活动封面图片
+     */
+    private String imageUrl;
     /**
      * 活动地址
      */
@@ -44,14 +56,17 @@ public class Activity {
     /**
      * 创建时间
      */
-    private Date date;
+    private Date createTime;
 
     public ActivityInfoPo toInfo() {
         ActivityInfoPo info = new ActivityInfoPo();
         info.setActivityId(this.id);
         info.setCreateUserId(this.createUserId);
+        info.setCreateUserName(this.createUserName);
+        info.setCreateUserIcon(this.createUserIcon);
         info.setActivityTime(TimeUtil.toSeconds(this.activityTime));
         info.setAddress(this.address);
+        info.setImageUrl(this.imageUrl);
         info.setDescribe(this.describe);
         info.setNumLimit(this.numLimit);
         info.setTitle(this.title);
@@ -63,8 +78,11 @@ public class Activity {
         Activity activity = new Activity();
         activity.setActivityTime(TimeUtil.secondsToDate(info.getActivityTime()));
         activity.setAddress(info.getAddress());
+        activity.setImageUrl(info.getImageUrl());
         activity.setCreateUserId(info.getCreateUserId());
-        activity.setDate(new Date());
+        activity.setCreateUserName(info.getCreateUserName());
+        activity.setCreateUserIcon(info.getCreateUserIcon());
+        activity.setCreateTime(new Date());
         activity.setDescribe(info.getDescribe());
         activity.setNumLimit(info.getNumLimit());
         activity.setTitle(info.getTitle());

@@ -31,7 +31,8 @@ public class ActivityServiceImpl implements ActivityService {
         ActivityListResponse resp = new ActivityListResponse();
         List<ActivityInfoPo> activityInfoList = resp.getActivityInfoList();
         for (Activity activity : activityList) {
-            activityInfoList.add(activity.toInfo());
+            ActivityInfoPo info = activity.toInfo();
+            activityInfoList.add(info);
         }
         return resp;
     }
@@ -99,9 +100,6 @@ public class ActivityServiceImpl implements ActivityService {
             return resp;
         }
         info.build(activity);
-        User createUser = Services.getUserService().findUserById(activity.getCreateUserId());
-        info.setCreateUserIcon(createUser.getIconUrl());
-        info.setCreateUserName(createUser.getNickName());
         List<String> joinUsers = StringUtils.parseStringList(activity.getJoinUsers());
         if(joinUsers.size() > 0) {
             List<User> userList = Services.getUserService().findUserByIds(joinUsers);

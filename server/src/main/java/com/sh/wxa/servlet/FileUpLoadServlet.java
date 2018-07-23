@@ -52,7 +52,6 @@ public class FileUpLoadServlet extends HttpServlet {
             if (filename != null) {
                 readFile(savePath, imageFile, filename);
                 imageUrl = getTopicImageRemoteSavePath(ymd, upLoadType) + "/" + filename;
-                System.out.println("image:" + imageUrl);
             }
 
 //            for (FileItem item : list) {
@@ -116,7 +115,7 @@ public class FileUpLoadServlet extends HttpServlet {
         File file = new File(localFilePath);
         //判断上传文件的保存目录是否存在
         if (!file.exists() && !file.isDirectory()) {
-            System.out.println(localFilePath + "目录不存在，需要创建");
+            log.info("创建" + localFilePath + "目录");
             //创建目录
             file.mkdirs();
         }

@@ -47,14 +47,16 @@ CREATE TABLE `topic_info` (
 
 DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
-  `activity_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '活动id',
-  `create_user` varchar(20) NOT NULL COMMENT '活动创建者(用户唯一标识id)',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '活动id',
+  `create_user_id` varchar(20) NOT NULL COMMENT '活动创建者(用户唯一标识id)',
   `title` varchar(20) NOT NULL COMMENT '活动标题',
+  `image_url` varchar(128) DEFAULT NULL COMMENT '活动封面图片',
   `address` varchar(256) NOT NULL COMMENT '活动地址',
   `describe` varchar(512) NOT NULL COMMENT '活动描述',
   `activity_time` datetime NOT NULL COMMENT '活动时间',
   `num_limit` int(3) NOT NULL DEFAULT '0' COMMENT '报名人数限制(0 不限制)',
   `join_users` varchar(512) DEFAULT NULL COMMENT 'open_id;open_id;....',
   `create_time` datetime NOT NULL COMMENT '活动创建时间',
-  PRIMARY KEY (`activity_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动表';
+

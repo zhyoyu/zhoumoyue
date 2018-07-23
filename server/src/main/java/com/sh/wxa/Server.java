@@ -24,7 +24,7 @@ public class Server {
 
     private static volatile ApplicationContext context;
 
-    private static Properties config = null;
+    private static Properties config;
 
     public static class ContextListener implements ServletContextListener {
 
@@ -73,7 +73,7 @@ public class Server {
     }
 
     //停服
-    public static void stop() {
+    private static void stop() {
         state = State.STOPPING;
         state = State.STOPPED;
     }

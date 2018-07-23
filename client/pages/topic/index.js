@@ -9,7 +9,7 @@ Page({
    */
   data: {
     x: wx.getStorageSync("move_width") - 60,
-    y: wx.getStorageSync("move_height") - 60,
+    y: wx.getStorageSync("move_height") - 100,
     move_width: wx.getStorageSync("move_width"),
     move_height: wx.getStorageSync("move_height"),
     indicatorDots: true,

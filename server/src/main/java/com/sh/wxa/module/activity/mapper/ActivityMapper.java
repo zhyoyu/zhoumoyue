@@ -1,7 +1,6 @@
 package com.sh.wxa.module.activity.mapper;
 
 import com.sh.wxa.module.activity.entity.Activity;
-import com.sh.wxa.module.topic.entity.TopicInfo;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -15,10 +14,10 @@ import java.util.List;
 
 public interface ActivityMapper {
 
-    @Insert("INSERT INTO activity (CREATE_USER_ID,TITLE,ADDRESS,DESCRIBE,ACTIVITY_TIME,NUM_LIMIT,JOIN_USERS,CREATE_TIME) VALUES (#{createUserId},#{title},#{address},#{describe},#{activityTime},#{numLimit},#{joinUsers},#{createTime})")
+    @Insert("INSERT INTO activity (CREATE_USER_ID,CREATE_USER_NAME,CREATE_USER_ICON,TITLE,ADDRESS,DESCRIBE,ACTIVITY_TIME,NUM_LIMIT,JOIN_USERS,CREATE_TIME) VALUES (#{createUserId},#{createUserName},#{createUserIcon},#{title},#{address},#{describe},#{activityTime},#{numLimit},#{joinUsers},#{createTime})")
     void add(Activity activity);
 
-    @Update("UPDATE activity SET CREATE_USER_ID = #{createUserId}, TITLE = #{title}, ADDRESS = #{address}, DESCRIBE = #{describe}, ACTIVITY_TIME =#{activityTime}, NUM_LIMIT =#{numLimit}, JOIN_USERS = #{joinUsers} WHERE ID = #{id}")
+    @Update("UPDATE activity SET CREATE_USER_ID = #{createUserId}, CREATE_USER_NAME = #{createUserName}, CREATE_USER_ICON = #{createUserIcon}, TITLE = #{title}, ADDRESS = #{address}, DESCRIBE = #{describe}, ACTIVITY_TIME =#{activityTime}, NUM_LIMIT =#{numLimit}, JOIN_USERS = #{joinUsers} WHERE ID = #{id}")
     void update(Activity activity);
 
     @Delete("DELETE FROM activity WHERE ID = #{activityId}")
@@ -35,13 +34,15 @@ public interface ActivityMapper {
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "create_user_id", property = "createUserId"),
+            @Result(column = "create_user_name", property = "createUserName"),
+            @Result(column = "create_user_icon", property = "createUserIcon"),
             @Result(column = "title", property = "title"),
             @Result(column = "address", property = "address"),
             @Result(column = "describe", property = "describe"),
             @Result(column = "activity_time", property = "activityTime"),
             @Result(column = "num_limit", property = "numLimit"),
             @Result(column = "join_users", property = "joinUsers"),
-            @Result(column = "date", property = "date") })
+            @Result(column = "create_time", property = "createTime") })
     List<Activity> findByCondition(
             @Param("index") Integer index,
             @Param("pageSize") Integer pageSize

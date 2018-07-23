@@ -6,6 +6,7 @@
         <field type="String" name="createUserName" desc="创建者用户名"/>
         <field type="String" name="createUserIcon" desc="创建者头像"/>
         <field type="String" name="title" desc="活动标题"/>
+        <field type="String" name="imageUrl" desc="活动封面图片地址"/>
         <field type="String" name="address" desc="活动地址"/>
         <field type="String" name="describe" desc="活动描述"/>
         <field type="int" name="numLimit" desc="人数限制"/>
@@ -18,6 +19,7 @@
         <field type="String" name="createUserName" desc="创建者用户名"/>
         <field type="String" name="createUserIcon" desc="创建者头像"/>
         <field type="String" name="title" desc="活动标题"/>
+        <field type="String" name="imageUrl" desc="活动封面图片地址"/>
         <field type="String" name="address" desc="活动地址"/>
         <field type="String" name="describe" desc="活动描述"/>
         <field type="int" name="numLimit" desc="人数限制"/>
