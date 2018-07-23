@@ -2,6 +2,7 @@ package com.sh.wxa.servlet;
 
 import com.sh.wxa.Server;
 import com.sh.wxa.constants.AppConstants;
+import com.sh.wxa.constants.UpLoadType;
 import com.sh.wxa.util.StringUtils;
 import com.sh.wxa.util.TimeUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -23,12 +24,6 @@ import java.util.List;
 public class FileUpLoadServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        final String ymd = TimeUtil.getYMDTimeString(new Date());
-        final String savePath = getTopicImageLocalSavePath(ymd);
-
-        //创建保存文件路径
-        createFilePath(savePath);
-
         String imageUrl = "";
         try {
             //使用Apache文件上传组件处理文件上传步骤：
@@ -46,22 +41,36 @@ public class FileUpLoadServlet extends HttpServlet {
 
             //4、使用ServletFileUpload解析器解析上传数据，解析结果返回的是一个List<FileItem>集合，每一个FileItem对应一个Form表单的输入项
             List<FileItem> list = upload.parseRequest(req);
-            for (FileItem item : list) {
-                if (item.isFormField()) {
-                    //普通数据
-                    String name = item.getFieldName();
-                    //解决普通输入项的数据的中文乱码问题
-                    String value = item.getString("UTF-8");
-                    System.out.println(name + "=" + value);
-                } else {
-                    //上传文件
-                    String filename = getFileName(item);
-                    if (filename == null) continue;
-                    readFile(savePath, item, filename);
-                    imageUrl = getTopicImageRemoteSavePath(ymd) + "/" + filename;
-                    System.out.println("image:" + imageUrl);
-                }
+            //创建保存文件路径
+            final String ymd = TimeUtil.getYMDTimeString(new Date());
+            UpLoadType upLoadType = UpLoadType.valueOf(Integer.parseInt(list.get(0).getString("UTF-8")));
+            final String savePath = getTopicImageLocalSavePath(ymd, upLoadType);
+
+            //上传文件
+            FileItem imageFile = list.get(1);
+            String filename = getFileName(imageFile);
+            if (filename != null) {
+                readFile(savePath, imageFile, filename);
+                imageUrl = getTopicImageRemoteSavePath(ymd, upLoadType) + "/" + filename;
+                System.out.println("image:" + imageUrl);
             }
+
+//            for (FileItem item : list) {
+//                if (item.isFormField()) {
+//                    //普通数据
+//                    String name = item.getFieldName();
+//                    //解决普通输入项的数据的中文乱码问题
+//                    String value = item.getString("UTF-8");
+//                    System.out.println(name + "=" + value);
+//                } else {
+//                    //上传文件
+//                    String filename = getFileName(item);
+//                    if (filename == null) continue;
+//                    readFile(savePath, item, filename);
+//                    imageUrl = getTopicImageRemoteSavePath(ymd) + "/" + filename;
+//                    System.out.println("image:" + imageUrl);
+//                }
+//            }
             resp.setHeader("Cache-Control", "no-cache");
             resp.getOutputStream().write(imageUrl.getBytes(AppConstants.CHARSET_UTF8));
         } catch (Exception e) {
@@ -69,20 +78,10 @@ public class FileUpLoadServlet extends HttpServlet {
         }
     }
 
-    private void createFilePath(String savePath) {
-        File file = new File(savePath);
-        //判断上传文件的保存目录是否存在
-        if (!file.exists() && !file.isDirectory()) {
-            System.out.println(savePath + "目录不存在，需要创建");
-            //创建目录
-            file.mkdir();
-        }
-    }
-
     //得到上传的文件名
     private String getFileName(FileItem item) {
         String filename = item.getName();
-        if(StringUtils.isEmpty(filename)) {
+        if (StringUtils.isEmpty(filename)) {
             return null;
         }
         //注意：不同的浏览器提交的文件名是不一样的，有些浏览器提交上来的文件名是带有路径的，如：  c:\a\b\1.txt，而有些只是单纯的文件名，如：1.txt
@@ -112,11 +111,19 @@ public class FileUpLoadServlet extends HttpServlet {
         item.delete();
     }
 
-    public static String getTopicImageLocalSavePath(String ymd) {
-        return Server.getProperty(AppConstants.UPLOAD_LOCAL_URL) + "/" + ymd;
+    private static String getTopicImageLocalSavePath(String ymd, UpLoadType upLoadType) {
+        String localFilePath = Server.getProperty(AppConstants.UPLOAD_LOCAL_URL) + "/" + upLoadType.getFileName() + "/" + ymd;
+        File file = new File(localFilePath);
+        //判断上传文件的保存目录是否存在
+        if (!file.exists() && !file.isDirectory()) {
+            System.out.println(localFilePath + "目录不存在，需要创建");
+            //创建目录
+            file.mkdirs();
+        }
+        return localFilePath;
     }
 
-    public static String getTopicImageRemoteSavePath(String ymd) {
-        return Server.getProperty(AppConstants.UPLOAD_REMOTE_URL) + "/" + ymd;
+    private static String getTopicImageRemoteSavePath(String ymd, UpLoadType upLoadType) {
+        return Server.getProperty(AppConstants.UPLOAD_REMOTE_URL) + "/" + upLoadType.getFileName() + "/" + ymd;
     }
 }
