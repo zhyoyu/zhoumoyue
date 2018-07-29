@@ -14,35 +14,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // var that = this;
-    // var userBasicInfo = {
-    //   openId: 'yc_1',
-    //   userName: '言辰',
-    //   sex: '男',
-    //   city: '杭州'
-    // }
-    // var mod = 'login.login';
-    // var body = {
-    //   memo: 'hello'
-    // }
-    // wx.request({
-    //   url: bsurl,
-    //   data: {
-    //     ubi: userBasicInfo,
-    //     mod: mod,
-    //     body: body
-    //   },
-    //   success: function (res) {
-    //     // that.setData({
-    //     //   subcount: res.data
-    //     // });
-    //     that.setData({
-    //       userBasicInfo: res
-    //     })
-    //     console.log(userBasicInfo);
-    //   }
-    // });
-    // this.getUserInfo();
+    let userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userBasicInfo: userInfo
+    })
+
+    // nickName: userBasicInfo.nickName,
+    //   sex: userBasicInfo.gender,
+    //   city: userBasicInfo.city,
+    //   iconUrl: userBasicInfo.avatarUrl
   },
 
   /**

@@ -3,53 +3,83 @@
 const app = getApp()
 
 Page({
-  data: {
-    motto: '你好！',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
+    data: {
+      leftItems: [{ pic: "../../images/activity/1.jpg", height: 0 }, { pic: "../../images/activity/2.jpg", height: 0 }, { pic: "../../images/activity/3.jpg", height: 0 }, { pic: "../../images/activity/4.jpg", height: 0 }, { pic: "../../images/activity/5.jpg", height: 0 }, { pic: "../../images/activity/6.jpg", height: 0 }, { pic: "../../images/activity/7.jpg", height: 0 }],
+      rightItems: [{ pic: "../../images/activity/11.jpg", height: 0 }, { pic: "../../images/activity/14.jpg", height: 0 }, { pic: "../../images/activity/8.jpg", height: 0 }, { pic: "../../images/activity/9.jpg", height: 0 }, { pic: "../../images/activity/10.jpg", height: 0 }, { pic: "../../images/activity/13.jpg", height: 0 }, { pic: "../../images/activity/12.jpg", height: 0 }],
+      ITEM_WIDTH: wx.getStorageSync("win_width") * 0.48,
+      ITEM_HEIGHT: wx.getStorageSync("win_width") * 0.6,
+      img_height_rate: 0.65,
+      img_height:0,
+    },
+    onLoad: function (options) {
       this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+        img_height: this.data.ITEM_WIDTH * this.data.img_height_rate
       })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+    },
+    onReady: function () {
+        // 页面渲染完成
+
+    },
+    onShow: function () {
+        // 页面显示
+
+    },
+    onHide: function () {
+        // 页面隐藏
+
+    },
+    onUnload: function () {
+        // 页面关闭
+
     }
-  },
-   getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    // this.setData({
-    //   userInfo: e.detail.userInfo,
-    //   hasUserInfo: true
-    // })
-    wx.setStorageSync('userInfo', e.detail.userInfo)
-  }
+    // loadimg: function (e) {//图片加载完成执行
+    //     var index = e.currentTarget.id;
+    //     console.log(index)
+    //     var oImageIndex = this.data.oImageIndex;
+    //     var tempIndex = 0;
+    //     for (var i = 0; i < oImageIndex.length; i++) {
+    //         if (oImageIndex[i] == index) {
+    //             tempIndex = i;
+    //             break;
+    //         }
+    //     }
+    //     var imgWidth = this.data.imgWidth;//图片设置的宽度
+    //     var oImgW = e.detail.width;//图片原始宽度
+    //     var scal = imgWidth / oImgW;//比例计算
+    //     var oImgH = e.detail.height;//图片原始高度
+    //     var _imgHeight = oImgH * scal;//自适应高度
+    //     var images = this.data.images;
+    //     images[index].height = _imgHeight;
+    //     oImageIndex.splice(tempIndex, 1);
+    //     this.setData({
+    //         oImageIndex: oImageIndex,
+    //         images: images
+    //     })
+
+    //     var oneimages = this.data.oneimages;
+    //     var twoimages = this.data.twoimages;
+    //     if (oImageIndex.length == 0) { //当加载完最后一张图片执行
+    //         var oneImageH = 0;
+    //         var twoImageH = 0;
+    //         for (var i = 0; i < images.length; i++) {
+    //             if (i > 0) { //第一张除外
+    //                 if (oneImageH > twoImageH) {
+    //                     twoImageH += images[i].height;
+    //                     twoimages.push(images[i]);
+    //                 } else {
+    //                     oneImageH += images[i].height;
+    //                     oneimages.push(images[i]);
+    //                 }
+    //             } else {
+    //                 oneImageH += images[i].height;
+    //                 oneimages.push(images[i])
+    //             }
+    //         }
+    //     }
+
+    //     this.setData({
+    //         oneimages: oneimages,
+    //         twoimages: twoimages
+    //     })
+    // }
 })

@@ -8,10 +8,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        x: wx.getStorageSync("move_width") - 60,
-        y: wx.getStorageSync("move_height") - 100,
-        move_width: wx.getStorageSync("move_width"),
-        move_height: wx.getStorageSync("move_height"),
+        x: wx.getStorageSync("win_width") - 60,
+        y: wx.getStorageSync("win_height") - 100,
+        move_width: wx.getStorageSync("win_width"),
+        move_height: wx.getStorageSync("win_height"),
         indicatorDots: true,
         circular: true,
         interval: 5000,
@@ -61,17 +61,6 @@ Page({
                 })
             }
         })
-
-        // wx.getSystemInfo({
-        //   success : function(res) {
-        //     that.setData ({
-        //       move_height : res.windowHeight,
-        //       move_width : res.windowWidth,
-        //       x : res.windowWidth - 50,
-        //       y: res.windowHeight - 50
-        //     })
-        //   }
-        // })
     },
 
     /**
@@ -242,6 +231,8 @@ Page({
     bindFormSubmit: function (e) {
         // var that = this
         var content = e.detail.value.content
+        var idx = e.currentTarget.dataset.idx
+        console.log("评论：" + content)
         //var authoruid = e.currentTarget.dataset.authoruid
         //var authornickname = e.currentTarget.dataset.authornickname
         var replyid = wx.getStorageSync("openId")
@@ -268,6 +259,9 @@ Page({
                 body: body
             },
             success: function (res) {
+              if(res.ok == 1) {
+
+              }
             }
         });
         console.log("---------" + e + "评论---------")

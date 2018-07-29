@@ -1,2 +1,11 @@
 <!--pages/me/index.wxml-->
-<view>暂时没有内容哦</view>
+<view class="me">
+  <view class="me_basic">
+    <image src="../../images/activity/10.jpg"/>
+    <view class="me_text">
+      <view>昵称：<text>{{userBasicInfo.nickName}}</text></view>
+      <view>级别：<text>社区达人</text></view>
+    </view>
+    <!-- <view class="me_icon"><image src="{{userBasicInfo.avatarUrl}}"/></view> -->
+  </view>
+</view>

@@ -1,13 +1,44 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<scroll-view  scroll-y="true" style="height:{{scroll_H}}rpx;background:#F8F8FF;">
+  <view style="width:100%">
+        <view class="activity_item">
+         <view wx:for="{{leftItems}}" wx:key="index" >
+              <view style="height:{{ITEM_HEIGHT}}px;border: 1rpx solid green;">
+                <image  id="{{index}}" src="{{item.pic}}" data-item="1" style="width:94%;height:{{img_height}}px;margin: 3% 1.5% 0 3%;"></image>
+                  <view class="activity_details">
+                    <view class="user_info">
+                      <image class="icon" src="../../images/login_icon.jpg"/>
+                    </view>
+                    <view class="activity_info">
+                        <text style="display: block;"><text>活动：</text><text class="activity_content">爬山</text></text>
+                        <text style="display: block;"><text>时间：</text><text class="activity_content">2018.7.25 08:00</text></text>
+                        <text style="display: block;"><text>地点：</text><text class="activity_content">闽清五台山</text></text>
+                    </view>
+                    <view class="activity_memo">
+                        <text style="display: block;"><text>活动描述：</text><text style="font-weight:100;">周末进行登山活动。</text></text>
+                    </view>
+                  </view>
+              </view>
+         </view>
+        </view>
+        <view class="activity_item">
+          <view wx:for="{{rightItems}}" wx:key="index">
+<view style="height:{{ITEM_HEIGHT}}px;border: 1rpx solid green;">
+                <image  id="{{index}}" src="{{item.pic}}" data-item="1" style="width:94%;height:{{img_height}}px;margin: 3% 1.5% 0 3%;"></image>
+                  <view class="activity_details">
+                    <view class="user_info">
+                      <image class="icon" src="../../images/login_icon.jpg"/>
+                    </view>
+                    <view class="activity_info">
+                        <text style="display: block;"><text>活动：</text><text class="activity_content">爬山</text></text>
+                        <text style="display: block;"><text>时间：</text><text class="activity_content">2018.7.25 08:00</text></text>
+                        <text style="display: block;"><text>地点：</text><text class="activity_content">闽清五台山</text></text>
+                    </view>
+                    <view class="activity_memo">
+                        <text style="display: block;"><text>活动描述：</text><text style="font-weight:100;">周末进行登山活动。</text></text>
+                    </view>
+                  </view>
+              </view>
+          </view>
+        </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>
+</scroll-view>

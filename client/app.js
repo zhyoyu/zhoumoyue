@@ -64,8 +64,8 @@ App({
     })
     wx.getSystemInfo({
       success: function (res) {
-        wx.setStorageSync('move_height', res.windowHeight)
-        wx.setStorageSync('move_width', res.windowWidth)
+        wx.setStorageSync('win_width', res.windowWidth)
+        wx.setStorageSync('win_height', res.windowHeight)
       }
     })
   },

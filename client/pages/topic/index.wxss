@@ -81,7 +81,7 @@ swiper .filter text {
   font-weight: bolder;
   vertical-align: middle;
   margin: 0 0 0 10rpx;
-  font-size: 30rpx;
+  font-size: 28rpx;
 }
 
 .container .feed-talk .feed-source .item-attention{
@@ -215,4 +215,6 @@ swiper .filter text {
 
 movable-area {
   overflow: scroll;
+  /* height: {{move_height}}px; */
+  /* width: {{move_width}}px; */
 }
