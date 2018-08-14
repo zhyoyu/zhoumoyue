@@ -1,11 +1,36 @@
 <!--pages/me/index.wxml-->
 <view class="me">
   <view class="me_basic">
-    <image src="../../images/activity/10.jpg"/>
+    <image src="{{userBasicInfo.avatarUrl}}"/>
     <view class="me_text">
       <view>昵称：<text>{{userBasicInfo.nickName}}</text></view>
       <view>级别：<text>社区达人</text></view>
     </view>
+
+    <view style="font-size:30rpx;text-align:center;">
+      <view  style='float:left;width:25%'><text>1</text></view>
+      <view  style='float:left;width:25%'><text>2</text></view>
+      <view  style='float:left;width:25%'><text>3</text></view>
+      <view  style='float:left;width:25%'><text>4</text></view>
+    </view>
+    <view style="font-size:30rpx;text-align:center;">
+      <view  style='float:left;width:25%'><text>发布活动</text></view>
+      <view  style='float:left;width:25%'><text>发布话题</text></view>
+      <view  style='float:left;width:25%'><text>关注</text></view>
+      <view  style='float:left;width:25%'><text>粉丝</text></view>
+    </view>
     <!-- <view class="me_icon"><image src="{{userBasicInfo.avatarUrl}}"/></view> -->
   </view>
+</view>
+
+<view class="activity_item">
+  <view class="item"><image src="../../images/me/1.png"/><text>活动动态</text><view style='margin:0 5% 0 50%;'><image src="../../images/me/7.png"/></view></view>
+  <view class="item"><image src="../../images/me/6.png"/><text>发布的活动</text><view style='margin:0 0 0 45.5%;'><image src="../../images/me/7.png"/></view></view>
+  <view class="item"><image src="../../images/me/4.png"/><text>参与的活动</text><view style='margin:0 0 0 45.5%;'><image src="../../images/me/7.png"/></view></view>
+</view>
+
+<view class="activity_item">
+  <view class="item"><image src="../../images/me/1.png"/><text>话题动态</text><view style='margin:0 0 0 50%;'><image src="../../images/me/7.png"/></view></view>
+  <view class="item"><image src="../../images/me/6.png"/><text>我的话题</text><view style='margin:0 0 0 50%;'><image src="../../images/me/7.png"/></view></view>
+  <view class="item"><image src="../../images/me/5.png"/><text>我的评论</text><view style='margin:0 0 0 50%;'><image src="../../images/me/7.png"/></view></view>
 </view>

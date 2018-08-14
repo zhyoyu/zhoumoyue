@@ -28,7 +28,7 @@
                         <text class="answer-txt">{{topic.content}}</text>
                         <view>
                          <block wx:for="{{topic.images}}" wx:for-item="imageUrl">
-                          <image src="{{imageUrl}}" style='width:180rpx;height:180rpx;margin: 5rpx 5rpx;'/>
+                          <image src="{{imageUrl}}" style='width:180rpx;height:180rpx;margin: 5rpx 5rpx;' data-image="{{imageUrl}}" bindtap='previewImage'/>
                         </block> 
                         </view>
                     </view>

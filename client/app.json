@@ -2,6 +2,7 @@
   "pages":[
     "pages/login/index",    
     "pages/activity/index",
+    "pages/activity/create/index",
     "pages/topic/index",
     "pages/topic/create/index",
     "pages/me/index",
@@ -14,10 +15,10 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "color": "#fff",
+    "color": "#C0C0C0",
     "selectedColor": "#000000",
     "borderStyle": "#333",
-    "backgroundColor": "#FFD700",
+    "backgroundColor": "#F5F5F5",
     "position": "bottom", 
     "list": [
       {

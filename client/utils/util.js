@@ -23,7 +23,23 @@ function sayHello() {
 function requestServer() {
 }
 
+function isEmpty(val) {
+  if (val == null || val == "" || val == undefined) {
+    return true;
+  }
+  return false;
+}
+
+function isNum(val) {
+  if (val === "" || val == null || val == undefined) {
+    return false;
+  }
+  return !isNaN(val)
+}   
+
 module.exports = {
   formatTime: formatTime,
-  sayHello: sayHello
+  sayHello: sayHello,
+  isEmpty: isEmpty,
+  isNum: isNum
 }

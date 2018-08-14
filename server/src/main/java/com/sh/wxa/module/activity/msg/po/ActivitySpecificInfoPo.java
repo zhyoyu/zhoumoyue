@@ -28,13 +28,13 @@ public class ActivitySpecificInfoPo extends ActivityInfoPo implements Message {
 
     public void build(Activity activity) {
         this.activityId = activity.getId();
-        this.activityTime = TimeUtil.toSeconds(activity.getActivityTime());
+        this.activityTime = TimeUtil.getYMDHMSTimeString(activity.getActivityTime());
         this.address = activity.getAddress();
         this.imageUrl = activity.getImageUrl();
         this.createUserId = activity.getCreateUserId();
         this.createUserName = activity.getCreateUserName();
         this.createUserIcon = activity.getCreateUserIcon();
-        this.describe = activity.getDescribe();
+        this.memo = activity.getMemo();
         this.numLimit = activity.getNumLimit();
         this.title = activity.getTitle();
     }

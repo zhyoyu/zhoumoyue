@@ -10,6 +10,8 @@ Page({
       ITEM_HEIGHT: wx.getStorageSync("win_width") * 0.6,
       img_height_rate: 0.65,
       img_height:0,
+      x: wx.getStorageSync("win_width") - 60,
+      y: wx.getStorageSync("win_height") - 100,
     },
     onLoad: function (options) {
       this.setData({
@@ -31,6 +33,12 @@ Page({
     onUnload: function () {
         // 页面关闭
 
+    },
+    //创建活动
+    createActivity: function() {
+      wx.navigateTo({
+        url: 'create/index',
+      })
     }
     // loadimg: function (e) {//图片加载完成执行
     //     var index = e.currentTarget.id;

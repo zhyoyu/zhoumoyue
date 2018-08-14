@@ -1,6 +1,6 @@
-const url = "https://0f8a33c8.ngrok.io"
-const serverUrl = url + "/wxaserver/module"
-const upLoadFileUrl = url + "/wxaserver/upLoadFile"
+const url = "http://154.8.138.76:8080"
+const serverUrl = url + "/module"
+const upLoadFileUrl = url + "/upLoadFile"
 // serverUrl: "http://localhost:8089/wxaserver",
 const pt = {
     login_1: "login.login",

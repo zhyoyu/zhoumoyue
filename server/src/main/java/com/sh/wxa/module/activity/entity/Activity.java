@@ -40,7 +40,7 @@ public class Activity {
     /**
      * 活动描述
      */
-    private String describe;
+    private String memo;
     /**
      * 活动时间
      */
@@ -64,10 +64,10 @@ public class Activity {
         info.setCreateUserId(this.createUserId);
         info.setCreateUserName(this.createUserName);
         info.setCreateUserIcon(this.createUserIcon);
-        info.setActivityTime(TimeUtil.toSeconds(this.activityTime));
+        info.setActivityTime(TimeUtil.getYMDHMSTimeString(this.activityTime));
         info.setAddress(this.address);
         info.setImageUrl(this.imageUrl);
-        info.setDescribe(this.describe);
+        info.setMemo(this.memo);
         info.setNumLimit(this.numLimit);
         info.setTitle(this.title);
         info.setJoinUsersNum(StringUtils.parseStringList(this.joinUsers).size());
@@ -76,14 +76,15 @@ public class Activity {
 
     public static Activity createEntity(ActivityInfoPo info) {
         Activity activity = new Activity();
-        activity.setActivityTime(TimeUtil.secondsToDate(info.getActivityTime()));
+        String activityTime = info.getActivityTime();
+        activity.setActivityTime(TimeUtil.formatStr(activityTime));
         activity.setAddress(info.getAddress());
         activity.setImageUrl(info.getImageUrl());
         activity.setCreateUserId(info.getCreateUserId());
         activity.setCreateUserName(info.getCreateUserName());
         activity.setCreateUserIcon(info.getCreateUserIcon());
         activity.setCreateTime(new Date());
-        activity.setDescribe(info.getDescribe());
+        activity.setMemo(info.getMemo());
         activity.setNumLimit(info.getNumLimit());
         activity.setTitle(info.getTitle());
         return activity;

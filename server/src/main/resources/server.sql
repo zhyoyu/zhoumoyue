@@ -21,7 +21,7 @@ CREATE TABLE `topic` (
   `images` longtext COMMENT 'topic图片地址',
   `create_time` datetime NOT NULL COMMENT '发表时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COMMENT='话题表';
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8 COMMENT='话题表';
 
 DROP TABLE IF EXISTS `topic_comment`;
 CREATE TABLE `topic_comment` (
@@ -35,7 +35,7 @@ CREATE TABLE `topic_comment` (
   `reply_time` datetime NOT NULL COMMENT '回复时间',
   PRIMARY KEY (`id`),
   KEY `hash_topic_id` (`topic_id`) USING HASH
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='话题评论表';
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COMMENT='话题评论表';
 
 DROP TABLE IF EXISTS `topic_info`;
 CREATE TABLE `topic_info` (
@@ -48,15 +48,19 @@ CREATE TABLE `topic_info` (
 DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '活动id',
-  `create_user_id` varchar(20) NOT NULL COMMENT '活动创建者(用户唯一标识id)',
+  `create_user_id` varchar(64) NOT NULL COMMENT '活动创建者(用户唯一标识id)',
+  `create_user_name` varchar(64) NOT NULL COMMENT '创建者用户名',
+  `create_user_icon` varchar(128) NOT NULL COMMENT '创建者头像',
   `title` varchar(20) NOT NULL COMMENT '活动标题',
-  `image_url` varchar(128) DEFAULT NULL COMMENT '活动封面图片',
+  `image_url` longtext COMMENT '活动封面图片',
   `address` varchar(256) NOT NULL COMMENT '活动地址',
-  `describe` varchar(512) NOT NULL COMMENT '活动描述',
+  `memo` varchar(512) NOT NULL COMMENT '活动描述',
   `activity_time` datetime NOT NULL COMMENT '活动时间',
   `num_limit` int(3) NOT NULL DEFAULT '0' COMMENT '报名人数限制(0 不限制)',
   `join_users` varchar(512) DEFAULT NULL COMMENT 'open_id;open_id;....',
   `create_time` datetime NOT NULL COMMENT '活动创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='活动表';
+
+
 

@@ -85,6 +85,7 @@ public class FileUpLoadServlet extends HttpServlet {
         }
         //注意：不同的浏览器提交的文件名是不一样的，有些浏览器提交上来的文件名是带有路径的，如：  c:\a\b\1.txt，而有些只是单纯的文件名，如：1.txt
         filename = filename.substring(filename.lastIndexOf("\\") + 1);
+        log.info("fileName:" + filename);
         return filename;
     }
 
@@ -92,7 +93,7 @@ public class FileUpLoadServlet extends HttpServlet {
         //获取item中的上传文件的输入流
         InputStream in = item.getInputStream();
         //创建一个文件输出流
-        FileOutputStream out = new FileOutputStream(savePath + "\\" + filename);
+        FileOutputStream out = new FileOutputStream(savePath + "/" + filename);
         //创建一个缓冲区
         byte buffer[] = new byte[1024];
         //判断输入流中的数据是否已经读完的标识

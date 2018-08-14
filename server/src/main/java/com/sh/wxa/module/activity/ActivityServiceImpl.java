@@ -39,6 +39,9 @@ public class ActivityServiceImpl implements ActivityService {
 
     @Override
     public void createActivity(Session session, ActivityInfoPo activityInfo) {
+        activityInfo.setCreateUserId(session.getOpenId());
+        activityInfo.setCreateUserName(session.getNickName());
+        activityInfo.setCreateUserIcon(session.getIconUrl());
         Activity activity = Activity.createEntity(activityInfo);
         activityMapper.add(activity);
     }

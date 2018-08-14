@@ -265,5 +265,17 @@ Page({
             }
         });
         console.log("---------" + e + "评论---------")
-    }
+    },
+
+    /**
+     * 查看图片
+     */
+  previewImage: function (e) {
+    var image = e.currentTarget.dataset.image
+    var that = this
+    wx.previewImage({
+      current: '', // 当前显示图片的http链接
+      urls: new Array(image) // 需要预览的图片http链接列表
+    })
+  },
 })

@@ -4,7 +4,7 @@
       <textarea name="content" auto-focus="true" maxlength="200" placeholder="此刻的想法..." />
       <view class="topic_img" style="height: 120rpx">
           <block wx:for="{{images}}" wx:for-item="image" >
-             <image src="{{image}}"></image> 
+             <image src="{{image}}" data-image="{{image}}" bindtap='previewImage'></image> 
           </block>  
          <view class="topic_image_up" bindtap='chooseImage'><text>十</text></view> 
       </view>

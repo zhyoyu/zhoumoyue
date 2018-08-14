@@ -39,11 +39,11 @@ public class ActivityInfoPo implements Message {
     /**
      * 活动描述
      */
-    protected String describe;
+    protected String memo;
     /**
      * 活动时间
      */
-    protected int activityTime;
+    protected String activityTime;
     /**
      * 人数限制
      */

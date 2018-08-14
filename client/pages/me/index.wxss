@@ -1,24 +1,48 @@
+page{
+  background-color:#dddddd;
+}
 .me {
-  margin: 2%;
-  border: 1rpx solid green;
-  background:	#FFFFF0;
+  background-color: #FFFFFF;
+  border: 1rpx solid #FFFFFF;
 }
 .me .me_basic {
-  height: 180rpx;
-  margin: 2%;
-  border: 1rpx solid blue;
+  height: 230rpx;
+  margin: 3%;
+  /* border: 1rpx solid blue; */
 }
 .me .me_basic .me_text {
   font-size:30rpx;
   font-weight:900;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin: 0 140rpx;
-  line-height: 60rpx;
-  border: 1rpx solid red;
+  font-family:'Times New Roman', Times, serif;
+  margin: 0 160rpx;
+  line-height: 70rpx;
+  /* border: 1rpx solid red; */
 }
 .me_basic image {
+  margin: 10rpx;
   width: 120rpx;
   height: 120rpx;  
   float: left;
   border-radius: 50%;
+}
+.activity_item {
+  margin: 4% 0 0 0;
+}
+.activity_item .item {
+  text-indent: 25rpx;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  height:70rpx;
+  background:white;
+  font-size: 35rpx;
+  font-weight:500;
+  border-bottom: 1rpx solid #dddddd;
+  /* border: 1rpx solid red; */
+}
+.activity_item .item image {
+  margin: 0 0 0 7%;
+  width: 28rpx;
+  height: 28rpx;
+  /* border: 1rpx solid red; */
 }

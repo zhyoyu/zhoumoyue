@@ -13,7 +13,7 @@
   padding: 25rpx 0rpx 25rpx 25rpx;
   border-bottom: 1rpx solid #DCDCDC;  
 
-  border: 1rpx solid 	#008000;  
+  /* border: 1rpx solid 	#008000;   */
 }
 
 .topic_input textarea {
@@ -21,8 +21,7 @@
   height: 12em;
   text-align: justify; 
   font-size: 30rpx;
-
-  border: 1rpx solid 	#DC143C;      
+  /* border: 1rpx solid 	#DC143C;       */
 }
 .topic_input .topic_img {
    margin: 20rpx 20rpx 0rpx 0; 
@@ -54,7 +53,8 @@
 }
 
 .topic_bt {
-  margin: 25rpx 25rpx;
+  width: 80%;
+  margin: 10% 10% 10% 10%;
   background-color: #FFD700;
   color: #FFFFFF;
   border: 1rpx dashed #FF00FF;  

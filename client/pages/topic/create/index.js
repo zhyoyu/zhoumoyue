@@ -1,6 +1,7 @@
 // pages/talkaround/create/index.js
 
 var uPt = require('../../../utils/protocol.js');
+var util = require('../../../utils/util.js');
 
 Page({
 
@@ -106,7 +107,7 @@ Page({
    */
   bindFormSubmit: function(e) {
     var content = e.detail.value.content
-    if (this.isEmpty(content) && this.data.images.length == 0) {
+    if (util.isEmpty(content) && this.data.images.length == 0) {
       wx.showToast({
         title: '话题不能为空',
         icon: 'none',
@@ -181,11 +182,15 @@ Page({
     })
   },
 
-  isEmpty: function(data) {
-    if (data == null || data == "") {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  /**
+   * 查看图片
+   */
+  previewImage: function (e) {
+    var image = e.currentTarget.dataset.image
+    var that = this
+    wx.previewImage({
+      current: '', // 当前显示图片的http链接
+      urls: new Array(image) // 需要预览的图片http链接列表
+    })
+  },
 })

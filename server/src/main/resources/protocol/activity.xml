@@ -7,8 +7,9 @@
         <field type="String" name="createUserIcon" desc="创建者头像"/>
         <field type="String" name="title" desc="活动标题"/>
         <field type="String" name="imageUrl" desc="活动封面图片地址"/>
+        <field type="String" name="activityTime" desc="活动时间"/>
         <field type="String" name="address" desc="活动地址"/>
-        <field type="String" name="describe" desc="活动描述"/>
+        <field type="String" name="memo" desc="活动描述"/>
         <field type="int" name="numLimit" desc="人数限制"/>
         <field type="int" name="joinUsersNum" desc="已报名人数"/>
     </bean>
@@ -21,7 +22,7 @@
         <field type="String" name="title" desc="活动标题"/>
         <field type="String" name="imageUrl" desc="活动封面图片地址"/>
         <field type="String" name="address" desc="活动地址"/>
-        <field type="String" name="describe" desc="活动描述"/>
+        <field type="String" name="memo" desc="活动描述"/>
         <field type="int" name="numLimit" desc="人数限制"/>
         <field type="int" name="joinUsersNum" desc="已报名人数"/>
         <field type="int" name="maleNum" desc="已报名男生数"/>

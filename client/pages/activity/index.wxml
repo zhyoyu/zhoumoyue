@@ -1,4 +1,5 @@
 <scroll-view  scroll-y="true" style="height:{{scroll_H}}rpx;background:#F8F8FF;">
+<movable-area>
   <view style="width:100%">
         <view class="activity_item">
          <view wx:for="{{leftItems}}" wx:key="index" >
@@ -41,4 +42,6 @@
           </view>
         </view>
   </view>
+                         <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap='createActivity'><text>+</text></movable-view>
+</movable-area> 
 </scroll-view>

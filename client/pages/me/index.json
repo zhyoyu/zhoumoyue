@@ -1,6 +1,6 @@
 {
       "component": true,
-      "enablePullDownRefresh": true,
-      "navigationBarTitleText": "个人中心",
+      "enablePullDownRefresh": false,
+      "navigationBarTitleText": "Nearby社区",
       "navigationBarBackgroundColor": "#FFD700"
 }
