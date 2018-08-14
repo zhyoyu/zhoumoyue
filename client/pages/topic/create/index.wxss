@@ -48,5 +48,5 @@
   margin: 10% 10% 10% 10%;
   background-color: #FFD700;
   color: #FFFFFF;
-  border: 1rpx dashed #FF00FF;  
+  /* border: 1rpx dashed #FF00FF;   */
 }

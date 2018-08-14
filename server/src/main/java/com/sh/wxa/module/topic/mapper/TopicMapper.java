@@ -1,8 +1,6 @@
 package com.sh.wxa.module.topic.mapper;
 
 import com.sh.wxa.module.topic.entity.Topic;
-import com.sh.wxa.module.topic.entity.TopicComment;
-import com.sh.wxa.module.topic.entity.TopicInfo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.One;
@@ -21,7 +19,7 @@ public interface TopicMapper {
 
     /**
      *  获取分页活动
-     * @param index 页数（1开始）
+     * @param topicId 话题id（可能为0）
      * @param pageSize 分页大小
      */
     @SelectProvider(type = TopicSqlProvider.class, method = "findTopicByCondition")
@@ -37,7 +35,7 @@ public interface TopicMapper {
             @Result(column = "id", property = "commentList", many = @Many(select = "com.sh.wxa.module.topic.mapper.TopicCommentMapper.findByTopicId", fetchType = FetchType.LAZY))
     })
     List<Topic> findByCondition(
-            @Param("index") Long index,
+            @Param("topicId") Long topicId,
             @Param("pageSize") Integer pageSize
     );
 

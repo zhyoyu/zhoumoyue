@@ -1,7 +1,7 @@
-const url = "http://154.8.138.76:8080"
+// const url = "http://154.8.138.76:8080"
+const url = "http://localhost:8089/wxaserver"
 const serverUrl = url + "/module"
 const upLoadFileUrl = url + "/upLoadFile"
-// serverUrl: "http://localhost:8089/wxaserver",
 const pt = {
     login_1: "login.login",
 

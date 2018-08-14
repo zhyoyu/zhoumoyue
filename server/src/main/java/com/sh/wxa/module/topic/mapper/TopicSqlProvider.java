@@ -6,17 +6,22 @@ import static org.apache.ibatis.jdbc.SqlBuilder.BEGIN;
 import static org.apache.ibatis.jdbc.SqlBuilder.FROM;
 import static org.apache.ibatis.jdbc.SqlBuilder.SELECT;
 import static org.apache.ibatis.jdbc.SqlBuilder.SQL;
+import static org.apache.ibatis.jdbc.SqlBuilder.WHERE;
 
 public class TopicSqlProvider {
 
     public String findTopicByCondition(Map<String, Object> params) {
-        return builderTopicPageSql("*", params) + " ORDER BY id desc LIMIT #{index} , #{pageSize}";
+        return builderTopicPageSql("*", params) + " ORDER BY id desc LIMIT #{pageSize}";
     }
 
     public String builderTopicPageSql(String select, Map<String, Object> paras) {
+        Long topicId = (Long) paras.get("topicId");
         BEGIN();
         SELECT(select);
         FROM("topic");
+        if(topicId > 0) {
+            WHERE("id < #{topicId}");
+        }
         return SQL();
     }
 

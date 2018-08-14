@@ -39,55 +39,10 @@ Page({
       wx.navigateTo({
         url: 'create/index',
       })
+    },
+
+    //加载活动
+    loadimg: function (e) {//图片加载完成执行
+       
     }
-    // loadimg: function (e) {//图片加载完成执行
-    //     var index = e.currentTarget.id;
-    //     console.log(index)
-    //     var oImageIndex = this.data.oImageIndex;
-    //     var tempIndex = 0;
-    //     for (var i = 0; i < oImageIndex.length; i++) {
-    //         if (oImageIndex[i] == index) {
-    //             tempIndex = i;
-    //             break;
-    //         }
-    //     }
-    //     var imgWidth = this.data.imgWidth;//图片设置的宽度
-    //     var oImgW = e.detail.width;//图片原始宽度
-    //     var scal = imgWidth / oImgW;//比例计算
-    //     var oImgH = e.detail.height;//图片原始高度
-    //     var _imgHeight = oImgH * scal;//自适应高度
-    //     var images = this.data.images;
-    //     images[index].height = _imgHeight;
-    //     oImageIndex.splice(tempIndex, 1);
-    //     this.setData({
-    //         oImageIndex: oImageIndex,
-    //         images: images
-    //     })
-
-    //     var oneimages = this.data.oneimages;
-    //     var twoimages = this.data.twoimages;
-    //     if (oImageIndex.length == 0) { //当加载完最后一张图片执行
-    //         var oneImageH = 0;
-    //         var twoImageH = 0;
-    //         for (var i = 0; i < images.length; i++) {
-    //             if (i > 0) { //第一张除外
-    //                 if (oneImageH > twoImageH) {
-    //                     twoImageH += images[i].height;
-    //                     twoimages.push(images[i]);
-    //                 } else {
-    //                     oneImageH += images[i].height;
-    //                     oneimages.push(images[i]);
-    //                 }
-    //             } else {
-    //                 oneImageH += images[i].height;
-    //                 oneimages.push(images[i])
-    //             }
-    //         }
-    //     }
-
-    //     this.setData({
-    //         oneimages: oneimages,
-    //         twoimages: twoimages
-    //     })
-    // }
 })

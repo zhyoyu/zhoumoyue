@@ -100,7 +100,7 @@ Page({
         this.setData({
             topicList: []
         })
-        this.refresh("up");
+        this.refresh("up", 0);
         setTimeout(function () {
             wx.hideNavigationBarLoading();
             wx.stopPullDownRefresh();
@@ -113,10 +113,15 @@ Page({
     onReachBottom: function () {
         console.log("------------bottom刷新--------------")
         wx.showNavigationBarLoading();
+        var topicId = 0
+        var topicListLength = this.data.topicList.length
+        if (topicListLength > 0) {
+          topicId = this.data.topicList[topicListLength - 1].topicId
+        }
         var that = this;
         setTimeout(function () {
-            wx.hideNavigationBarLoading()
-            that.refresh("down")
+          wx.hideNavigationBarLoading()
+          that.refresh("down", topicId)
         }, 1000)
     },
 
@@ -127,7 +132,7 @@ Page({
 
     },
 
-    refresh: function (dir) {
+    refresh: function (dir, topicId) {
         var that = this
         var size = 0
         var topicLength = this.data.topicList.length
@@ -138,7 +143,7 @@ Page({
             duration: 3000
         });
         var body = {
-            beginIndex: topicLength
+            topicId: topicId
         }
         wx.request({
             url: uPt.serverUrl,

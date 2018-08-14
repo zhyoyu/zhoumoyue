@@ -37,7 +37,7 @@
     
     <method name="findTopicList">
         <toServer type="TopicListRequest">
-            <field type="long" name="beginIndex" desc="开始的index"/>
+            <field type="long" name="topicId" desc="话题id"/>
         </toServer>
         <toClient type="TopicListResponse">
             <list type="TopicInfo" name="topicInfosList" desc="话题列表"/>

@@ -69,8 +69,8 @@ public class TopicServiceImpl implements TopicService {
 
     @Override
     public TopicListResponse findTopicList(Session session, TopicListRequest request) {
-        final long index = Math.max(request.getBeginIndex(), 0);
-        List<Topic> topicList = topicMapper.findByCondition(index, PageUtil.DEFAULT_PAGE_SIZE);
+        final long topicId = Math.max(request.getTopicId(), 0);
+        List<Topic> topicList = topicMapper.findByCondition(topicId, PageUtil.DEFAULT_PAGE_SIZE);
         TopicListResponse resp = new TopicListResponse();
         List<TopicPo> activityInfoList = resp.getTopicInfosList();
         for(Topic topic : topicList) {

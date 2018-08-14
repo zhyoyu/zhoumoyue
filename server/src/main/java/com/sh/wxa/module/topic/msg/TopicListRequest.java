@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 public class TopicListRequest implements Message {
 
-    private long beginIndex;
+    private long topicId;
 
 }
