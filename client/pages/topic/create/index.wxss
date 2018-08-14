@@ -25,30 +25,21 @@
 }
 .topic_input .topic_img {
    margin: 20rpx 20rpx 0rpx 0; 
-   border: 1rpx solid #7FFF00;      
+   /* border: 1rpx solid #7FFF00;     */
 }
 
 .topic_input .topic_img image {
-  float: left;
   width: 120rpx;
   height: 120rpx;
   margin: 0 3rpx;
-  border: 1rpx dashed #4B0082;  
-}
-
-.topic_input .topic_img .topic_image_up {
-  float: left;
-  text-align:center;
-  display:flex; 
-  width: 120rpx;
-  height: 120rpx;
-  border: 1rpx dashed #DCDCDC;  
+  /* border: 1rpx dashed #4B0082;   */
+  border: 1rpx dashed #DCDCDC; 
 }
 
 .topic_input .topic_img .topic_image_up text {
   /* position: absolute; */
   margin: auto; 
-  color: 	#A9A9A9;
+  color: 	rgb(221, 217, 217);
   /* border: 1rpx dashed #DCDCDC;  */
 }
 
