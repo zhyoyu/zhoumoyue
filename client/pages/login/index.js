@@ -11,13 +11,6 @@ Page({
   },
   login() {
     let userInfo = wx.getStorageSync('userInfo')
-    if(!userInfo) {
-      let dialogComponent = this.selectComponent('.wxc-dialog');
-      dialogComponent && dialogComponent.show();
-    } else {
-      // wx.switchTab({
-      //   url: '../talkaround/index',
-      // }); 
       var openId = wx.getStorageSync('openId')
       var body = {
         openId: openId,
@@ -39,10 +32,14 @@ Page({
           });
         }
       });
-   
-    }
   },
   onLoad() {
+    let userInfo = wx.getStorageSync('userInfo')
+    if(userInfo) {
+      this.setData({
+        userInfo: userInfo
+      })
+    }
   },
   onReady() {
     setTimeout(() => {
@@ -62,29 +59,45 @@ Page({
     });
   },
   onShow() {
-    let userInfo = wx.getStorageSync('userInfo')
-    let dialogComponent = this.selectComponent('.wxc-dialog');
-    if (!userInfo) {
-      dialogComponent && dialogComponent.show();
-    } else {
+    // let userInfo = wx.getStorageSync('userInfo')
+    // let dialogComponent = this.selectComponent('.wxc-dialog');
+    // if (!userInfo) {
+    //   dialogComponent && dialogComponent.show();
+    // } else {
+    //   this.setData({
+    //     userInfo: userInfo
+    //   })
+    //   dialogComponent && dialogComponent.hide();
+    // }
+  },
+  // onConfirm(e) { // 点击允许
+  //   let dialogComponent = this.selectComponent('.wxc-dialog');
+  //   dialogComponent && dialogComponent.hide();
+  //   let userInfo = JSON.parse(e.detail.detail.rawData)
+  //   if (!userInfo) {
+  //     return;
+  //   }
+  //   this.setData({
+  //     userInfo: userInfo
+  //   })
+  //   wx.setStorageSync('userInfo', userInfo)
+  // },
+  onGotUserInfo(e) {
+    // let dialogComponent = this.selectComponent('.wxc-dialog');
+    // dialogComponent && dialogComponent.hide();
+    if(e.detail.rawData != undefined) {
+      let userInfo = JSON.parse(e.detail.rawData)
+      if (!userInfo) {
+        return;
+      }
       this.setData({
         userInfo: userInfo
       })
-      dialogComponent && dialogComponent.hide();
+      wx.setStorageSync('userInfo', userInfo)
+      this.login()
     }
   },
-  onConfirm(e) { // 点击允许
-    let dialogComponent = this.selectComponent('.wxc-dialog');
-    dialogComponent && dialogComponent.hide();
-    let userInfo = JSON.parse(e.detail.detail.rawData)
-    if (!userInfo) {
-      return;
-    }
-    this.setData({
-      userInfo: userInfo
-    })
-    wx.setStorageSync('userInfo', userInfo)
-  },
+
   onCancel() { // 点击拒绝
     let dialogComponent = this.selectComponent('.wxc-dialog');
     dialogComponent && dialogComponent.hide();

@@ -29,5 +29,4 @@ public class Session {
      * 活跃值
      */
     private int activeValue;
-
 }

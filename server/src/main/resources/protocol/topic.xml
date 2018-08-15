@@ -38,6 +38,7 @@
     <method name="findTopicList">
         <toServer type="TopicListRequest">
             <field type="long" name="topicId" desc="话题id"/>
+            <field type="int" name="dir" desc="方向 1 触顶刷新 2 触底刷新"/>
         </toServer>
         <toClient type="TopicListResponse">
             <list type="TopicInfo" name="topicInfosList" desc="话题列表"/>

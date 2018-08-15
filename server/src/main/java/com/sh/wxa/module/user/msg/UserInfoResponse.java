@@ -1,20 +1,35 @@
 package com.sh.wxa.module.user.msg;
 
 import com.sh.wxa.JsonMessage;
+import com.sh.wxa.module.user.msg.po.DynamicInfo;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class UserInfoResponse extends JsonMessage {
     /**
-     * 用户唯一id
+     * 关注
      */
-    private String openId;
+    private List<String> concernUsers;
     /**
-     * 用户名
+     * 粉丝
      */
-    private String userName;
+    private List<String> fans;
     /**
-     * 用户头像url
+     * 我的活动
      */
-    private String iconUrl;
+    private List<Long> myActivity;
+    /**
+     * 我的话题
+     */
+    private List<Long> myTopic;
+    /**
+     * 活动动态
+     */
+    private List<DynamicInfo> activityDynamic;
+    /**
+     * 话题动态
+     */
+    private List<DynamicInfo> topicDynamic;
 }

@@ -8,4 +8,6 @@ public class TopicListRequest implements Message {
 
     private long topicId;
 
+    private int dir;
+
 }

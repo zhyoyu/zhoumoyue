@@ -1,9 +1,18 @@
 <module name="user" class="com.sh.wxa.module.UserModule">
     <method name="getUserInfo">
+        <bean class="DynamicInfo">
+            <field type="long" name="id" desc="活动或话题id"/>
+            <field type="String" name="actionUserName" desc="行动者用户名"/>
+            <field type="String" name="actionDescribe" desc="行动描述"/>
+        </bean>
+
         <toClient class="UserInfoResponse">
-            <field type="String" name="openId" desc="用户唯一id"/>
-            <field type="String" name="userName" desc="用户名"/>
-            <field type="String" name="iconUrl" desc="头像url"/>
+            <list type="String" name="concernUsers" desc="关注的用户"/>
+            <list type="String" name="fans" desc="粉丝"/>
+            <list type="String" name="myActivity" desc="我的活动"/>
+            <list type="String" name="myTopic" desc="我的话题"/>
+            <list type="DynamicInfo" name="activityDynamic" desc="活动动态"/>
+            <list type="DynamicInfo" name="topicDynamic" desc="话题动态"/>
         </toClient>
     </method>
 </module>

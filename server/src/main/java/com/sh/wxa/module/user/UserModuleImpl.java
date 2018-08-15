@@ -10,6 +10,6 @@ import com.sh.wxa.onlinemanager.Session;
 public class UserModuleImpl implements UserModule {
     @Override
     public UserInfoResponse getUserInfo(Session session) {
-        return Services.getUserService().getUserInfo(session.getOpenId());
+        return Services.getUserService().getUserInfo(session);
     }
 }

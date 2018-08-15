@@ -1,6 +1,7 @@
 package com.sh.wxa.module.topic;
 
 import com.google.common.collect.Lists;
+import com.sh.wxa.constants.RefreshDir;
 import com.sh.wxa.module.topic.entity.Topic;
 import com.sh.wxa.module.topic.entity.TopicComment;
 import com.sh.wxa.module.topic.entity.TopicInfo;
@@ -20,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -36,8 +38,8 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public void createTopic(Session session, createTopicRequest request) {
         final String context = request.getContent();
-        final String iamges = request.getImages();
-        if(StringUtils.isEmpty(context) && StringUtils.isEmpty(iamges)) {
+        final String images = request.getImages();
+        if(StringUtils.isEmpty(context) && StringUtils.isEmpty(images)) {
             return;
         }
         Topic topic = new Topic();
@@ -70,7 +72,12 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public TopicListResponse findTopicList(Session session, TopicListRequest request) {
         final long topicId = Math.max(request.getTopicId(), 0);
-        List<Topic> topicList = topicMapper.findByCondition(topicId, PageUtil.DEFAULT_PAGE_SIZE);
+        RefreshDir refreshDir = RefreshDir.valueOf(request.getDir());
+        List<Topic> topicList = topicMapper.findByCondition(topicId, refreshDir.getIndex(), PageUtil.DEFAULT_PAGE_SIZE);
+        // 向上刷新需要反转排序
+        if(RefreshDir.UP == refreshDir && !CollectionUtils.isEmpty(topicList)) {
+            Collections.reverse(topicList);
+        }
         TopicListResponse resp = new TopicListResponse();
         List<TopicPo> activityInfoList = resp.getTopicInfosList();
         for(Topic topic : topicList) {

@@ -3,9 +3,16 @@
     "pages/login/index",    
     "pages/activity/index",
     "pages/activity/create/index",
+    "pages/activity/info/index",
     "pages/topic/index",
     "pages/topic/create/index",
     "pages/me/index",
+    "pages/me/myActivity/index",
+    "pages/me/myTopic/index",
+    "pages/me/activityDynamic/index",
+    "pages/me/topicDynamic/index",
+    "pages/me/concern/index",
+    "pages/me/fans/index",
     "pages/logs/logs"
   ],
   "window": {

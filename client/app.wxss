@@ -8,7 +8,7 @@
   box-sizing: border-box;
   padding: 0;
   font-size: 14rpx;
-  background: #F0F4F3;
+  /* background: #F0F4F3; */
   color: #000;
 
   /* border: 1rpx solid #FF00FF; */
@@ -16,6 +16,7 @@
 
 movable-area {
    height: 100%;
+   overflow:inherit;
    width: 100%;
    /* border: 10rpx solid #90EE90;  */
    box-sizing: border-box;

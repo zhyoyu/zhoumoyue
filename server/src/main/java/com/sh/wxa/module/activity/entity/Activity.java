@@ -12,7 +12,7 @@ public class Activity {
     /**
      * 活动id
      */
-    private int id;
+    private Long id;
     /**
      * 创建者id
      */
@@ -64,6 +64,7 @@ public class Activity {
         info.setCreateUserId(this.createUserId);
         info.setCreateUserName(this.createUserName);
         info.setCreateUserIcon(this.createUserIcon);
+        info.setActivityDate(TimeUtil.getYMDTimeString_(this.activityTime));
         info.setActivityTime(TimeUtil.getYMDHMSTimeString(this.activityTime));
         info.setAddress(this.address);
         info.setImageUrl(this.imageUrl);

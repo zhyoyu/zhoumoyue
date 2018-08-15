@@ -36,6 +36,7 @@ public interface TopicMapper {
     })
     List<Topic> findByCondition(
             @Param("topicId") Long topicId,
+            @Param("dir") Integer dir,
             @Param("pageSize") Integer pageSize
     );
 

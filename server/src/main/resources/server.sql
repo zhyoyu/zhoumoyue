@@ -6,6 +6,8 @@ CREATE TABLE `user` (
   `sex` int(1) DEFAULT NULL COMMENT '性别 1 男 2 女',
   `city` varchar(64) DEFAULT NULL COMMENT '城市',
   `active_value` int(11) DEFAULT '0' COMMENT '活跃度',
+  `my_activity` longtext COMMENT '我的活动',
+  `my_topic` longtext COMMENT '我的话题',
   `register_time` datetime NOT NULL COMMENT '注册时间',
   `last_login_time` datetime NOT NULL COMMENT '最后一次登录时间',
   PRIMARY KEY (`open_id`)
@@ -21,7 +23,7 @@ CREATE TABLE `topic` (
   `images` longtext COMMENT 'topic图片地址',
   `create_time` datetime NOT NULL COMMENT '发表时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8 COMMENT='话题表';
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8 COMMENT='话题表';
 
 DROP TABLE IF EXISTS `topic_comment`;
 CREATE TABLE `topic_comment` (
@@ -47,7 +49,7 @@ CREATE TABLE `topic_info` (
 
 DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '活动id',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '活动id',
   `create_user_id` varchar(64) NOT NULL COMMENT '活动创建者(用户唯一标识id)',
   `create_user_name` varchar(64) NOT NULL COMMENT '创建者用户名',
   `create_user_icon` varchar(128) NOT NULL COMMENT '创建者头像',
@@ -60,7 +62,16 @@ CREATE TABLE `activity` (
   `join_users` varchar(512) DEFAULT NULL COMMENT 'open_id;open_id;....',
   `create_time` datetime NOT NULL COMMENT '活动创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='活动表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='活动表';
 
-
+CREATE TABLE `user_info` (
+  `open_id` varchar(64) NOT NULL COMMENT '用户唯一识别ID',
+  `activity_dynamic` longtext COMMENT '活动动态',
+  `my_activity` longtext COMMENT '我的活动',
+  `topic_dynamic` longtext COMMENT '话题动态',
+  `my_topic` longtext COMMENT '我的话题',
+  `concern_users` longtext COMMENT '关注的用户',
+  `fans` longtext COMMENT '粉丝',
+  PRIMARY KEY (`open_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户额外信息表';
 

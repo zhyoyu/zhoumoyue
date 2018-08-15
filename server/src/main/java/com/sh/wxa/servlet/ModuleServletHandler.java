@@ -11,12 +11,14 @@ import com.sh.wxa.util.HttpUtil;
 import com.sh.wxa.util.ModuleException;
 import com.sh.wxa.util.SCPrompt;
 import com.sh.wxa.util.StringUtils;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 
+@Slf4j
 public class ModuleServletHandler {
 
     private static final String LOGIN_MODULE_CODE = "login.getOpenId";
@@ -37,6 +39,7 @@ public class ModuleServletHandler {
         String responseStr = null;
         if (LOGIN_MODULE_CODE.equals(act)) {
             responseStr = reqOpenId(paramJsonStr);
+            log.info("获取openId:{}", responseStr);
         } else {
             if (StringUtils.isEmpty(act) || StringUtils.isEmpty(openId)) {
                 JsonMessage prompt = new SCPrompt("请求参数为空", null);

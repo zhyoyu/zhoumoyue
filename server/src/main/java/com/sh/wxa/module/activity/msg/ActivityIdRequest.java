@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 public class ActivityIdRequest implements Message {
 
-    private int activityId;
+    private Long activityId;
 
 }

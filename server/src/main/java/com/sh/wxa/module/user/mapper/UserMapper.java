@@ -2,6 +2,7 @@ package com.sh.wxa.module.user.mapper;
 
 import com.sh.wxa.module.user.entity.User;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -19,7 +20,7 @@ public interface UserMapper {
     /**
      * 更新User
      */
-    @Update("UPDATE user SET NICK_NAME = #{nickName}, ICON_URL = #{iconUrl}, SEX = #{sex}, CITY = #{city}, LAST_LOGIN_TIME = #{lastLoginTime} WHERE OPEN_ID = #{openId}")
+    @Update("UPDATE user SET NICK_NAME = #{nickName}, ICON_URL = #{iconUrl}, SEX = #{sex}, CITY = #{city}, ACTIVE_VALUE = #{activeValue}, LAST_LOGIN_TIME = #{lastLoginTime} WHERE OPEN_ID = #{openId}")
     void update(User user);
     /**
      * 查询User
@@ -35,11 +36,6 @@ public interface UserMapper {
             @Result(column = "register_time", property = "registerTime"),
             @Result(column = "last_login_time", property = "lastLoginTime")})
     User findById(String openId);
-    /**
-     * 查询User
-     */
-    @Select("SELECT COUNT(*) FROM user where open_id = #{openId}")
-    Integer countById(String openId);
 
     @SelectProvider(type = UserSqlProvider.class, method = "findUsersByCondition")
     @Results({
@@ -51,5 +47,6 @@ public interface UserMapper {
             @Result(column = "active_value", property = "activeValue"),
             @Result(column = "register_time", property = "registerTime"),
             @Result(column = "last_login_time", property = "lastLoginTime")})
-    List<User> findUserByIds(String userIds);
+    List<User> findUserByIds(
+            @Param("userIds") String userIds);
 }

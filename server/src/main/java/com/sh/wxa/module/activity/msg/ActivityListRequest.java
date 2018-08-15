@@ -6,6 +6,8 @@ import lombok.Data;
 @Data
 public class ActivityListRequest implements Message {
 
-    private int curPage;
+    private Long activityId;
+
+    private int dir;
 
 }

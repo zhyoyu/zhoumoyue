@@ -11,14 +11,12 @@ import com.sh.wxa.module.activity.msg.CreateActivityRequest;
 import com.sh.wxa.onlinemanager.Session;
 import com.sh.wxa.util.OkResponse;
 
-import javax.xml.ws.Service;
-
 @Module
 public class ActivityModuleImpl implements ActivityModule {
 
     @Override
-    public ActivityListResponse getActivityList(ActivityListRequest request, Session session) {
-        return Services.getActivityService().getActivityList(session, request.getCurPage());
+    public ActivityListResponse findActivityList(ActivityListRequest request, Session session) {
+        return Services.getActivityService().findActivityList(session, request);
     }
 
     @Override

@@ -1,28 +1,36 @@
 package com.sh.wxa.module.topic.mapper;
 
-import java.util.Map;
+import com.sh.wxa.constants.RefreshDir;
 
-import static org.apache.ibatis.jdbc.SqlBuilder.BEGIN;
-import static org.apache.ibatis.jdbc.SqlBuilder.FROM;
-import static org.apache.ibatis.jdbc.SqlBuilder.SELECT;
-import static org.apache.ibatis.jdbc.SqlBuilder.SQL;
-import static org.apache.ibatis.jdbc.SqlBuilder.WHERE;
+import java.util.Map;
 
 public class TopicSqlProvider {
 
     public String findTopicByCondition(Map<String, Object> params) {
-        return builderTopicPageSql("*", params) + " ORDER BY id desc LIMIT #{pageSize}";
+        return builderTopicPageSql("*", params);
     }
 
-    public String builderTopicPageSql(String select, Map<String, Object> paras) {
+    private String builderTopicPageSql(String selectParam, Map<String, Object> paras) {
         Long topicId = (Long) paras.get("topicId");
-        BEGIN();
-        SELECT(select);
-        FROM("topic");
+        Integer dir = (Integer) paras.get("dir");
+        StringBuilder sqlBuilder = new StringBuilder(" select ");
+        sqlBuilder.append(selectParam)
+                .append(" from topic ");
+
         if(topicId > 0) {
-            WHERE("id < #{topicId}");
+            sqlBuilder.append(" where ");
+            if (dir == RefreshDir.UP.getIndex()) {
+                sqlBuilder.append(" id > #{topicId} ");
+                sqlBuilder.append(" ORDER BY id asc LIMIT #{pageSize} ");
+            }
+            if (dir == RefreshDir.DOWN.getIndex()) {
+                sqlBuilder.append(" id < #{topicId} ");
+                sqlBuilder.append(" ORDER BY id desc LIMIT #{pageSize} ");
+            }
+        } else {
+            sqlBuilder.append(" ORDER BY id desc LIMIT #{pageSize} ");
         }
-        return SQL();
+        return sqlBuilder.toString();
     }
 
 }

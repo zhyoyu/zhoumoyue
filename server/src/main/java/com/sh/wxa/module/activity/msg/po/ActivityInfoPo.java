@@ -11,7 +11,7 @@ public class ActivityInfoPo implements Message {
     /**
      * 活动id
      */
-    protected int activityId;
+    protected Long activityId;
     /**
      * 创建者id
      */
@@ -41,7 +41,11 @@ public class ActivityInfoPo implements Message {
      */
     protected String memo;
     /**
-     * 活动时间
+     * 活动日期
+     */
+    protected String activityDate;
+    /**
+     * 活动时间`
      */
     protected String activityTime;
     /**

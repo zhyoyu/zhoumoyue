@@ -125,7 +125,7 @@ page {
   width: 160rpx;
   height: 160rpx;
   margin-left: -80rpx;
-  border-radius: 160rpx;
+  border-radius: 50%;
   animation: sway 10s ease-in-out infinite;
   opacity: 0.95;
 }  
@@ -218,7 +218,7 @@ page {
   }
 }
 
-.confirm-btn {
+/* .confirm-btn {
   font-size: 13pt;
   line-height: 85rpx;
   height: 85rpx;
@@ -227,14 +227,14 @@ page {
   text-align: center;
   border-radius: 100rpx;
   margin: 40% 20%;
-}
+} */
 
-.confirm-btn text {
+.login_btn text {
   color: #fff;
   font-size: 35rpx;
 }
 
-.confirm-btn:active {
+.login_btn:active {
   opacity: 0.8;
 }
 
@@ -247,4 +247,15 @@ page {
   right: 0;
   padding: 30rpx;
   text-align: center;
+}
+
+.login_btn {
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  background: #FFD700;
+  color: #fff;
+  text-align: center;
+  border-radius: 100rpx;
+  margin: 40% 20%;
 }

@@ -1,5 +1,6 @@
-<scroll-view class='container' scroll-y="true" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-<movable-area>
+ <view class='container'>
+  <movable-area style="height:{{move_height}}px;width:{{move_width}};">
+<!-- <scroll-view class='container' scroll-y="true" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">  -->
   <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" interval="{{interval}}" autoplay="{{autoPlay}}">
     <block wx:for="{{images}}" wx:for-item="item" wx:for-index="idx">
       <swiper-item>
@@ -26,9 +27,9 @@
               <view class="answer-body">
                     <view>
                         <text class="answer-txt">{{topic.content}}</text>
-                        <view>
-                         <block wx:for="{{topic.images}}" wx:for-item="imageUrl">
-                          <image src="{{imageUrl}}" style='width:180rpx;height:180rpx;margin: 5rpx 5rpx;' data-image="{{imageUrl}}" bindtap='previewImage'/>
+                        <view bindtap='previewImage' data-images="{{topic.images}}">
+                         <block wx:for="{{topic.images}}" wx:for-item="imageUrl" data-imageUrl="{{imageUrl}}">
+                          <image src="{{imageUrl}}" style='width:180rpx;height:180rpx;margin: 5rpx 5rpx;'/>
                         </block> 
                         </view>
                     </view>
@@ -66,10 +67,8 @@
               </view>
           </view>
         </view>
-    </block>
-                       <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap='createTopic'><text>+</text></movable-view>
+    </block>  
+<!-- </scroll-view> -->
+    <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap='createTopic'><text>+</text></movable-view>
 </movable-area> 
-</scroll-view>
-
-
-
+</view>

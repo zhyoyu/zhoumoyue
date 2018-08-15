@@ -213,8 +213,8 @@ swiper .filter text {
   border-radius: 10rpx;
 }
 
-movable-area {
-  overflow: scroll;
-  /* height: {{move_height}}px; */
-  /* width: {{move_width}}px; */
-}
+/* movable-area { */
+  /* overflow: scroll; */
+  /* overflow: inherit; */
+  /* border: 1rpx solid red; */
+/* } */

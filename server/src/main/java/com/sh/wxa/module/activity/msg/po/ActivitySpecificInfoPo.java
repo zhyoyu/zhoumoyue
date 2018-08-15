@@ -22,6 +22,10 @@ public class ActivitySpecificInfoPo extends ActivityInfoPo implements Message {
      */
     private int femaleNum;
     /**
+     * 是否已报名
+     */
+    private boolean hasJoin;
+    /**
      * 已报名用户
      */
     private List<UserInfoPo> userInfoList = Lists.newArrayList();

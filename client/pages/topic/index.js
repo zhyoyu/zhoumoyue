@@ -3,7 +3,6 @@
 var uPt = require("../../utils/protocol.js")
 
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -11,7 +10,7 @@ Page({
         x: wx.getStorageSync("win_width") - 60,
         y: wx.getStorageSync("win_height") - 100,
         move_width: wx.getStorageSync("win_width"),
-        move_height: wx.getStorageSync("win_height"),
+        move_height: wx.getStorageSync("win_height") - 40,
         indicatorDots: true,
         circular: true,
         interval: 5000,
@@ -46,7 +45,8 @@ Page({
         // console.log("---------------1onLoad-------------------")
         var that = this
         var body = {
-            beginIndex: 0
+          dir: 2,
+          topicId: 0
         }
         wx.request({
             url: uPt.serverUrl,
@@ -74,7 +74,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        console.log("---------------2onShow-------------------")
     },
 
     /**
@@ -92,19 +91,22 @@ Page({
     },
 
     /**
-     * 页面相关事件处理函数--监听用户下拉动作
+     * 页面相关事件处理函数--监听用户下拉动作 
      */
     onPullDownRefresh: function () {
-        console.log("------------top刷新--------------")
-        wx.showNavigationBarLoading()
-        this.setData({
-            topicList: []
-        })
-        this.refresh("up", 0);
-        setTimeout(function () {
-            wx.hideNavigationBarLoading();
-            wx.stopPullDownRefresh();
-        }, 2000);
+      console.log("------------top刷新--------------")
+      wx.showNavigationBarLoading()
+      var topicId = 0
+      var topicListLength = this.data.topicList.length
+      if (topicListLength > 0) {
+        topicId = this.data.topicList[0].topicId
+      }
+      var that = this
+      setTimeout(function () {
+        that.refresh(1, topicId)
+        wx.hideNavigationBarLoading()
+        wx.stopPullDownRefresh()
+      }, 1000);
     },
 
     /**
@@ -120,8 +122,8 @@ Page({
         }
         var that = this;
         setTimeout(function () {
+          that.refresh(2, topicId)
           wx.hideNavigationBarLoading()
-          that.refresh("down", topicId)
         }, 1000)
     },
 
@@ -132,49 +134,76 @@ Page({
 
     },
 
+    /**
+     * 刷新实现
+     */
     refresh: function (dir, topicId) {
         var that = this
         var size = 0
-        var topicLength = this.data.topicList.length
-
-        wx.showToast({
-            title: '刷新中',
-            icon: 'loading',
-            duration: 3000
-        });
         var body = {
+            dir: dir,
             topicId: topicId
         }
+      // wx.showToast({
+      //   title: '刷新中',
+      //   icon: 'loading',
+      //   duration: 3000
+      // });
         wx.request({
             url: uPt.serverUrl,
             data: {
-                uid: wx.getStorageSync("openId"),
-                mod: uPt.pt.topic_2,
-                body: body
+              uid: wx.getStorageSync("openId"),
+              mod: uPt.pt.topic_2,
+              body: body
             },
             success: function (res) {
                 if (res.data.topicInfosList.length > 0) {
+                  if(dir == '1') {
                     that.setData({
-                        topicList: that.data.topicList.concat(res.data.topicInfosList),
+                      topicList: res.data.topicInfosList.concat(that.data.topicList),
                     });
+                  } else {
+                    that.setData({
+                      topicList: that.data.topicList.concat(res.data.topicInfosList),
+                    });
+                  }
+                  wx.showToast({
+                    title: '刷新成功',
+                    icon: 'success',
+                    duration: 1500
+                  })
+                } else {
+                  if (dir == '2') {
+                    wx.showToast({
+                    title: '我是有底线的',
+                    icon: 'none',
+                    duration: 1500
+                    })
+                  } else {
+                    wx.showToast({
+                      title: '刷新成功',
+                      icon: 'success',
+                      duration: 1500
+                    })
+                  }
                 }
             }
         });
-        setTimeout(function () {
-            if (dir == "down" && topicLength == that.data.topicList.length) {
-                wx.showToast({
-                    title: '我是有底线的',
-                    icon: 'none',
-                    duration: 2000
-                })
-            } else {
-                wx.showToast({
-                    title: '刷新成功',
-                    icon: 'success',
-                    duration: 2000
-                })
-            }
-        }, 3000)
+        // setTimeout(function () {
+        //     if (dir == "down" && topicLength == that.data.topicList.length) {
+        //         wx.showToast({
+        //             title: '我是有底线的',
+        //             icon: 'none',
+        //             duration: 2000
+        //         })
+        //     } else {
+        //         wx.showToast({
+        //             title: '刷新成功',
+        //             icon: 'success',
+        //             duration: 2000
+        //         })
+        //     }
+        // }, 3000)
     },
 
     /**
@@ -276,11 +305,12 @@ Page({
      * 查看图片
      */
   previewImage: function (e) {
-    var image = e.currentTarget.dataset.image
+    var images = e.currentTarget.dataset.images
+    var imageUrl = e.currentTarget.dataset.imageUrl
     var that = this
     wx.previewImage({
-      current: '', // 当前显示图片的http链接
-      urls: new Array(image) // 需要预览的图片http链接列表
+      current: imageUrl, // 当前显示图片的http链接
+      urls: images // 需要预览的图片http链接列表
     })
   },
 })

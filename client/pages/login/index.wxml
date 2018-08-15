@@ -9,19 +9,21 @@
     <view class="content">
       <view class="hd" style="transform:rotateZ({{angle}}deg);">
         <image class="logo" src="{{userInfo.avatarUrl}}"></image>
+        <!-- <open-data class="logo" type="userAvatarUrl" style="border-radius: 50%;border: 1rpx solid blue;"></open-data> -->
         <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
         <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
       </view>
       <view class="bd">
         <image class="smalltitle" src="/images/title.png"></image>
-        <view class="confirm-btn" bindtap='login'>
+        <button class="login_btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">进入社区</button>
+        <!-- <view class="confirm-btn" bindtap='login'>
           <text>进入社区</text>
-        </view>
+        </view> -->
         <text class="copyright">欢迎体验社区</text>
       </view>
     </view>
   </block>
-  <wxc-dialog class="wxc-dialog" title="微信授权" content="获得您的公开信息(昵称、头像等)" logName="Nearby社区" logImage="../../images/logo.jpg" bindcancel="onCancel" bindconfirm="onConfirm"></wxc-dialog>
+  <!-- <wxc-dialog class="wxc-dialog" title="微信授权" content="获得您的公开信息(昵称、头像等)" logName="Nearby社区" logImage="../../images/logo.jpg" bindcancel="onCancel" bindconfirm="onConfirm"></wxc-dialog> -->
 </view>
 <!-- <wxs src='../../utils/util.wxs' module='utils'/>
 <view>{{utils.hello()}}</view>

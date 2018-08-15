@@ -1,13 +1,16 @@
 package com.sh.wxa.module.activity;
 
 import com.sh.wxa.Services;
+import com.sh.wxa.constants.RefreshDir;
 import com.sh.wxa.module.activity.entity.Activity;
 import com.sh.wxa.module.activity.mapper.ActivityMapper;
 import com.sh.wxa.module.activity.msg.ActivityInfoResponse;
+import com.sh.wxa.module.activity.msg.ActivityListRequest;
 import com.sh.wxa.module.activity.msg.ActivityListResponse;
 import com.sh.wxa.module.activity.msg.po.ActivityInfoPo;
 import com.sh.wxa.module.activity.msg.po.ActivitySpecificInfoPo;
 import com.sh.wxa.module.activity.msg.po.UserInfoPo;
+import com.sh.wxa.module.user.constants.ModifyType;
 import com.sh.wxa.module.user.constants.Sex;
 import com.sh.wxa.module.user.entity.User;
 import com.sh.wxa.onlinemanager.Session;
@@ -25,9 +28,10 @@ public class ActivityServiceImpl implements ActivityService {
     private ActivityMapper activityMapper;
 
     @Override
-    public ActivityListResponse getActivityList(Session session, int curPage) {
-        final int index = PageUtil.getIndex(curPage, PageUtil.DEFAULT_PAGE_SIZE);
-        List<Activity> activityList = activityMapper.findByCondition(index, PageUtil.DEFAULT_PAGE_SIZE);
+    public ActivityListResponse findActivityList(Session session, ActivityListRequest request) {
+        final Long activityId = request.getActivityId();
+        RefreshDir refreshDir = RefreshDir.valueOf(request.getDir());
+        List<Activity> activityList = activityMapper.findByCondition(activityId, refreshDir.getIndex(), PageUtil.DEFAULT_PAGE_SIZE * 2);
         ActivityListResponse resp = new ActivityListResponse();
         List<ActivityInfoPo> activityInfoList = resp.getActivityInfoList();
         for (Activity activity : activityList) {
@@ -43,11 +47,12 @@ public class ActivityServiceImpl implements ActivityService {
         activityInfo.setCreateUserName(session.getNickName());
         activityInfo.setCreateUserIcon(session.getIconUrl());
         Activity activity = Activity.createEntity(activityInfo);
-        activityMapper.add(activity);
+        Long activityId = activityMapper.add(activity);
+        Services.getUserService().modifyUserActivityInfo(session, activityId, activity, ModifyType.CREATE_ACTIVITY);
     }
 
     @Override
-    public void deleteActivity(Session session, int activityId) {
+    public void deleteActivity(Session session, Long activityId) {
         Activity activity = activityMapper.findById(activityId);
         if (activity == null) {
             return;
@@ -56,10 +61,11 @@ public class ActivityServiceImpl implements ActivityService {
             return;
         }
         activityMapper.delete(activityId);
+        Services.getUserService().modifyUserActivityInfo(session, activity.getId(), activity, ModifyType.DELETE_ACTIVITY);
     }
 
     @Override
-    public void joinActivity(Session session, int activityId) {
+    public void joinActivity(Session session, Long activityId) {
         final String openId = session.getOpenId();
         Activity activity = activityMapper.findById(activityId);
         if (activity == null) {
@@ -74,11 +80,12 @@ public class ActivityServiceImpl implements ActivityService {
             joinList.add(openId);
             activity.setJoinUsers(StringUtils.toStringForList(joinList));
             activityMapper.update(activity);
+            Services.getUserService().modifyUserActivityInfo(session, activity.getId(), activity, ModifyType.JOIN_ACTIVITY);
         }
     }
 
     @Override
-    public void cancelActivity(Session session, int activityId) {
+    public void cancelActivity(Session session, Long activityId) {
         final String openId = session.getOpenId();
         Activity activity = activityMapper.findById(activityId);
         if (activity == null) {
@@ -90,11 +97,12 @@ public class ActivityServiceImpl implements ActivityService {
             joinList.remove(openId);
             activity.setJoinUsers(StringUtils.toStringForList(joinList));
             activityMapper.update(activity);
+            Services.getUserService().modifyUserActivityInfo(session, activity.getId(), activity, ModifyType.CANCEL_ACTIVITY);
         }
     }
 
     @Override
-    public ActivityInfoResponse getActivityInfo(Session session, int activityId) {
+    public ActivityInfoResponse getActivityInfo(Session session, Long activityId) {
         Activity activity = activityMapper.findById(activityId);
         ActivityInfoResponse resp = new ActivityInfoResponse();
         ActivitySpecificInfoPo info = new ActivitySpecificInfoPo();
@@ -116,6 +124,9 @@ public class ActivityServiceImpl implements ActivityService {
                 userInfoList.add(userInfo);
                 if(Sex.valueOf(joinUser.getSex()) == Sex.MALE) {
                     maleNum ++;
+                }
+                if(!info.isHasJoin() && session.getOpenId().equals(joinUser.getOpenId())) {
+                    info.setHasJoin(true);
                 }
             }
             info.setMaleNum(maleNum);

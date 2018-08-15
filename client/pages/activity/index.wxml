@@ -1,41 +1,47 @@
-<scroll-view  scroll-y="true" style="height:{{scroll_H}}rpx;background:#F8F8FF;">
-<movable-area>
+ <view class='container'>
+<!-- <scroll-view  scroll-y="true" style="height:{{scroll_H}}rpx;background:#F8F8FF;">
+<movable-area> -->
+<movable-area style="height:{{move_height}}px;width:{{move_width}};">
   <view style="width:100%">
         <view class="activity_item">
-         <view wx:for="{{leftItems}}" wx:key="index" >
-              <view style="height:{{ITEM_HEIGHT}}px;border: 1rpx solid green;">
-                <image  id="{{index}}" src="{{item.pic}}" data-item="1" style="width:94%;height:{{img_height}}px;margin: 3% 1.5% 0 3%;"></image>
-                  <view class="activity_details">
+         <view wx:for="{{leftActivitys}}" wx:key="index" wx:for-item="activity">
+              <view style="height:{{ITEM_HEIGHT}}px;border: 1rpx solid green;" bindtap="getActivityInfo" data-activity="{{activity}}">
+              <view data-image="{{activity.imageUrl}}">
+                <image id="{{index}}" src="{{activity.imageUrl}}" data-item="1" style="width:94%;height:{{img_height}}px;margin: 3% 1.5% 0 3%;"></image></view>
+                <view class="activity_details">
                     <view class="user_info">
-                      <image class="icon" src="../../images/login_icon.jpg"/>
+                      <image class="icon" src="{{activity.createUserIcon}}"/>
                     </view>
                     <view class="activity_info">
-                        <text style="display: block;"><text>活动：</text><text class="activity_content">爬山</text></text>
-                        <text style="display: block;"><text>时间：</text><text class="activity_content">2018.7.25 08:00</text></text>
-                        <text style="display: block;"><text>地点：</text><text class="activity_content">闽清五台山</text></text>
+                        <text style="display: block;"><text>活动：</text><text class="activity_content">{{activity.title}}</text></text>
+                        <text style="display: block;"><text>时间：</text><text class="activity_content">{{activity.activityDate}}</text></text>
+                        <text style="display: block;"><text>地点：</text><text class="activity_content">{{activity.address}}</text></text>
+                        <text style="display: block;"><text>人数：</text><text class="activity_content">{{activity.numLimit}}</text></text>
                     </view>
                     <view class="activity_memo">
-                        <text style="display: block;"><text>活动描述：</text><text style="font-weight:100;">周末进行登山活动。</text></text>
+                        <text style="display: block;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;"><text style="font-weight: bolder;">活动描述：</text><text style="font-weight:100;">{{activity.memo}}</text></text>
                     </view>
                   </view>
               </view>
          </view>
         </view>
         <view class="activity_item">
-          <view wx:for="{{rightItems}}" wx:key="index">
-<view style="height:{{ITEM_HEIGHT}}px;border: 1rpx solid green;">
-                <image  id="{{index}}" src="{{item.pic}}" data-item="1" style="width:94%;height:{{img_height}}px;margin: 3% 1.5% 0 3%;"></image>
+          <view wx:for="{{rightActivitys}}" wx:key="index" wx:for-item="activity">
+<view style="height:{{ITEM_HEIGHT}}px;border: 1rpx solid green;" bindtap="getActivityInfo" data-activity="{{activity}}">
+<view data-image="{{activity.imageUrl}}">
+                <image  id="{{index}}" src="{{activity.imageUrl}}" data-item="1" style="width:94%;height:{{img_height}}px;margin: 3% 1.5% 0 3%;"></image></view>
                   <view class="activity_details">
                     <view class="user_info">
-                      <image class="icon" src="../../images/login_icon.jpg"/>
+                      <image class="icon" src="{{activity.createUserIcon}}"/>
                     </view>
                     <view class="activity_info">
-                        <text style="display: block;"><text>活动：</text><text class="activity_content">爬山</text></text>
-                        <text style="display: block;"><text>时间：</text><text class="activity_content">2018.7.25 08:00</text></text>
-                        <text style="display: block;"><text>地点：</text><text class="activity_content">闽清五台山</text></text>
+                        <text style="display: block;"><text>活动：</text><text class="activity_content">{{activity.title}}</text></text>
+                        <text style="display: block;"><text>时间：</text><text class="activity_content">{{activity.activityDate}}</text></text>
+                        <text style="display: block;"><text>地点：</text><text class="activity_content">{{activity.address}}</text></text>
+                        <text style="display: block;"><text>人数：</text><text class="activity_content">{{activity.numLimit}}</text></text>
                     </view>
                     <view class="activity_memo">
-                        <text style="display: block;"><text>活动描述：</text><text style="font-weight:100;">周末进行登山活动。</text></text>
+                        <text style="display: block;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;"><text style="font-weight: bolder;">活动描述：</text><text style="font-weight:100;">{{activity.memo}}</text></text>
                     </view>
                   </view>
               </view>
@@ -44,4 +50,5 @@
   </view>
                          <movable-view x="{{x}}" y="{{y}}" direction="all" bindtap='createActivity'><text>+</text></movable-view>
 </movable-area> 
-</scroll-view>
+<!-- </scroll-view> -->
+</view>

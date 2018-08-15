@@ -1,4 +1,4 @@
-// const url = "http://154.8.138.76:8080"
+//  const url = "http://154.8.138.76:8080"
 const url = "http://localhost:8089/wxaserver"
 const serverUrl = url + "/module"
 const upLoadFileUrl = url + "/upLoadFile"
@@ -11,11 +11,13 @@ const pt = {
     topic_4: "topic.commentTopic",
 
     activity_1: "activity.createActivity",
-    activity_2: "activity.getActivityList",
+    activity_2: "activity.findActivityList",
     activity_3: "activity.joinActivity",
     activity_4: "activity.cancelActivity",
     activity_5: "activity.getActivityInfo",
-    activity_6: "activity.deleteActivity"
+    activity_6: "activity.deleteActivity",
+
+    user_1:"user.getUserInfo"
 }
 // function requestServer(mod, body) {
 //   wx.request({

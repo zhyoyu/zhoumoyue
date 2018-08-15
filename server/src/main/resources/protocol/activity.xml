@@ -7,6 +7,7 @@
         <field type="String" name="createUserIcon" desc="创建者头像"/>
         <field type="String" name="title" desc="活动标题"/>
         <field type="String" name="imageUrl" desc="活动封面图片地址"/>
+        <field type="String" name="activityDate" desc="活动日期"/>
         <field type="String" name="activityTime" desc="活动时间"/>
         <field type="String" name="address" desc="活动地址"/>
         <field type="String" name="memo" desc="活动描述"/>
@@ -42,7 +43,7 @@
         </toServer>
     </method>
 
-    <method name="getActivityList">
+    <method name="findActivityList">
         <toServer class="ActivityCurPageRequest">
             <field type="int" name="curPage" desc="当前页数"/>
         </toServer>

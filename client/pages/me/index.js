@@ -1,5 +1,6 @@
 // pages/me/index.js
-var util = require('../../utils/util.js');
+var util = require('../../utils/util.js')
+var uPt = require("../../utils/protocol.js")
 
 Page({
 
@@ -7,7 +8,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userBasicInfo:{}
+    userBasicInfo:{},
+    // activityNum:0,
+    // topicNum:0,
+    concernUsers:[],
+    fans:[],
+    myActivity:[],
+    activityDynamic:[],
+    myTopic:[],
+    topicDynamic:[]
   },
 
   /**
@@ -19,10 +28,25 @@ Page({
       userBasicInfo: userInfo
     })
 
-    // nickName: userBasicInfo.nickName,
-    //   sex: userBasicInfo.gender,
-    //   city: userBasicInfo.city,
-    //   iconUrl: userBasicInfo.avatarUrl
+    var that = this
+    wx.request({
+      url: uPt.serverUrl,
+      data: {
+        uid: wx.getStorageSync("openId"),
+        mod: uPt.pt.user_1
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          concernUsers: res.data.concernUsers,
+          fans: res.data.fans,
+          myActivity: res.data.myActivity,
+          activityDynamic: res.data.activityDynamic,
+          myTopic: res.data.myTopic,
+          topicDynamic: res.data.topicDynamic
+        })
+      }
+    })
   },
 
   /**
@@ -72,6 +96,41 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  activityDynamic: function() {
+    wx.navigateTo({
+      url: `activityDynamic/index`
+    })
+  },
+
+  topicDynamic: function () {
+    wx.navigateTo({
+      url: `topicDynamic/index`
+    })
+  },
+
+  myActivity: function() {
+    wx.navigateTo({
+      url: `myActivity/index`
+    })
+  },
+
+  myTopic: function () {
+    wx.navigateTo({
+      url: `myTopic/index`
+    })
+  },
+
+  concern: function() {
+    wx.navigateTo({
+      url: `concern/index`
+    })
+  },
+  fans: function () {
+    wx.navigateTo({
+      url: `fans/index`
+    })
   },
   // getUserInfo: function () {
   //   var that = this

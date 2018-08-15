@@ -11,7 +11,7 @@ import com.sh.wxa.util.OkResponse;
 public interface ActivityModule {
 
     /** 获取活动列表 */
-    ActivityListResponse getActivityList(ActivityListRequest request, Session session);
+    ActivityListResponse findActivityList(ActivityListRequest request, Session session);
 
     /** 创建新活动 */
     OkResponse createActivity(CreateActivityRequest request, Session session);

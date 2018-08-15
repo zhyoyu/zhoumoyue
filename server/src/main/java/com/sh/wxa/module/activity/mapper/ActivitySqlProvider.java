@@ -1,23 +1,36 @@
 package com.sh.wxa.module.activity.mapper;
 
-import java.util.Map;
+import com.sh.wxa.constants.RefreshDir;
 
-import static org.apache.ibatis.jdbc.SqlBuilder.BEGIN;
-import static org.apache.ibatis.jdbc.SqlBuilder.FROM;
-import static org.apache.ibatis.jdbc.SqlBuilder.SELECT;
-import static org.apache.ibatis.jdbc.SqlBuilder.SQL;
+import java.util.Map;
 
 public class ActivitySqlProvider {
 
     public String findActivityByCondition(Map<String, Object> params) {
-        return builderActivityPageSql("*", params) + " ORDER BY id desc LIMIT #{index} , #{pageSize}";
+        return builderActivityPageSql("*", params);
     }
 
-    public String builderActivityPageSql(String select, Map<String, Object> paras) {
-        BEGIN();
-        SELECT(select);
-        FROM("activity");
-        return SQL();
+    private String builderActivityPageSql(String selectParam, Map<String, Object> paras) {
+        Long activityId = (Long) paras.get("activityId");
+        Integer dir = (Integer) paras.get("dir");
+        StringBuilder sqlBuilder = new StringBuilder(" select ");
+        sqlBuilder.append(selectParam)
+                .append(" from activity ");
+
+        if(activityId > 0) {
+            sqlBuilder.append(" where ");
+            if (dir == RefreshDir.UP.getIndex()) {
+                sqlBuilder.append(" id > #{activityId} ");
+                sqlBuilder.append(" ORDER BY id asc LIMIT #{pageSize} ");
+            }
+            if (dir == RefreshDir.DOWN.getIndex()) {
+                sqlBuilder.append(" id < #{activityId} ");
+                sqlBuilder.append(" ORDER BY id desc LIMIT #{pageSize} ");
+            }
+        } else {
+            sqlBuilder.append(" ORDER BY id desc LIMIT #{pageSize} ");
+        }
+        return sqlBuilder.toString();
     }
 
 }
